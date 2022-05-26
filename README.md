@@ -11,7 +11,7 @@ In Spirit you will find various tools beside the main SSH brute feature:
 - scan (basic TCP network scan [unprivileged])
 - abuse (checks your host against abuse databases)
 - omni (connect to all vulnerable hosts at once)
-- swarm (brute in distributed fashion [under development]) `donate to speed things up`
+- swarm (brute in distributed fashion [Under Development]) [`donate to speed things up`](#monero-xmr-thank-you)
 
 And more... check out the helpfile [`$ ./spirit --help`](./HELP)
 
@@ -47,7 +47,7 @@ You can automate these steps with ./spirit auto
 
 Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 ```
->*Spirit can self-upgrade only on amd64 aka x86-64 for now. `donate to speed things up`
+>*Spirit can self-upgrade only on amd64 aka x86-64 for now. [`donate to speed things up`](#monero-xmr-thank-you)
 
 ## Spirit Premium
 Spirit has free tools inside
@@ -69,7 +69,7 @@ You can buy a license directly from the CLI `./spirit premium --buy`
 `bc1q7plm79dgllrhrjz772x4vjrtvu9yy03738psy5`
 
 ## Support
-If you have any issues with Spirit, feel free to contact us directly:
-    on Telegram: https://t.me/aogspirit
-    on IRC: #aog @ oftc.net
-    or open a Github [issue](https://github.com/theaog/spirit/issues)
+If you have any issues with Spirit, feel free to contact us directly: \
+on Telegram: https://t.me/aogspirit\
+on IRC: #aog @ oftc.net\
+or open a Github [issue](https://github.com/theaog/spirit/issues)
