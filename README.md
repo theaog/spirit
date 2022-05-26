@@ -69,4 +69,7 @@ You can buy a license directly from the CLI `./spirit premium --buy`
 `bc1q7plm79dgllrhrjz772x4vjrtvu9yy03738psy5`
 
 ## Support
-If you have any issues with Spirit, feel free to contact us directly on https://t.me/aogspirit or open a Github [issue](https://github.com/theaog/spirit/issues) or find us on #aog@OFTC.net
+If you have any issues with Spirit, feel free to contact us directly:
+    on Telegram: https://t.me/aogspirit
+    on IRC: #aog @ oftc.net
+    or open a Github [issue](https://github.com/theaog/spirit/issues)
