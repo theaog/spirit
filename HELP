@@ -2,7 +2,7 @@
   __    __    ___
  / _\  /  \  / __)   Spirit - smart SSH brute toolkit
 /    \(  O )( (_ \   Telegram Support: https://t.me/aogspirit
-\_/\_/ \__/  \___/   https://github.com/theaog/spirit
+\_/\_/ \__/  \___/   https://github.com/aogspirit/spirit
 
 Beta release, under active development.
 Report bugs and suggest features on Telegram.
@@ -31,7 +31,7 @@ USAGE:
    You can automate these steps with ./spirit auto
 
 VERSION:
-   v1.39.0
+   v1.7.0
 
 AUTHORS:
    aog <aog7@protonmail.com>
@@ -56,14 +56,14 @@ COMMANDS:
 
 GLOBAL OPTIONS:
    --jobs value, -j value     maximum number of concurrent jobs (connections) (default: 100)
-   --timeout value, -t value  connection timeout in seconds (default: 5s)
+   --timeout value, -t value  connection timeout in seconds (default: 10s)
    --logins FILE, -l FILE     load logins FILE in USER:PASS format (default: "p.lst")
    --hosts FILE, -H FILE      load hosts FILE in IP:PORT format (default: "h.lst")
    --command value, -c value  list of commands to execute on successful login (default: uname -a)
    --block, -b                block unreachable/filtered hosts to speed up bruting time (default: true)
-   --key FILE, -k FILE        brute using a private key FILE on all users (*VIP feature)
-   --addkey, -K               automatically add your private key on successful login (*VIP feature) (default: false)
-   --api HOST:PORT            submit vulnerable hosts via JSON API to HOST:PORT (*VIP feature) (Not Implemented Yet)
+   --key FILE, -k FILE        brute using a private key FILE on all users (*Premium feature)
+   --addkey, -K               automatically add your private key on successful login (*Premium feature) (default: false)
+   --api HOST:PORT            submit vulnerable hosts via JSON API to HOST:PORT (*Premium feature) (Not Implemented Yet)
    --debug, -d                print debug logs (default: false)
    --help, -h                 show help (default: false)
    --version, -v              print the version (default: false)
