@@ -31,7 +31,7 @@ USAGE:
    You can automate these steps with ./spirit auto
 
 VERSION:
-   v1.7.0
+   v1.7.1
 
 AUTHORS:
    aog <aog7@protonmail.com>
@@ -51,22 +51,23 @@ COMMANDS:
      scan, s   [CLASS] [PORT] -- (FREE)
      parse, p  [FILE] parses masscan -oG output -- (FREE)
      abuse     check your host IP against abuse report databases
-     ports     [NUMBER] generate random ports 1-65535 (default 5)
+     ports     [NUM] how many to random ports 1-65535 to generate (default 5)
      coin      [ticker] default shows XMR (Monero) price chart
 
 GLOBAL OPTIONS:
-   --jobs value, -j value     maximum number of concurrent jobs (connections) (default: 100)
-   --timeout value, -t value  connection timeout in seconds (default: 10s)
-   --logins FILE, -l FILE     load logins FILE in USER:PASS format (default: "p.lst")
-   --hosts FILE, -H FILE      load hosts FILE in IP:PORT format (default: "h.lst")
-   --command value, -c value  list of commands to execute on successful login (default: uname -a)
-   --block, -b                block unreachable/filtered hosts to speed up bruting time (default: true)
-   --key FILE, -k FILE        brute using a private key FILE on all users (*Premium feature)
    --addkey, -K               automatically add your private key on successful login (*Premium feature) (default: false)
    --api HOST:PORT            submit vulnerable hosts via JSON API to HOST:PORT (*Premium feature) (Not Implemented Yet)
+   --block, -b                block unreachable/filtered hosts to speed up bruting time (default: true)
+   --command value, -c value  list of commands to execute on successful login (default: uname -a)
    --debug, -d                print debug logs (default: false)
    --help, -h                 show help (default: false)
+   --hosts FILE, -H FILE      load hosts FILE in IP:PORT format (default: "h.lst")
+   --jobs value, -j value     maximum number of concurrent jobs (connections) (default: 100)
+   --key FILE, -k FILE        brute using a private key FILE on all users (*Premium feature)
+   --logins FILE, -l FILE     load logins FILE in USER:PASS format (default: "p.lst")
+   --timeout value, -t value  connection timeout in seconds (default: 10s)
    --version, -v              print the version (default: false)
+   
 
 COPYRIGHT:
    (c) The Armor of God
