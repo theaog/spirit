@@ -5,21 +5,18 @@ We created this toolkit to speed up our offensive security pentesting tasks.
 In Spirit you will find various tools beside the main SSH brute feature:
 - brute (passfile)
 - brute (privateKeys)
-- brute2 (passfile) [under development]
 - banner (grabs SSH banners without performing a login)
-- auto (automatically run parse, banner, brute)
-
 - omni (connect to all your hosts at once)
 - omni (privateKey) (connect to all your hosts at once using privateKey)
 
-- masscan --rate 50000 --country cn --ports 21,22,23 (masscan whole country using sane defaults) [Under Development]) [`donate to speed things up`](#monero-xmr-thank-you)
-- scan (basic TCP network scan [unprivileged]) [Under Development (Beta)] [`donate to speed things up`](#monero-xmr-thank-you)
+- masscan --country cn --ports 21,22,23 (masscan whole country using sane defaults)
+- scan (basic TCP network scan [unprivileged]) (Beta) [`donate to improve`](#monero-xmr-thank-you)
 - swarm (brute in distributed fashion [Under Development]) [`donate to speed things up`](#monero-xmr-thank-you)
 
-- parse (parses masscan -oG output and creates h.lst containing IP:PORT)
+- parse (parses masscan -oG output and creates h.lst in IP:PORT format)
 - ports (generate random ports between 1 and 65535, excluding 22)
 - abuse (checks your host against abuse databases)
-- coin (check crypto charts from the command line)
+- zap (removes connections logs from btmp/wtmp/utmp/lastlog/...)
 
 And more... check out the helpfile [`$ ./spirit --help`](./HELP)
 
@@ -40,10 +37,10 @@ $ mv b.lst h.lst
 $ ./spirit
 INFO loaded h.lst with 26803 hosts
 INFO loaded p.lst with 4881 logins
-INFO estimated completion in ~1h27m36s
-root:!1qwerty 192.168.0.1:22 found [77] blocked [33] 20% [====>               ] (1567/87216) [20s:1h13m36s]
+root:!1qwerty 192.168.0.1:22 found [77] blocked [33] 20% [====>            ] [20s:1h13m36s]
 
 Tip: you can automate these steps with ./spirit auto
+Tip: you can run ./spirit forever to run masscan on random ports and automatically brute
 ```
 
 ## Download the latest Spirit release
@@ -59,10 +56,10 @@ Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 
 ## Spirit Premium
 Spirit has free tools inside
-- banner grabber
+- banner
 - parse
 - scan
-- coin
+- zap
 
 The main features are although under Premium licensing to help support the development of the project.
 Licensing information can be found running `./spirit premium --info`
