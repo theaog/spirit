@@ -66,7 +66,7 @@ Licensing information can be found running `./spirit premium --info`
 
 You can buy a license directly from the CLI `./spirit premium --buy`
 
-# Support the Develpoment of the Spirit tools!
+# Support the Develpoment of the Spirit toolkit!
 ## Monero (XMR) thank you!
 `8B81sxCMzoYc1cEu3EbHDfdCmtcooNtKp3sba9tGEpprM5PvADwXk76BFRRmuAUL2efvjm3Rp8uWHU5EULAPEbJGKoZ1x67`
 
