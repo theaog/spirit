@@ -54,17 +54,18 @@ Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 ```
 >*Spirit can self-upgrade only on amd64 aka x86-64 for now. [`donate to speed things up`](#monero-xmr-thank-you)
 
-## Spirit Premium
-Spirit has free tools inside
+## Spirit Pro
+The main features require Pro licensing to help support the development of the project.
+Licensing information can be found running `./spirit pro --info`
+
+You can buy a license directly from the CLI `./spirit pro --buy`
+
+You can use Spirit free tools:
 - banner
 - parse
 - scan
 - zap
-
-The main features are although under Premium licensing to help support the development of the project.
-Licensing information can be found running `./spirit premium --info`
-
-You can buy a license directly from the CLI `./spirit premium --buy`
+- and more...
 
 # Support the Develpoment of the Spirit toolkit!
 ## Monero (XMR) thank you!

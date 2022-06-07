@@ -8,7 +8,7 @@ Beta release, under active development.
 Report bugs and suggest features on Telegram.
 
 NAME:
-   spirit - smart SSH brute toolkit
+   spirit - smart SSH tools
 
 USAGE:
    $ masscan --rate="50000" --ports "22,222,2222,2212" 0.0.0.0/0 --exclude 255.255.255.255 -oG open.lst
@@ -32,41 +32,39 @@ USAGE:
    Tip: you can automate these steps with ./spirit auto
 
 VERSION:
-   v1.10.0
+   v1.12.0
 
 AUTHORS:
    aog <aog7@protonmail.com>
    exo <exo7@protonmail.com>
 
 COMMANDS:
-   parse, p   [FILE] parses masscan -oG output
-   banner, b  extract SSH banners [stealthy]
-   brute, B   performs brute-force password guessing against ssh servers
-   automation:
-     masscan, ms     ./spirit ms --country cn --ports 22,23,24
-     omni, o, massh  auto-ssh on all found.lst hosts and run commands or upload files
-     auto, a         run [parse] [banner] [brute] automatically
-     swarm           [HOST:PORT] run the API Server to receive found hosts (*Under Development)
-   license:
-     premium, pre, vip  [KEY] register Spirit Premium license or --buy to get a license
-     upgrade, u         receive the latest improvements and bug fixes
-   tools:
-     scan, s  [CLASS] [PORT]
-     ports    [INT] how many random ports (1-65535) to generate (default 5)
-     abuse    check your host IP against abuse report databases
-     coin     [ticker] default shows XMR (Monero) price chart
-     zap      [IP]
+   1-main:
+     banner, b     extract SSH banners without making a login
+     brute, B      performs brute-force password guessing against ssh servers
+     brute_key, k  brute using a private key on all users (default id_rsa)
+   2-automation:
+     omni, o      auto-ssh on all found.lst hosts and run commands or upload files
+     masscan, ms  use masscan with automatic country zones
+     forever      run [ports] [masscan] [parse] [banner] [brute] over and over, automatically
+     auto, a      run [parse] [banner] [brute] automatically
+   3-tools:
+     zap       [IP] clean connection logs (default SSH_CLIENT)
+     scan, s   [CLASS] [PORT] simple TCP scanner for local networks
+     parse, p  [FILE] parses masscan -oG output
+     ports     [INT] how many random ports (1-65535) to generate (default 5)
+     abuse     check your host IP against abuse report databases
+     coin      [ticker] default shows XMR (Monero) price chart
+   4-licensing:
+     buy         buy you Spirit Pro and support this project -- thank you!
+     register    [KEY] register your Spirit Pro license
+     upgrade, u  receive the latest improvements and bug fixes
 
 GLOBAL OPTIONS:
-   --addkey, -K               automatically add your private key on successful login (*Premium feature) (default: false)
-   --api HOST:PORT            submit vulnerable hosts via JSON API to HOST:PORT (*Premium feature) (Not Implemented Yet)
-   --block, -b                block unreachable/filtered hosts to speed up bruting time (default: true)
    --command value, -c value  list of commands to execute on successful login (default: uname -a)
-   --debug, -d                print debug logs (default: false)
    --help, -h                 show help (default: false)
    --hosts FILE, -H FILE      load hosts FILE in IP:PORT format (default: "h.lst")
    --jobs value, -j value     maximum number of concurrent jobs (connections) (default: 99)
-   --key FILE, -k FILE        brute using a private key FILE on all users (*Premium feature)
    --logins FILE, -l FILE     load logins FILE in USER:PASS format (default: "p.lst")
    --timeout value, -t value  connection timeout in seconds (default: 10s)
    --version, -v              print the version (default: false)
