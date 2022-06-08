@@ -38,21 +38,22 @@ AUTHORS:
    exo <exo7@protonmail.com>
 
 COMMANDS:
-   1-main:
+   1-spirit:
      banner, b     extract SSH banners without making a login
      brute, B      performs brute-force password guessing against ssh servers
-     brute_key, k  brute using a private key on all users (default id_rsa)
-   2-automation:
+     brute-key, k  brute using a private key on all users (default id_rsa)
+   2-spirit-pro:
      omni, o      auto-ssh on all found.lst hosts and run commands or upload files
      masscan, ms  use masscan with automatic country zones
      forever      run [ports] [masscan] [parse] [banner] [brute] over and over, automatically
      auto, a      run [parse] [banner] [brute] automatically
+     swarm        [HOST:PORT] run the API Server to receive found hosts (*Under Development)
+     abuse        check your host IP against abuse report databases
    3-tools:
      zap       [IP] clean connection logs (default SSH_CLIENT)
      scan, s   [CLASS] [PORT] simple TCP scanner for local networks
      parse, p  [FILE] parses masscan -oG output
      ports     [INT] how many random ports (1-65535) to generate (default 5)
-     abuse     check your host IP against abuse report databases
      coin      [ticker] default shows XMR (Monero) price chart
    4-licensing:
      buy         buy (XMR only) your Spirit Pro and support this project -- thank you!
