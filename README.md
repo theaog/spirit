@@ -44,7 +44,8 @@ Tip: you can run ./spirit forever to run masscan on random ports and automatical
 ```
 
 ## Download the latest Spirit release
-- https://github.com/theaog/spirit/releases
+- wget https://github.com/aogspirit/spirit/raw/master/spirit.tgz
+- curl -OL https://github.com/aogspirit/spirit/raw/master/spirit.tgz
 
 ## Self Upgrade
 ```bash
