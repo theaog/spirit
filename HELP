@@ -6,7 +6,6 @@
 
 Beta release, under active development.
 Report bugs and suggest features on Telegram.
-
 NAME:
    spirit - smart SSH tools
 
@@ -56,7 +55,7 @@ COMMANDS:
      abuse     check your host IP against abuse report databases
      coin      [ticker] default shows XMR (Monero) price chart
    4-licensing:
-     buy         buy you Spirit Pro and support this project -- thank you!
+     buy         buy (XMR only) your Spirit Pro and support this project -- thank you!
      register    [KEY] register your Spirit Pro license
      upgrade, u  receive the latest improvements and bug fixes
 
@@ -66,7 +65,7 @@ GLOBAL OPTIONS:
    --hosts FILE, -H FILE      load hosts FILE in IP:PORT format (default: "h.lst")
    --jobs value, -j value     maximum number of concurrent jobs (connections) (default: 99)
    --logins FILE, -l FILE     load logins FILE in USER:PASS format (default: "p.lst")
-   --timeout value, -t value  connection timeout in seconds (default: 10s)
+   --timeout value, -t value  connection timeout in seconds (default: 5s)
    --version, -v              print the version (default: false)
    
 

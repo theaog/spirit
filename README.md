@@ -58,7 +58,7 @@ Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 The main features require Pro licensing to help support the development of the project.
 Licensing information can be found running `./spirit pro --info`
 
-You can buy a license directly from the CLI `./spirit pro --buy`
+You can buy a license directly from the CLI `./spirit buy`
 
 You can use Spirit free tools:
 - banner
