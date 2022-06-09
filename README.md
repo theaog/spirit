@@ -6,17 +6,18 @@ In Spirit you will find various tools beside the main SSH brute feature:
 - brute (passfile)
 - brute (privateKeys)
 - banner (grabs SSH banners without performing a login)
-- omni (connect to all your hosts at once)
-- omni (privateKey) (connect to all your hosts at once using privateKey)
+- omni (connect to all your found.lst at once)
+- omni (privateKey) (connect to all your found.lst at once using privateKey)
 
 - masscan --country cn --ports 21,22,23 (masscan whole country using sane defaults)
 - scan (basic TCP network scan [unprivileged]) (Beta) [`donate to improve`](#monero-xmr-thank-you)
-- swarm (brute in distributed fashion [Under Development]) [`donate to speed things up`](#monero-xmr-thank-you)
+- swarm (brute in distributed fashion [under development]) [`donate to speed things up`](#monero-xmr-thank-you)
 
 - parse (parses masscan -oG output and creates h.lst in IP:PORT format)
 - ports (generate random ports between 1 and 65535, excluding 22)
 - abuse (checks your host against abuse databases)
-- zap (removes connections logs from btmp/wtmp/utmp/lastlog/...)
+- zap (removes connection logs from btmp/wtmp/utmp/lastlog/...)
+- genpasswd (generates simple passwords from system users, useful for LAN pentesting)
 
 And more... check out the helpfile [`$ ./spirit --help`](./HELP)
 
@@ -34,10 +35,10 @@ INFO created b.lst in HOST:PORT:BANNER format
 
 $ mv b.lst h.lst
 
-$ ./spirit
+$ ./spirit brute
 INFO loaded h.lst with 26803 hosts
 INFO loaded p.lst with 4881 logins
-root:!1qwerty 192.168.0.1:22 found [77] blocked [33] 20% [====>            ] [20s:1h13m36s]
+root:!1qwerty 192.168.0.1:22 found [77] blocked [33] 20% [====>            ] [1m30s:13m36s]
 
 Tip: you can automate these steps with ./spirit auto
 Tip: you can run ./spirit forever to run masscan on random ports and automatically brute
@@ -47,7 +48,7 @@ Tip: you can run ./spirit forever to run masscan on random ports and automatical
 - wget https://github.com/aogspirit/spirit/raw/master/spirit.tgz
 - curl -OL https://github.com/aogspirit/spirit/raw/master/spirit.tgz
 
-## Self Upgrade
+## Binary self upgrade
 ```bash
 ./spirit upgrade
 
@@ -56,17 +57,10 @@ Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 >*Spirit can self-upgrade only on amd64 aka x86-64 for now. [`donate to speed things up`](#monero-xmr-thank-you)
 
 ## Spirit Pro
-The main features require Pro licensing to help support the development of the project.
+You can buy a Pro license directly from the CLI `./spirit buy` and help support the the project
 Licensing information can be found running `./spirit pro --info`
 
-You can buy a license directly from the CLI `./spirit buy`
-
-You can use Spirit free tools:
-- banner
-- parse
-- scan
-- zap
-- and more...
+Most features are free to use, and you can reach back to us and ask for a trial Pro license.
 
 # Support the Develpoment of the Spirit toolkit!
 ## Monero (XMR) thank you!

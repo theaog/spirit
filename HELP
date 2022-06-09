@@ -1,11 +1,3 @@
-
-  __    __    ___
- / _\  /  \  / __)   Spirit - smart SSH tools
-/    \(  O )( (_ \   Telegram Support: https://t.me/aogspirit
-\_/\_/ \__/  \___/   https://github.com/aogspirit/spirit
-
-Beta release, under active development.
-Report bugs and suggest features on Telegram.
 NAME:
    spirit - smart SSH tools
 
@@ -31,7 +23,7 @@ USAGE:
    Tip: you can automate these steps with ./spirit auto
 
 VERSION:
-   v1.12.0
+   v1.13.0
 
 AUTHORS:
    aog <aog7@protonmail.com>
@@ -49,24 +41,25 @@ COMMANDS:
      auto, a      run [parse] [banner] [brute] automatically
      swarm        [HOST:PORT] run the API Server to receive found hosts (*Under Development)
      abuse        check your host IP against abuse report databases
+     genpasswd    password generator
    3-tools:
-     zap       [IP] clean connection logs (default SSH_CLIENT)
+     zap, z    [IP] clean connection logs (default SSH_CLIENT)
      scan, s   [CLASS] [PORT] simple TCP scanner for local networks
      parse, p  [FILE] parses masscan -oG output
      ports     [INT] how many random ports (1-65535) to generate (default 5)
      coin      [ticker] default shows XMR (Monero) price chart
    4-licensing:
-     buy         buy (XMR only) your Spirit Pro and support this project -- thank you!
+     buy         buy your Spirit Pro and support this project (XMR only) -- thank you!
      register    [KEY] register your Spirit Pro license
      upgrade, u  receive the latest improvements and bug fixes
 
 GLOBAL OPTIONS:
-   --command value, -c value  list of commands to execute on successful login (default: uname -a)
+   --command value, -c value  commands to execute on successful login (default: nproc;uname -a)
    --help, -h                 show help (default: false)
    --hosts FILE, -H FILE      load hosts FILE in IP:PORT format (default: "h.lst")
-   --jobs value, -j value     maximum number of concurrent jobs (connections) (default: 99)
+   --jobs value, -j value     --jobs 500 | maximum number of concurrent jobs (connections) (default: 99)
    --logins FILE, -l FILE     load logins FILE in USER:PASS format (default: "p.lst")
-   --timeout value, -t value  connection timeout in seconds (default: 5s)
+   --timeout value, -t value  --timeout 10s | connection timeout in seconds (default: 5s)
    --version, -v              print the version (default: false)
    
 
