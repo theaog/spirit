@@ -1,4 +1,4 @@
-# Spirit - smart SSH brute toolkit
+# Spirit - smart SSH tools
 > Spirit tries 1 USER:PASS per HOST cycling through all the hosts and removing unreachable or filtered hosts. Each password attempt fewer hosts are being tried as the logic removes non-vulnerable hosts from the attack surface, this greatly increases the efficiency and speed of the brute-force attack.
 
 We created this toolkit to speed up our offensive security pentesting tasks.
