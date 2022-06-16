@@ -64,3 +64,13 @@ on Jabber: spirit@conference.xmpp.jp \
 or open a Github [issue](https://github.com/theaog/spirit/issues)
 
 Don't forget to give us a Star!
+
+# Disclaimer
+
+This tool should be used for authorized penetration testing and/or educational purposes only.
+Any misuse of this software will not be the responsibility of the author or of any other collaborator.
+Use it at your own systems and/or with the systems owner's permission.
+
+Usage of any tools in this repository for attacking targets without prior mutual consent is illegal.
+It is the end user’s responsibility to obey all applicable local, state and federal laws.
+We assume no liability and are not responsible for any misuse or damage caused.
