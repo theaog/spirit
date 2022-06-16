@@ -25,26 +25,23 @@ USAGE:
    
    Tip: you can automate these steps with ./spirit auto
 
-VERSION:
-   v1.16.0
-
 COMMANDS:
    1-spirit:
      banner, b     extract SSH banners without making a login
      brute, B      performs brute-force password guessing against ssh servers
-     brute-key, k  brute using a private key on all users (default id_rsa)
+     brute-key, k  performs brute-force using a private key (default id_rsa)
    2-spirit-pro:
      omni, o      auto-ssh on all found.lst hosts and run commands or upload files
-     masscan, ms  use masscan with automatic country zones (default cn)
+     masscan, ms  masscan with automatic country zones (default cn)
      forever      run [ports] [masscan] [parse] [banner] [brute] over and over, automatically
      auto, a      run [parse] [banner] [brute] automatically
      abuse        check your host IP against abuse report databases
-     genpasswd    password generator for --user or --from-passwd file
+     passwd       password generator for --user or /etc/passwd file
    3-tools:
      zap, z    [IP] clean connection logs (default SSH_CLIENT)
      scan, s   [CLASS] [PORT] simple TCP scanner for local networks
      parse, p  [FILE] parses masscan -oG output file (default open.lst)
-     ports     [INT] generate random ports (1-65535) (default 5)
+     ports     [INT] generate random ports (1-65535) (default 3)
      coin      [ticker] show coin price chart (default XMR)
      scan2, s  in development, don't use
    4-licensing:
@@ -59,7 +56,6 @@ GLOBAL OPTIONS:
    --jobs value, -j value     --jobs 500 | maximum number of concurrent jobs (connections) (default: 99)
    --logins FILE, -l FILE     load logins FILE in USER:PASS format (default: "p.lst")
    --timeout value, -t value  --timeout 10s | connection timeout in seconds (default: 5s)
-   --version, -v              print the version (default: false)
    
 
 COPYRIGHT:
