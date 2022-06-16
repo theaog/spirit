@@ -47,7 +47,7 @@ Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 You can buy a Spirit Pro license directly from the CLI `./spirit buy` and help support our development and server costs.
 Licensing information can be found running `./spirit pro --info`.
 
-If you want to try a Pro feature, reach back to us and ask for the trail of a free Pro license.
+If you want to try a Pro feature, reach back to us and ask for a free Pro license trial.
 
 # Support the Develpoment of the Spirit toolkit!
 ## Monero (XMR) thank you! (our favorite)

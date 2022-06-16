@@ -27,7 +27,7 @@ USAGE:
 
 COMMANDS:
    1-spirit:
-     banner, b     extract SSH banners without making a login
+     banner, b     grab SSH banners without performing a login
      brute, B      performs brute-force password guessing against ssh servers
      brute-key, k  performs brute-force using a private key (default id_rsa)
    2-spirit-pro:
@@ -40,7 +40,7 @@ COMMANDS:
    3-tools:
      zap, z    [IP] clean connection logs (default SSH_CLIENT)
      scan, s   [CLASS] [PORT] simple TCP scanner for local networks
-     parse, p  [FILE] parses masscan -oG output file (default open.lst)
+     parse, p  [FILE] parse masscan open ports from the -oG file (default open.lst)
      ports     [INT] generate random ports (1-65535) (default 3)
      coin      [ticker] show coin price chart (default XMR)
      scan2, s  in development, don't use
