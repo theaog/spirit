@@ -56,9 +56,11 @@ If you want to try a Pro feature, reach back to us and ask for a free Pro licens
 ## Bitcoin (BTC) thank you too!
 `bc1q7plm79dgllrhrjz772x4vjrtvu9yy03738psy5`
 
-## Help & Support
+## Get Help & Support
 If you have any issues with Spirit, feel free to contact us directly: \
 on Telegram: https://t.me/aogspirit \
 on IRC: #aog @ libera.chat \
 on Jabber: spirit@conference.xmpp.jp \
 or open a Github [issue](https://github.com/theaog/spirit/issues)
+
+Don't forget to give us a Star!
