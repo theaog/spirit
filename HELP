@@ -30,11 +30,11 @@ COMMANDS:
      banner, b     grab SSH banners without performing a login
      brute, B      performs brute-force password guessing against ssh servers
      brute-key, k  performs brute-force using a private key (default id_rsa)
+     auto, a       run [parse] [banner] [brute] automatically
    2-spirit-pro:
      omni, o      auto-ssh on all found.lst hosts and run commands or upload files
      masscan, ms  masscan with automatic country zones (default cn)
      forever      run [ports] [masscan] [parse] [banner] [brute] over and over, automatically
-     auto, a      run [parse] [banner] [brute] automatically
      abuse        check your host IP against abuse report databases
      passwd       password generator for --user or /etc/passwd file
    3-tools:
