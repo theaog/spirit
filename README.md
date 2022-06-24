@@ -42,6 +42,7 @@ Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 >*Spirit can self-upgrade only on amd64 aka x86-64 for now. [`donate to speed things up`](#monero-xmr-thank-you)
 
 ** We recommend you upgrade daily, as we push changes and bug fixes very frequently.
+*** If you need spirit for another CPU architecture, contact us.
 
 ## Spirit Pro
 You can buy a Spirit Pro license directly from the CLI `./spirit buy` and help support our development and server costs.
@@ -59,7 +60,7 @@ If you want to try a Pro feature, reach back to us and ask for a free Pro licens
 ## Get Help & Support
 If you have any issues with Spirit, feel free to contact us directly: \
 on Telegram: https://t.me/aogspirit \
-on IRC: #aog @ libera.chat \
+on IRC: #aog @ undernet.org/libera.chat/oftc.org \
 on Jabber: spirit@conference.xmpp.jp \
 or open a Github [issue](https://github.com/theaog/spirit/issues)
 
