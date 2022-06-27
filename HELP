@@ -1,8 +1,8 @@
 NAME:
-   spirit - smart SSH tools
+   spirit - penetration testing tools
 
 USAGE:
-   # Example usage
+   # Example for SSH pentest
    
    # make sure your masscan command uses -oG open.lst for the results output file
    $ masscan --rate="50000" --ports "22,222,2222,2212" 0.0.0.0/0 --exclude 255.255.255.255 -oG open.lst

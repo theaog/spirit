@@ -1,12 +1,8 @@
-# Spirit - smart SSH tools
-> Spirit tries 1 USER:PASS per HOST cycling through all the hosts and removing unreachable or filtered hosts. Each password attempt fewer hosts are being tried as the logic removes non-vulnerable hosts from the attack surface, this greatly increases the efficiency and speed of the brute-force attack.
+# Spirit - Pentest Tools
 
-We created this toolkit to speed up our offensive security pentesting tasks.
-In Spirit you will find various tools beside the main SSH brute feature:
+Check out the helpfile [`$ ./spirit --help`](./HELP) to see the whole toolset.
 
-Check out the helpfile [`$ ./spirit --help`](./HELP)
-
-## Example usage
+## Example usage for SSH brute
 ```bash
 # make sure your masscan command uses -oG open.lst for the results output file
 $ masscan --rate="50000" --ports "22,222,2222,2212" 0.0.0.0/0 --exclude 255.255.255.255 -oG open.lst
@@ -41,14 +37,15 @@ Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 ```
 >*Spirit can self-upgrade only on amd64 aka x86-64 for now. [`donate to speed things up`](#monero-xmr-thank-you)
 
-** We recommend you upgrade daily, as we push changes and bug fixes very frequently.
-*** If you need spirit for another CPU architecture, contact us.
+** Try to Upgrade daily, as we push new features and bug fixes very frequently.
+*** If you need spirit for another CPU architecture like aarch64, mips, ..., just ask.
 
 ## Spirit Pro
-You can buy a Spirit Pro license directly from the CLI `./spirit buy` and help support our development and server costs.
+Buy a Spirit Pro license directly from the CLI `./spirit buy`
+Every license helps support our development and server costs.
 Licensing information can be found running `./spirit pro --info`.
 
-If you want to try a Pro feature, reach back to us and ask for a free Pro license trial.
+If you want to try a Pro feature, ask for a free Pro trial license.
 
 # Support the Develpoment of the Spirit toolkit!
 ## Monero (XMR) thank you! (our favorite)
