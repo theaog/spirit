@@ -37,6 +37,7 @@ COMMANDS:
      forever      run [ports] [masscan] [parse] [banner] [brute] over and over, automatically
      abuse        check your host IP against abuse report databases
      passwd       password generator for --user or /etc/passwd file
+     bot          IRC bot
    3-tools:
      zap, z    [IP] clean connection logs (default SSH_CLIENT)
      scan, s   [CLASS] [PORT] simple TCP scanner for local networks
