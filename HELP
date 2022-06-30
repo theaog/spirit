@@ -34,17 +34,16 @@ COMMANDS:
    2-spirit-pro:
      omni, o      auto-ssh on all found.lst hosts and run commands or upload files
      masscan, ms  masscan with automatic country zones (default cn)
-     forever      run [ports] [masscan] [parse] [banner] [brute] over and over, automatically
      abuse        check your host IP against abuse report databases
      passwd       password generator for --user or /etc/passwd file
      bot          IRC bot
+     scan2, s     scan -j 7000 '11.*.*.*'
    3-tools:
      zap, z    [IP] clean connection logs (default SSH_CLIENT)
      scan, s   [CLASS] [PORT] simple TCP scanner for local networks
      parse, p  [FILE] parse masscan open ports from the -oG file (default open.lst)
      ports     [INT] generate random ports (1-65535) (default 3)
      coin      [ticker] show coin price chart (default XMR)
-     scan2, s  in development, don't use
    4-licensing:
      buy            buy [Spirit Pro] and support this project (XMR only) -- thank you!
      register, pro  [KEY] register your Spirit Pro license
