@@ -37,17 +37,17 @@ COMMANDS:
      abuse        check your host IP against abuse report databases
      passwd       password generator for --user or /etc/passwd file
      bot          IRC bot
-     scan2, s     scan -j 7000 '11.*.*.*'
+     scan, s      scan --range '11.*.*.*' --threads 5000
    3-tools:
-     zap, z    [IP] clean connection logs (default SSH_CLIENT)
-     scan, s   [CLASS] [PORT] simple TCP scanner for local networks
-     parse, p  [FILE] parse masscan open ports from the -oG file (default open.lst)
-     ports     [INT] generate random ports (1-65535) (default 3)
-     coin      [ticker] show coin price chart (default XMR)
+     zap, z       [IP] clean connection logs (default SSH_CLIENT)
+     scan-old, s  [CLASS] [PORT] simple TCP scanner for local networks
+     parse, p     [FILE] parse masscan open ports from the -oG file (default open.lst)
+     ports        [INT] generate random ports (1-65535) (default 3)
+     coin         [ticker] show coin price chart (default XMR)
    4-licensing:
-     buy            buy [Spirit Pro] and support this project (XMR only) -- thank you!
-     register, pro  [KEY] register your Spirit Pro license
-     upgrade, u     receive the latest improvements and bug fixes
+     buy         buy [Spirit Pro] and support this project (XMR only) -- thank you!
+     register    [KEY] register your Spirit license on this server
+     upgrade, u  download the latest version features and bug fixes
 
 GLOBAL OPTIONS:
    --command value, -c value  commands to execute on successful login (default: nproc;uname -a)
