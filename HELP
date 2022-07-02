@@ -39,11 +39,10 @@ COMMANDS:
      bot          IRC bot
      scan, s      scan --range '11.*.*.*' --threads 5000
    3-tools:
-     zap, z       [IP] clean connection logs (default SSH_CLIENT)
-     scan-old, s  [CLASS] [PORT] simple TCP scanner for local networks
-     parse, p     [FILE] parse masscan open ports from the -oG file (default open.lst)
-     ports        [INT] generate random ports (1-65535) (default 3)
-     coin         [ticker] show coin price chart (default XMR)
+     zap, z    [IP] clean connection logs (default SSH_CLIENT)
+     parse, p  [FILE] parse masscan open ports from the -oG file (default open.lst)
+     ports     [INT] generate random ports (1-65535) (default 3)
+     coin      [ticker] show coin price chart (default XMR)
    4-licensing:
      buy         buy [Spirit Pro] and support this project (XMR only) -- thank you!
      register    [KEY] register your Spirit license on this server
