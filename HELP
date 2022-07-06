@@ -52,7 +52,6 @@ GLOBAL OPTIONS:
    --command value, -c value  commands to execute on successful login (default: nproc;uname -a)
    --help, -h                 show help (default: false)
    --hosts FILE, -H FILE      load hosts FILE in IP:PORT format (default: "h.lst")
-   --jobs value, -j value     --jobs 500 | maximum number of concurrent jobs (connections) (default: 99)
    --logins FILE, -l FILE     load logins FILE in USER:PASS format (default: "p.lst")
    --terms                    (default: false)
    --timeout value, -t value  --timeout 10s | connection timeout in seconds (default: 5s)
