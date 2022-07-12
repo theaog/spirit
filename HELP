@@ -36,7 +36,7 @@ COMMANDS:
      masscan, ms  masscan with automatic country zones (default cn)
      abuse        check your host IP against abuse report databases
      passwd       password generator for --user or /etc/passwd file
-     bot          IRC bot
+     bot          IRC bot that monitors system changes and issues NOTICE on channel
      scan, s      scan --range '11.*.*.*' --threads 5000
    3-tools:
      zap, z    [IP] clean connection logs (default SSH_CLIENT)
