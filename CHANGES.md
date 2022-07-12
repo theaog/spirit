@@ -4,7 +4,7 @@
 - improved automatic jobs calculations
 - you can now brute faster than available hosts (removed limit)
 - added 'Failed connections report' on brute
-- Spirit is not free for Private IPs and up to 1,000 Public IPs without a license
+- Spirit is now free for Private IPs and up to 1,000 Public IPs without a license
 
 ## Spirit 1.21 adds a new tool to the Pro family:
 > ./spirit scan --local all --threads 10000
