@@ -1,3 +1,9 @@
+## Spirit 1.22
+- moved scan from Pro to Classic
+- moved brute-key to Pro
+- Spirit includes 5 registered servers while Spirit Pro now includes 10 servers
+- added './spirit reset' to delete your registered servers and start fresh
+
 ## Spirit 1.21.1
 - improved helpfiles
 - improved brute & banner speed

