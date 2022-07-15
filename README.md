@@ -37,8 +37,8 @@ Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 ```
 >*Spirit can self-upgrade only on amd64 aka x86-64 for now. [`donate to speed things up`](#monero-xmr-thank-you)
 
-** Try to Upgrade daily, as we push new features and bug fixes very frequently.
-*** If you need spirit for another CPU architecture like aarch64, mips, ..., just ask.
+>Try to `./spirit upgrade` daily, as we push new features and bug fixes very frequently.
+> NOTE: If you need spirit for another CPU architecture like aarch64, mips, etc., just ask.
 
 ## Spirit is Free
 For local IP addresses and up to 1,000 public IPs
