@@ -51,6 +51,9 @@ Licensing information can be found running `./spirit pro --info`.
 
 If you want to try a Pro feature, ask for a free Pro trial license.
 
+## Referral
+Show Spirit to your friends and earn 20% of your monthly sales.
+
 # Support the Develpoment of the Spirit toolkit!
 ## Monero (XMR) thank you! (our favorite)
 `8B81sxCMzoYc1cEu3EbHDfdCmtcooNtKp3sba9tGEpprM5PvADwXk76BFRRmuAUL2efvjm3Rp8uWHU5EULAPEbJGKoZ1x67`
