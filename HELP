@@ -54,7 +54,7 @@ GLOBAL OPTIONS:
    --help, -h                 show help (default: false)
    --hosts FILE, -H FILE      load hosts FILE in IP:PORT format (default: "h.lst")
    --logins FILE, -l FILE     load logins FILE in USER:PASS format (default: "p.lst")
-   --terms                    (default: false)
+   --terms                    display terms & conditions (default: false)
    --timeout value, -t value  --timeout 10s | connection timeout in seconds (default: 5s)
    
 
