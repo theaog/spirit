@@ -47,7 +47,7 @@ COMMANDS:
      buy         buy [Spirit Pro] and support this project (XMR only) -- thank you!
      register    [KEY] register your Spirit license on this server
      upgrade, u  download the latest version features and bug fixes
-     reset       reset your registered servers
+     reset       reset ALL your registered servers
 
 GLOBAL OPTIONS:
    --command value, -c value  commands to execute on successful login (default: nproc;uname -a)

@@ -40,6 +40,10 @@ Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 ** Try to Upgrade daily, as we push new features and bug fixes very frequently.
 *** If you need spirit for another CPU architecture like aarch64, mips, ..., just ask.
 
+## Spirit is Free
+For local IP addresses and up to 1,000 public IPs
+We charge a small fee to help us support the project just for the Pro features, and if you need more than 1,000 Public IPs.
+
 ## Spirit Pro
 Buy a Spirit Pro license directly from the CLI `./spirit buy`
 Every license helps support our development and server costs.
