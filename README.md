@@ -52,14 +52,14 @@ Licensing information can be found running `./spirit pro --info`.
 If you want to try a Pro feature, ask for a free Pro trial license.
 
 ## Referral
-Show Spirit to your friends and earn 20% of your monthly sales.
+Show Spirit to your friends and earn 20% on your sales.
 
 ## Key Features
 - brute multiple ports at once
 - brute using private keys
 - filter out honeypots
 - block hosts that are unreachable, filter your IP, have fail2ban, and so forth (less dull work, faster completion)
-- try every connection twice before blocking it to increase accuracy
+- try every connection twice before blocking to increase accuracy
 - set your optimal timeout and concurrent threads
 - by using coroutines (lightweight threads), we reduce server load by (a lot :)
 - performant and accurate banner grabber included
