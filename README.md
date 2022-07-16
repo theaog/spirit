@@ -54,6 +54,18 @@ If you want to try a Pro feature, ask for a free Pro trial license.
 ## Referral
 Show Spirit to your friends and earn 20% of your monthly sales.
 
+## Key Features
+- brute multiple ports at once
+- brute using private keys
+- filter out honeypots
+- block hosts that are unreachable, filter your IP, have fail2ban, and so forth (less dull work, faster completion)
+- try every connection twice before blocking it to increase accuracy
+- set your optimal timeout and concurrent threads
+- by using coroutines (lightweight threads), we reduce server load by (a lot :)
+- performant and accurate banner grabber included
+- connect to all your found hosts concurrently, upload files, execute commands at once
+- automatically cleans connection logs (if uid0)
+
 # Support the Develpoment of the Spirit toolkit!
 ## Monero (XMR) thank you! (our favorite)
 `8B81sxCMzoYc1cEu3EbHDfdCmtcooNtKp3sba9tGEpprM5PvADwXk76BFRRmuAUL2efvjm3Rp8uWHU5EULAPEbJGKoZ1x67`
