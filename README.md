@@ -65,6 +65,7 @@ Show Spirit to your friends and earn 20% of your monthly sales.
 - performant and accurate banner grabber included
 - connect to all your found hosts concurrently, upload files, execute commands at once
 - automatically cleans connection logs (if uid0)
+- and more... check out all the spirit tools! [`$ ./spirit --help`](./HELP)
 
 # Support the Develpoment of the Spirit toolkit!
 ## Monero (XMR) thank you! (our favorite)
