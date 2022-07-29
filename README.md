@@ -75,11 +75,7 @@ Show Spirit to your friends and earn 20% on your sales.
 `bc1q7plm79dgllrhrjz772x4vjrtvu9yy03738psy5`
 
 ## Get Help & Support
-If you have any issues with Spirit, feel free to contact us directly: \
-on Telegram: https://t.me/aogspirit \
-on IRC: #aog @ undernet.org/libera.chat/oftc.org \
-on Jabber: spirit@conference.xmpp.jp \
-or open a Github [issue](https://github.com/theaog/spirit/issues)
+Open a Github [issue](https://github.com/theaog/spirit/issues)
 
 Don't forget to give us a Star!
 
@@ -87,7 +83,7 @@ Don't forget to give us a Star!
 
 This tool should be used for authorized penetration testing and/or educational purposes only.
 Any misuse of this software will not be the responsibility of the author or of any other collaborator.
-Use it at your own systems and/or with the systems owner's permission.
+Use it on your own systems and/or with the system owner's permission.
 
 Usage of any tools in this repository for attacking targets without prior mutual consent is illegal.
 It is the end user’s responsibility to obey all applicable local, state and federal laws.
