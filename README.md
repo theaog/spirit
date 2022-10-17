@@ -37,10 +37,9 @@ Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 ```
 >*Spirit can self-upgrade only on amd64 aka x86-64 for now. [`donate to speed things up`](#monero-xmr-thank-you)
 
->Try to `./spirit upgrade` daily, as we push new features and bug fixes very frequently.
 > NOTE: If you need spirit for another CPU architecture like aarch64, mips, etc., just ask.
 
-## Spirit is Free
+## Spirit is Free (sorta)
 For local IP addresses and up to 1,000 public IPs
 We charge a small fee to help us support the project just for the Pro features, and if you need more than 1,000 Public IPs.
 
@@ -50,9 +49,6 @@ Every license helps support our development and server costs.
 Licensing information can be found running `./spirit pro --info`.
 
 If you want to try a Pro feature, ask for a free Pro trial license.
-
-## Referral
-Show Spirit to your friends and earn 20% on your sales.
 
 ## Key Features
 - brute multiple ports at once
