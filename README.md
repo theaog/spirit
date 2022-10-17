@@ -41,14 +41,18 @@ Tip: you can automate these steps with `./spirit auto` or use the `./go.sh` scri
 - wget https://github.com/aogspirit/spirit/raw/master/spirit.tgz
 - curl -OL https://github.com/aogspirit/spirit/raw/master/spirit.tgz
 
+## aarch64, risc, mips
+- wget https://github.com/aogspirit/spirit/raw/master/spirit-arm.tgz
+- wget https://github.com/aogspirit/spirit/raw/master/spirit-risc.tgz
+- wget https://github.com/aogspirit/spirit/raw/master/spirit-mips.tgz
+
+
 ## Upgrade Spirit automaticaly
 ```bash
 ./spirit upgrade
 Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 ```
 >*Spirit can self-upgrade only on amd64 aka x86-64 for now. [`donate to speed things up`](#monero-xmr-thank-you)
-
-> NOTE: If you need spirit for another CPU architecture like aarch64, mips, etc., just ask.
 
 ## Spirit is Free (sorta)
 For local IP addresses and up to 1,000 public IPs
