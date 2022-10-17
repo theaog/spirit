@@ -2,6 +2,7 @@ NAME:
    spirit - penetration testing tools
 
 USAGE:
+   
    # Example for SSH pentest
    
    # make sure your masscan command uses -oG open.lst for the results output file
@@ -24,6 +25,8 @@ USAGE:
    $ less -S found.lst
    
    Tip: you can automate these steps with ./spirit auto
+   
+       
 
 COMMANDS:
    1-spirit:
