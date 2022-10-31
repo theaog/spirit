@@ -33,9 +33,9 @@ INFO loaded h.lst with 26803 hosts
 INFO loaded p.lst with 4881 logins
 [2478/4653]root:!1qwerty [77]found [33]blocked [1284]threads 20% [====>               ] [20s:1h13m36s]
 $ less -S found.lst
-
-Tip: you can automate these steps with `./spirit auto` or use the `./go.sh` script in `spirit.tgz`
 ```
+
+> Tip: you can automate these steps with `./spirit auto` or use the [`./go.sh`](./go.sh) script.
 
 ## Download the latest Spirit release
 - wget https://github.com/aogspirit/spirit/raw/master/spirit.tgz
@@ -55,12 +55,15 @@ Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 >*Spirit can self-upgrade only on amd64 aka x86-64 for now. [`donate to speed things up`](#monero-xmr-thank-you)
 
 ## Spirit is Free (sorta)
-For local IP addresses and up to 1,000 public IPs
-We charge a small fee to help us support the project just for the Pro features, and if you need more than 1,000 Public IPs.
+For `local IP` (10/172/192) ranges and up to 1,000 `public IPs`
+
+If you need to pen-test more than 1,000 public IP or need Pro features we charge a small fee to help us support the project development. Use `./spirit buy` to upgrade.
 
 ## Spirit Pro
 Buy a Spirit Pro license directly from the CLI `./spirit buy`
+
 Every license helps support our development and server costs.
+
 Licensing information can be found running `./spirit pro --info`.
 
 If you want to try a Pro feature, ask for a free Pro trial license.
@@ -76,7 +79,10 @@ If you want to try a Pro feature, ask for a free Pro trial license.
 - performant and accurate banner grabber included
 - connect to all your found hosts concurrently, upload files, execute commands at once
 - automatically cleans connection logs (if uid0)
+- masscan whole countries automatically `./spirit ms --country ir`
+- continously scan your network on random ports `./spirit forever --help` and spot vulnerabilities before they happen
 - and more... check out all the spirit tools! [`$ ./spirit --help`](./HELP)
+> every tool has it's own helpfile, e.g. `./spirit ms --help`
 
 # Support the Develpoment of the Spirit toolkit!
 ## Monero (XMR) thank you! (our favorite)
