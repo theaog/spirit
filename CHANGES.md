@@ -1,3 +1,10 @@
+## Spirit 1.23
+- fixed brute-key hanging on first successful attack
+- improved hosts parsing, covering all edge cases
+- improved banner accuracy
+- added banner threads, timeout, hosts, output flags
+- added rate limiting to license server (mitigate dos)
+
 ## Spirit 1.22
 - moved scan from Pro to Classic
 - moved brute-key to Pro
