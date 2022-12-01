@@ -29,11 +29,11 @@ USAGE:
        
 
 COMMANDS:
-   banner, b  grab SSH version (banner) without performing a login
    1-spirit:
-     brute, B  performs brute-force password guessing against ssh servers
-     auto, a   run [parse] [banner] [brute] automatically
-     scan, s   scan --lan --threads 5000
+     banner, b  grab SSH version (banner) without performing a login
+     brute, B   performs brute-force password guessing against ssh servers
+     auto, a    run [parse] [banner] [brute] automatically
+     scan, s    scan --lan --threads 5000
    2-spirit-pro:
      brute-key, k  performs brute-force using a private key (default id_rsa)
      omni, o       auto-ssh on all found.lst hosts and run commands or upload files
