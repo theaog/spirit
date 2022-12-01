@@ -64,21 +64,19 @@ Buy a Spirit Pro license directly from the CLI `./spirit buy`
 
 Every license helps support our development and server costs.
 
-Licensing information can be found running `./spirit pro --info`.
-
 If you want to try a Pro feature, ask for a free Pro trial license.
 
 ## Key Features
+- extracts SSH banners accurately and fast
 - brute multiple ports at once
 - brute using private keys
 - filter out honeypots
 - block hosts that are unreachable, filter your IP, have fail2ban, and so forth (less dull work, faster completion)
-- try every connection twice before blocking to increase accuracy
-- set your optimal timeout and concurrent threads
-- by using coroutines (lightweight threads), we reduce server load by (a lot :)
-- performant and accurate banner grabber included
-- connect to all your found hosts concurrently, upload files, execute commands at once
-- automatically cleans connection logs (if uid0)
+- tries every connection twice before blocking to increase accuracy
+- set your optimal timeout and concurrent threads for banner and brute
+- very light on server load (CPU) and memory
+- connect to all your found hosts concurrently, upload files, execute commands: `./spirit omni -c 'uptime'`
+- automatically cleans connection logs (if uid0) or use `./spirit zap` to clean manually
 - masscan whole countries automatically `./spirit ms --country ir`
 - continously scan your network on random ports `./spirit forever --help` and spot vulnerabilities before they happen
 - and more... check out all the spirit tools! [`$ ./spirit --help`](./HELP)
