@@ -41,11 +41,9 @@ $ less -S found.lst
 - wget https://github.com/theaog/spirit/raw/master/spirit.tgz
 - curl -OL https://github.com/theaog/spirit/raw/master/spirit.tgz
 
-## aarch64, risc, mips
+## aarch64 (ARM), mips
 - wget https://github.com/theaog/spirit/raw/master/spirit-arm.tgz
-- wget https://github.com/theaog/spirit/raw/master/spirit-risc.tgz
 - wget https://github.com/theaog/spirit/raw/master/spirit-mips.tgz
-
 
 ## Upgrade Spirit automaticaly
 ```bash
