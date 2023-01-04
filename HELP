@@ -38,6 +38,7 @@ COMMANDS:
      brute-key, k  performs brute-force using a private key (default id_rsa)
      omni, o       auto-ssh on all found.lst hosts and run commands or upload files
      masscan, ms   masscan with automatic country zones (default cn)
+     forever       run [ports] [masscan] [parse] [banner] [brute] over and over, automatically
      abuse         check your host IP against abuse report databases
      passwd        password generator for --user or /etc/passwd file
      bot           IRC bot that monitors system changes and issues NOTICE on channel

@@ -1,3 +1,6 @@
+## Spirit 1.24
+- add `./spirit forever` command
+
 ## Spirit 1.23
 - fixed brute-key hanging on first successful attack
 - improved hosts parsing, covering all edge cases
