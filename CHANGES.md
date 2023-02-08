@@ -1,5 +1,8 @@
 ## Spirit 1.24
 - add `./spirit forever` command
+- fix an issue on `./spirit masscan` where high ranges like US were crashing the app
+- enable Pro license on ARM build
+- zap now keeps atime and mtime intact when cleaning logs
 
 ## Spirit 1.23
 - fixed brute-key hanging on first successful attack
