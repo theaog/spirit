@@ -86,6 +86,8 @@ If you want to try a Pro feature, ask for a free Pro trial license.
 ## Monero (XMR) thank you! (our favorite)
 `8ATU7h8vJWgJrGHjjG6N9aY69pUsvyFg8WRUxeGPy6jEbcZxRagsWmUN3ZrLpqDqBtHAafTLfnBzCibhvQG3trrNEdGvoTa`
 
+![xmrqr](media/xmrqr.png)
+
 ## Bitcoin (BTC) thank you too!
 `bc1q7plm79dgllrhrjz772x4vjrtvu9yy03738psy5`
 
