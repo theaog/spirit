@@ -59,7 +59,7 @@ GLOBAL OPTIONS:
    --hosts FILE, -H FILE      load hosts FILE in IP:PORT format (default: "h.lst")
    --command value, -c value  commands to execute on successful login (default: nproc;uname -a)
    --terms                    display terms & conditions (default: false)
-   --help, -h                 show help (default: false)
+   --help, -h                 show help
 
 COPYRIGHT:
    (c) The Armor of God
