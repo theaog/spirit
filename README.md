@@ -69,20 +69,22 @@ If you want to try a Pro feature, ask for a free Pro trial license.
 - brute multiple ports at once
 - brute using private keys
 - filter out honeypots
-- block hosts that are unreachable, filter your IP, have fail2ban, and so forth (less dull work, faster completion)
+- block hosts that are unreachable, filter your IP, have fail2ban, and so forth (less dull work, faster scanning)
 - tries every connection twice before blocking to increase accuracy
 - set your optimal timeout and concurrent threads for banner and brute
-- very light on server load (CPU) and memory
-- connect to all your found hosts concurrently, upload files, execute commands: `./spirit omni -c 'uptime'`
-- automatically cleans connection logs (if uid0) or use `./spirit zap` to clean manually
+- very light on server load (CPU and memory)
+- connect to all your hosts concurrently, upload files, execute commands: `./spirit omni -c 'uptime'`
+- clean connection logs (if uid0) `./spirit zap`
 - masscan whole countries automatically `./spirit ms --country ir`
-- continously scan your network on random ports `./spirit forever --help` and spot vulnerabilities before they happen
-- and more... check out all the spirit tools! [`$ ./spirit --help`](./HELP)
+- continously scan & brute your network on random ports `./spirit forever` -- spot vulnerabilities before they happen
+- and more...
+
+> check out all the spirit tools! [`$ ./spirit --help`](./HELP)
 > every tool has it's own helpfile, e.g. `./spirit ms --help`
 
 # Support the Develpoment of the Spirit toolkit!
 ## Monero (XMR) thank you! (our favorite)
-`8B81sxCMzoYc1cEu3EbHDfdCmtcooNtKp3sba9tGEpprM5PvADwXk76BFRRmuAUL2efvjm3Rp8uWHU5EULAPEbJGKoZ1x67`
+`8ATU7h8vJWgJrGHjjG6N9aY69pUsvyFg8WRUxeGPy6jEbcZxRagsWmUN3ZrLpqDqBtHAafTLfnBzCibhvQG3trrNEdGvoTa`
 
 ## Bitcoin (BTC) thank you too!
 `bc1q7plm79dgllrhrjz772x4vjrtvu9yy03738psy5`
