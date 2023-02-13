@@ -5,6 +5,8 @@
 - zap now keeps atime and mtime intact when cleaning logs
 - upgrade to go1.20
 - upgrade all dependencies
+- fixed issue w/ `./spirit forever` not being enabled for Pro license
+- fixed issue w/ `./spirit zap` not working on wtmp files
 
 ## Spirit 1.23
 - fixed brute-key hanging on first successful attack

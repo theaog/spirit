@@ -196,14 +196,22 @@ func delete(path, keyword string) (err error) {
 	}
 	defer newXtmp.Close()
 
+	_, err = newXtmp.Write(newFileData)
+	if err != nil {
+		return fmt.Errorf("failed to write %s/%s: %v", path, path+".tmp", err)
+	}
+
+	err = cloneTime(path, path+".tmp")
+	if err != nil {
+		return fmt.Errorf("failed to chtime %s/%s: %v", path, path+".tmp", err)
+	}
+
 	err = os.Rename(path+".tmp", path)
 	if err != nil {
 		return fmt.Errorf("failed to replace %s: %v", path, err)
 	}
 
-	_, err = newXtmp.Write(newFileData)
-
-	return cloneTime(path, path+".tmp")
+	return nil
 }
 
 // fileExists checks if a file exists.
