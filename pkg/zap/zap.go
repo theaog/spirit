@@ -32,7 +32,7 @@ func TrimKey(keyword string) {
 		log.Errorf("lastlog %v", err)
 	}
 
-	err = cleanAuthlog(keyword)
+	err = cleanAuthLog(keyword)
 	if err != nil {
 		log.Errorf("authlog: %v", err)
 	}
@@ -43,7 +43,7 @@ func TrimKey(keyword string) {
 	}
 }
 
-func cleanAuthlog(keyword string) error {
+func cleanAuthLog(keyword string) error {
 	path := PATH_AUTH
 
 	file, err := os.Open(path)

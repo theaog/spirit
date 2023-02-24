@@ -7,6 +7,7 @@
 - upgrade all dependencies
 - fixed issue w/ `./spirit forever` not being enabled for Pro license
 - fixed issue w/ `./spirit zap` not working on wtmp files
+- fix free 1,000 external IP logic to stop script abuse
 
 ## Spirit 1.23
 - fixed brute-key hanging on first successful attack
