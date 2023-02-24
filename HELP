@@ -24,7 +24,7 @@ USAGE:
    [2478/4653]root:!1qwerty [77]found [33]blocked [1284]threads 20% [====>               ] [20s:1h13m36s]
    $ less -S found.lst
 
-   Tip: you can automate these steps with ./spirit auto
+   Tip: you can automate these steps with ./spirit auto or ./spirit forever
 
        
 

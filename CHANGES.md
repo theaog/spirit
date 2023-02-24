@@ -4,6 +4,8 @@
 - fix issue w/ `./spirit zap` not working on wtmp files
 - fix free 1,000 external IP logic to stop script abuse
 - `./spirit forever` now loads custom zone.lst file
+- banner now filters out bad SSH versions
+- banner max threads are capped at 2,500 to avoid skips
 
 ## Spirit 1.24
 - add `./spirit forever` command
