@@ -1,13 +1,14 @@
+## Spirit 1.25
+- zap now keeps atime and mtime intact when cleaning logs
+- fix issue w/ `./spirit forever` not being enabled for Pro license
+- fix issue w/ `./spirit zap` not working on wtmp files
+- fix free 1,000 external IP logic to stop script abuse
+- `./spirit forever` now loads custom zone.lst file
+
 ## Spirit 1.24
 - add `./spirit forever` command
 - fix an issue on `./spirit masscan` where high ranges like US were crashing the app
 - enable Pro license on ARM build
-- zap now keeps atime and mtime intact when cleaning logs
-- upgrade to go1.20
-- upgrade all dependencies
-- fixed issue w/ `./spirit forever` not being enabled for Pro license
-- fixed issue w/ `./spirit zap` not working on wtmp files
-- fix free 1,000 external IP logic to stop script abuse
 
 ## Spirit 1.23
 - fixed brute-key hanging on first successful attack

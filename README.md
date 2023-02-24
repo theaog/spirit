@@ -58,28 +58,25 @@ For `local IP` (10/172/192) ranges and up to 1,000 `public IPs`
 If you need to pen-test more than 1,000 public IP or need Pro features we charge a small fee to help us support the project development. Use `./spirit buy` to upgrade.
 
 ## Spirit Pro
-Buy a Spirit Pro license directly from the CLI `./spirit buy`
-
-Every license helps support our development and server costs.
-
-If you want to try a Pro feature, ask for a free Pro trial license.
+Buy a Spirit Pro license directly from the CLI `./spirit buy`. Every license helps support our development and server costs. If you want to try a Pro feature, ask for a free Pro trial license by opening an [issue](https://github.com/theaog/spirit/issues).
 
 ## Key Features
-- extracts SSH banners accurately and fast
-- brute multiple ports at once
-- brute using private keys
-- filter out honeypots
-- block hosts that are unreachable, filter your IP, have fail2ban, and so forth (less dull work, faster scanning)
-- tries every connection twice before blocking to increase accuracy
-- set your optimal timeout and concurrent threads for banner and brute
+- extracts SSH banners accurately (retry failed hosts) and fast (many threads)
+- brute multiple ports at once: 1.1.1.1:22, 1.1.1.1:23, etc.
+- brute using private keys `./spirit brute-key --file id_rsa`
+- brute auto-blocks honeypots not wasting time on them
+- brute also blocks hosts that are unreachable, or have fail2ban installed (less dull work, faster scanning)
+- brute will try every connection twice before blocking to increase accuracy
+- set your optimal concurrent threads for banner and brute `--jobs`
 - very light on server load (CPU and memory)
-- connect to all your hosts concurrently, upload files, execute commands: `./spirit omni -c 'uptime'`
-- clean connection logs (if uid0) `./spirit zap`
-- masscan whole countries automatically `./spirit ms --country ir`
+- connect to all your hosts concurrently, upload files and execute remote commands using `./spirit omni -c 'uptime'`
+- clean connection logs (if uid0) using `./spirit zap`
+- masscan whole zones automatically at your own pace `./spirit masscan --zone zone.lst --rate 10_000`
 - continously scan & brute your network on random ports `./spirit forever` -- spot vulnerabilities before they happen
 - and more...
 
 > check out all the spirit tools! [`$ ./spirit --help`](./HELP)
+
 > every tool has it's own helpfile, e.g. `./spirit ms --help`
 
 # Support the Develpoment of the Spirit toolkit!
