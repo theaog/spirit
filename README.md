@@ -44,7 +44,7 @@ $ less -S found.lst
 $ ./spirit omni -c 'whoami && uptime'
 ```
 
-> Tip: you can automate these steps with `./spirit auto` or use the [`./go.sh`](./go.sh) script or if you have Pro license `./spirit forever` for continuous automatic scanning & bruting.
+> Tip: you can automate these steps with `./spirit auto` or use the [`./go.sh`](./go.sh) script, if you have Pro license use `./spirit forever` for continuous automatic probing on random ports & bruting.
 
 ## Upgrade Spirit automaticaly
 ```bash
