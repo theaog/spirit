@@ -37,13 +37,7 @@ $ less -S found.lst
 
 > Tip: you can automate these steps with `./spirit auto` or use the [`./go.sh`](./go.sh) script.
 
-## Download the latest Spirit release
-- wget https://github.com/theaog/spirit/raw/master/spirit.tgz
-- curl -OL https://github.com/theaog/spirit/raw/master/spirit.tgz
-
-## aarch64 (ARM), mips
-- wget https://github.com/theaog/spirit/raw/master/spirit-arm.tgz
-- wget https://github.com/theaog/spirit/raw/master/spirit-mips.tgz
+## [Download the latest Spirit release](https://github.com/theaog/spirit/releases)
 
 ## Upgrade Spirit automaticaly
 ```bash

