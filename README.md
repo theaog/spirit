@@ -1,6 +1,6 @@
 # Spirit - Network Pentesting Tools
 
-## [Download the latest Spirit release](https://github.com/theaog/spirit/releases)
+### [Download the latest Spirit release](https://github.com/theaog/spirit/releases)
 
 > Check out the helpfile [`$ ./spirit --help`](./HELP) to see the whole set of tools.
 
