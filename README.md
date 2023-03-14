@@ -55,7 +55,7 @@ $ ./spirit omni -c 'whoami && uptime'
 ./spirit upgrade
 Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 ```
->*Spirit can self-upgrade only on amd64 aka x86-64 for now. [`donate to speed things up`](#monero-xmr-thank-you)
+> *Spirit can self-upgrade only on amd64 aka x86-64 for now. [`donate to speed things up`](#monero-xmr-thank-you)
 
 ## Spirit is Free (sorta)
 For `local IP` (10/172/192) ranges and up to 1,000 `public IPs`
