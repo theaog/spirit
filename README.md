@@ -1,4 +1,4 @@
-# Spirit - Network Pentesting Tools
+# Spirit - Network Pentest Tools
 
 ### [Download the latest Spirit release](https://github.com/theaog/spirit/releases)
 

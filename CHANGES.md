@@ -6,6 +6,7 @@
 - `./spirit forever` now loads custom zone.lst file
 - banner now filters out bad SSH versions
 - banner max threads are capped at 2,500 to avoid skips
+- fixed forever --append to work w/ arbitrary ports
 
 ## Spirit 1.24
 - add `./spirit forever` command
