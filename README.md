@@ -88,13 +88,13 @@ Buy a Spirit Pro license directly from the CLI `./spirit buy`. Every license hel
 ## Monero (XMR) thank you! (our favorite)
 `8ATU7h8vJWgJrGHjjG6N9aY69pUsvyFg8WRUxeGPy6jEbcZxRagsWmUN3ZrLpqDqBtHAafTLfnBzCibhvQG3trrNEdGvoTa`
 
-![xmrqr](media/xmrqr.png)
+![xmrqr](asset/xmrqr.png)
 
 ## Bitcoin (BTC) thank you too!
 `bc1q7plm79dgllrhrjz772x4vjrtvu9yy03738psy5`
 
 ## Get Help & Support
-Open a Github [issue](https://github.com/theaog/spirit/issues)
+Open a Github [issue](https://github.com/theaog/spirit/issues) and consider encrypting your message using this pub key [aog.gpg](asset/aog.gpg).
 
 Don't forget to give us a Star!
 

@@ -1,6 +1,5 @@
 ## Spirit 1.26
 - improved scan command
--
 
 ## Spirit 1.25
 - zap now keeps atime and mtime intact when cleaning logs
