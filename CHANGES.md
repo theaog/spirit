@@ -1,5 +1,7 @@
 ## Spirit 1.26
 - improved scan command
+- updated all deps to latest
+- minor bug fixes and improvements
 
 ## Spirit 1.25
 - zap now keeps atime and mtime intact when cleaning logs
