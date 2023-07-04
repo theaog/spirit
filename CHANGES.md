@@ -1,8 +1,8 @@
 ## Spirit 1.26
 - improved scan command
 - updated all deps to latest
-- added exploit command w/ CVE-2021-4034 & CVE-2018-14655
-- minor bug fixes and improvements as usual
+- added exploit command w/ CVE-2021-4034 & CVE-2018-14655 (./spirit exploit)
+- added zimbra exploit CVE_2019_9670 (./spirit ex zimbra URL)
 
 ## Spirit 1.25
 - zap now keeps atime and mtime intact when cleaning logs

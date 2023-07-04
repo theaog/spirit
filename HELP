@@ -15,7 +15,7 @@ COMMANDS:
      forever       run [ports] [masscan] [parse] [banner] [brute] over and over, automatically
      abuse         check your host IP against abuse report databases
      passwd        password generator for --user or /etc/passwd file
-     exploit       *NEW tries multiple CVE until one or none work (beta)
+     exploit, ex   *NEW tries multiple CVE on local until one or none works (beta)
    3-free-tools:
      scan, s    scan --lan --threads 5000
      banner, b  grab SSH version (banner) without performing a login
