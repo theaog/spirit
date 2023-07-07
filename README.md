@@ -46,7 +46,15 @@ $ ./spirit brute
 INFO loaded h.lst with 26803 hosts
 INFO loaded p.lst with 4881 logins
 [2478/4653]root:!1qwerty [77]found [33]blocked [1284]threads 20% [====>               ] [20s:1h13m36s]
-$ less -S found.lst
+
+failed connections statistics:
+(    7)  ssh: closed network connection 30s timeout
+(    7)  total failed
+
+results stored in:
+- found.ssh # for quick manual connect
+- found.login # user:pass combinations that worked
+- found.lst # used by `spirit omni` for connecting en-masse
 
 # Connect to all your found hosts automatically & run commands.
 # omni will automatically attempt to connect to hosts present in the found.lst file,
