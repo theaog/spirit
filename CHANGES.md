@@ -7,6 +7,8 @@
 - improved brute efficiency
 - added more statistics to brute
 - added automatic changing threads wile running
+- removed --filter flag from banner
+- added `filter.lst` file to load SSH banner filters
 
 ## Spirit 1.25
 - zap now keeps atime and mtime intact when cleaning logs

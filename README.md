@@ -21,6 +21,13 @@ $ ./spirit parse open.lst
 INFO created h.lst in HOST:PORT format
 # spirit created a HOST:PORT formatted h.lst file, you can provide your custom file name using the `--file` flag.
 
+# create a filter.lst file if you want to skip certain SSH versions.
+$ cat >filter.lst<< EOF
+SSH-1.0
+SSH-2.0-CISCO
+SSH-2.0-Comware
+EOF
+
 # Test these open ports if they're running SSH by grabbing banners.
 # Spirit includes custom designed SSH connection flow.
 # you can also auto-exclude bogus hosts using the --filter option.
