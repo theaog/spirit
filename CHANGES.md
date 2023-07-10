@@ -3,7 +3,6 @@
 - updated all deps to latest
 - added exploit command w/ CVE-2021-4034 & CVE-2018-14655 (./spirit exploit)
 - added zimbra exploit CVE_2019_9670 (./spirit ex zimbra URL)
-- added name change and args hiding when run
 - improved brute efficiency
 - added more statistics to brute
 - added automatic changing threads wile running
