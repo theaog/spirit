@@ -66,8 +66,7 @@ out of [26803]hosts [4000]bruted [3000]found [19803]blocked
 $ ./spirit omni -c 'whoami && uptime'
 ```
 
-> Tip: you can automate these steps with `./spirit auto` or use the [`./go.sh`](./go.sh) script. \
-If you have Pro license use `./spirit forever` for continuous automatic probing on random ports & bruting. ![forever](asset/forever.png)
+> Tip: you can automate these steps with `./spirit forever` for continuous automatic probing on random ports & bruting. ![forever](asset/forever.png)
 
 ## Upgrade Spirit automaticaly
 ```bash

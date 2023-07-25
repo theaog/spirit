@@ -8,6 +8,9 @@
 - added automatic changing threads wile running
 - removed --filter flag from banner
 - added `filter.lst` file to load SSH banner filters
+- made brute-key work under classic spirit license, was only available in Pro
+- reduced maximum servers: 3 for classic and 6 for Pro
+- fixed a bug w/ auto-changing threads, set a limit to minimum 5 threads
 
 ## Spirit 1.25
 - zap now keeps atime and mtime intact when cleaning logs

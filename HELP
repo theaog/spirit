@@ -6,16 +6,15 @@ USAGE:
 
 COMMANDS:
    1-spirit:
-     brute, B  performs brute-force password guessing against ssh servers (trial 1,000 public IPs / unlimited private IPs)
-     auto, a   run [parse] [banner] [brute] automatically
-   2-spirit-pro:
+     brute, B      performs brute-force password guessing against ssh servers (trial 1,000 public IPs / unlimited private IPs)
      brute-key, k  performs brute-force using a private key (default id_rsa) on users from your p.lst file.
-     omni, o       auto-ssh on all found.lst hosts and run commands or upload files
-     masscan, ms   masscan with automatic country zones (default cn)
-     forever       run [ports] [masscan] [parse] [banner] [brute] over and over, automatically
-     abuse         check your host IP against abuse report databases
-     passwd        password generator for --user or /etc/passwd file
-     exploit, e    *NEW tries multiple CVE on local until one or none works (beta)
+   2-spirit-pro:
+     exploit, e   tries multiple CVE on local until one or none works (beta)
+     omni, o      auto-ssh on all found.lst hosts and run commands or upload files
+     masscan, ms  masscan with automatic country zones (default cn)
+     forever      run [ports] [masscan] [parse] [banner] [brute] over and over, automatically
+     abuse        check your host IP against abuse report databases
+     passwd       password generator for --user or /etc/passwd file
    3-free-tools:
      scan, s    scan --lan --threads 5000
      banner, b  grab SSH version (banner) without performing a login
@@ -31,7 +30,7 @@ COMMANDS:
      reset       reset ALL your registered servers
 
 GLOBAL OPTIONS:
-   --timeout value, -t value  --timeout 10s | connection timeout in seconds (default: 5s)
+   --timeout value, -t value  --timeout 10s | connection timeout in seconds (default: 10s)
    --logins FILE, -l FILE     load logins FILE in USER:PASS format (default: "p.lst")
    --hosts FILE, -H FILE      load hosts FILE in IP:PORT format (default: "h.lst")
    --command value, -c value  commands to execute on successful login (default: nproc;uname -a)
