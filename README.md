@@ -1,5 +1,8 @@
 # Spirit - Network Pentest Tools
 
+> NOTICE: rumors have been circulating that `spirit` contains a backdoor, that's not true we would never do that.
+> We offer a bounty of 50XMR to whomever opens an issue in this repo and provides undeniable proof of the "alleged" backdoor.
+
 ### [Download the latest Spirit release](https://github.com/theaog/spirit/releases)
 
 > [`$ ./spirit --help`](./HELP) shows you all the included tools commands. \

@@ -11,6 +11,7 @@
 - made brute-key work under classic spirit license, was only available in Pro
 - reduced maximum servers: 3 for classic and 6 for Pro
 - fixed a bug w/ auto-changing threads, set a limit to minimum 5 threads
+- added sha256sum for spirit bins
 
 ## Spirit 1.25
 - zap now keeps atime and mtime intact when cleaning logs
