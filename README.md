@@ -1,14 +1,13 @@
 # Spirit - Network Pentest Tools
 
-> Become a [partner](./PARTNER.md)
 
-> NOTICE: rumors have been circulating that `spirit` contains a backdoor, that's not true we would never do that.
-> We offer a bounty of 50XMR to whomever opens an issue in this repo and provides undeniable proof of the "alleged" backdoor.
 
 ### [Download the latest Spirit release](https://github.com/theaog/spirit/releases)
 
 > [`$ ./spirit --help`](./HELP) shows you all the included tools commands. \
 some commands have subcommands `./spirit <command> --help`
+
+> Become a [partner](./PARTNER.md)
 
 ## Example usage for SSH brute flow
 ```bash
@@ -117,6 +116,9 @@ Buy a Spirit Pro license directly from the CLI `./spirit buy`. Every license hel
 Open a Github [issue](https://github.com/theaog/spirit/issues) and consider encrypting your message using this pub key [aog.gpg](asset/aog.gpg).
 
 Don't forget to give us a Star!
+
+> NOTICE: rumors have been circulating that `spirit` contains a backdoor, that's not true we would never do that.
+> We offer a bounty of 50XMR to whomever opens an issue in this repo and provides undeniable proof of the "alleged" backdoor.
 
 # Disclaimer
 
