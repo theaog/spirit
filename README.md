@@ -1,5 +1,7 @@
 # Spirit - Network Pentest Tools
 
+> Become a [partner](./PARTNER.md)
+
 > NOTICE: rumors have been circulating that `spirit` contains a backdoor, that's not true we would never do that.
 > We offer a bounty of 50XMR to whomever opens an issue in this repo and provides undeniable proof of the "alleged" backdoor.
 
