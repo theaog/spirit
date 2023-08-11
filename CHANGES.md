@@ -1,3 +1,18 @@
+## Spirit 1.27
+- new licensing server
+- new license generator
+- new table outlining plan features in ./spirit buy
+- new Ultra license (under development)
+- new encryption option for p.lst and found.lst files (Ultra only)
+- new Referral options
+- ./spirit buy now has referral option
+- 10% discount for referred licenses
+- fixed licensing bug on servers w/o internet
+- fixed Basic license issuing spirit Pro
+- fixed sporadic DB lock issue
+- fixed an issue where sometimes old licenses would conflict w/ new ones when registering a server
+- general improvements
+
 ## Spirit 1.26
 - improved scan command
 - updated all deps to latest
