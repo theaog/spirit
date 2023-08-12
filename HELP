@@ -1,34 +1,39 @@
 NAME:
-   spirit - penetration testing tools
+   Spirit - Pentration Testing Tools
 
 USAGE:
-   spirit [global options] command [command options] [arguments...]
+   Spirit [global options] command [command options] [arguments...]
 
 COMMANDS:
-   1-spirit:
-     brute, B      performs brute-force password guessing against ssh servers (trial 1,000 public IPs / unlimited private IPs)
-     brute-key, k  performs brute-force using a private key (default id_rsa) on users from your p.lst file.
-   2-spirit-pro:
-     omni, o      auto-ssh on all found.lst hosts and run commands or upload files
-     masscan, ms  masscan with automatic country zones (default cn)
-     forever      run [ports] [masscan] [parse] [banner] [brute] over and over, automatically
-     abuse        check your host IP against abuse report databases
-     passwd       password generator for --user or /etc/passwd file
-     exploit, e   tries multiple CVE on local until one or none works (beta)
-   3-free-tools:
-     scan, s    scan --lan --threads 5000
+   Basic:
+     brute, B   performs brute-force password guessing against ssh servers (trial 1,000 public IPs / unlimited private IPs)
      banner, b  grab SSH version (banner) without performing a login
+     scan, s    scan --lan --threads 5000
      zap, z     [IP] clean connection logs (default SSH_CLIENT)
-     parse, p   [FILE] parse masscan open ports from the -oG file (default open.lst)
      ports      [INT] generate random ports (1-65535) (default 3)
+     parse, p   [FILE] parse masscan open ports from the -oG file (default open.lst)
      coin       [ticker] show coin price chart (default XMR)
      bot        IRC bot that monitors system changes and issues NOTICE on channel
-   4-licensing:
+   Pro:
+     brute-key, k  performs brute-force using a private key (default id_rsa) on users from your p.lst file.
+     omni, o       auto-ssh on all found.lst hosts and run commands or upload files
+     forever       run [ports] [masscan] [parse] [banner] [brute] over and over, automatically
+     masscan, ms   masscan with automatic country zones (default cn)
+     abuse         check your host IP against abuse report databases
+     passwd        password generator for --user or /etc/passwd file
+   Support:
      buy         buy a spirit license and support this project (XMR only) -- thank you!
      register    spirit register [key]
      upgrade, u  download the latest version features and bug fixes
      partner     register for the partnership program and get rewards
      reset       reset ALL your registered servers
+   Ultra:
+     exploit, e      tries multiple CVE on local until one or none works (beta)
+     encrypt-beta    
+     swarm-beta      [HOST:PORT] run the API Server to receive found hosts (*Under Development)
+     miner-beta      
+     brute-dns-beta  
+     backdoor-beta   
 
 GLOBAL OPTIONS:
    --timeout value, -t value  --timeout 10s | connection timeout in seconds (default: 10s)
