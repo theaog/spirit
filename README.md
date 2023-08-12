@@ -1,7 +1,5 @@
 # Spirit - Network Pentest Tools
 
-
-
 ### [Download the latest Spirit release](https://github.com/theaog/spirit/releases)
 
 > [`$ ./spirit --help`](./HELP) shows you all the included tools commands. \
@@ -72,9 +70,9 @@ $ ./spirit omni -c 'whoami && uptime'
 
 > Tip: you can automate these steps with `./spirit forever` for continuous automatic probing on random ports & bruting. ![forever](asset/forever.png)
 
+./spirit upgrade
 ## Upgrade Spirit automaticaly
 ```bash
-./spirit upgrade
 Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 ```
 > *Spirit can self-upgrade only on amd64 aka x86-64 for now. [`donate to speed things up`](#monero-xmr-thank-you)
@@ -91,19 +89,18 @@ Buy a Spirit Pro license directly from the CLI `./spirit buy`. Every license hel
 - extracts SSH banners accurately (retry failed hosts) and fast (many threads)
 - brute multiple ports at once: 1.1.1.1:22, 1.1.1.1:23, etc.
 - brute using private keys `./spirit brute-key --file id_rsa`
-- brute auto-blocks honeypots not wasting time on them
+- brute auto-blocks honeypots not wasting time nor giving away all your passwords into them
 - brute also blocks hosts that are unreachable, or have fail2ban installed (less dull work, faster scanning)
-- brute will try every connection twice before blocking to increase accuracy
-- set your optimal concurrent threads for banner and brute `--jobs`
-- very light on server load (CPU and memory)
-- connect to all your hosts concurrently, upload files and execute remote commands using `./spirit omni -c 'uptime'`
-- clean connection logs (if uid0) using `./spirit zap`
-- masscan whole zones automatically at your own pace `./spirit masscan --zone zone.lst --rate 10_000`
-- continously scan & brute your network on random ports `./spirit forever` -- spot vulnerabilities before they happen
-- test targets for common local and remote exploits `./spirit exploit` (beta)
-- and more...
+- brute will try every connection twice before blocking unreachable hosts to increase accuracy
+- very light on server load, your CPU will thank you!
+- `./spirit omni -c 'uptime'` connect to all your hosts at once, upload files and execute remote commands
+- `./spirit zap` clean connection logs using 
+- `./spirit masscan --zone zone.lst --rate 10_000` masscan whole zones automatically at your own pace 
+- `./spirit forever` scan & brute your network on random ports over and over -- spot vulnerabilities before they happen
+- `./spirit exploit` test targets for common local and remote exploits
+- and more... [`$ ./spirit --help`](./HELP) 
 
-# Support the Develpoment of the Spirit toolkit!
+# Support our development
 ## Monero (XMR) thank you! (our favorite)
 `8ATU7h8vJWgJrGHjjG6N9aY69pUsvyFg8WRUxeGPy6jEbcZxRagsWmUN3ZrLpqDqBtHAafTLfnBzCibhvQG3trrNEdGvoTa`
 
@@ -117,7 +114,7 @@ Open a Github [issue](https://github.com/theaog/spirit/issues) and consider encr
 
 Don't forget to give us a Star!
 
-> NOTICE: rumors have been circulating that `spirit` contains a backdoor, that's not true we would never do that.
+> NOTICE: rumors have been circulating that `spirit` contains a backdoor -- that's not true, we would never do that.
 > We offer a bounty of 50XMR to whomever opens an issue in this repo and provides undeniable proof of the "alleged" backdoor.
 
 # Disclaimer
