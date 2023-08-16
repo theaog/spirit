@@ -1,12 +1,14 @@
+## Spirit 1.28
+- fixed an issue where brute might get stuck when hosts are less than 5
+- improved TRIAL mode
+- improved spirit buy, added features list
+
 ## Spirit 1.27
 - new licensing server
-- new license generator
+- new Spirit Partner Program
 - new table outlining plan features in ./spirit buy
 - new Ultra license (under development)
 - new encryption option for p.lst and found.lst files (Ultra only)
-- new Referral options
-- ./spirit buy now has referral option
-- 10% discount for referred licenses
 - fixed licensing bug on servers w/o internet
 - fixed Basic license issuing spirit Pro
 - fixed sporadic DB lock issue
