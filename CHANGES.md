@@ -2,6 +2,9 @@
 - fixed an issue where brute might get stuck when hosts are less than 5
 - improved TRIAL mode
 - improved spirit buy, added features list
+- added display of Open connections limits
+- improved spirit brute
+- added auto-rlimit
 
 ## Spirit 1.27
 - new licensing server
