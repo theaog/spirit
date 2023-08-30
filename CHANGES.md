@@ -3,8 +3,9 @@
 - improved TRIAL mode
 - improved spirit buy, added features list
 - added display of Open connections limits
-- improved spirit brute
 - added auto-rlimit
+- improved brute -- 30% more found.lst hosts
+- added cve-gitlab exploit to ultra
 
 ## Spirit 1.27
 - new licensing server
