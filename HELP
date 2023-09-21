@@ -21,11 +21,11 @@ COMMANDS:
      abuse         check your host IP against abuse report databases
      passwd        password generator for --user or /etc/passwd file
    Support:
-     buy           buy a spirit license and support this project (XMR only) -- thank you!
-     register      spirit register [key]
-     upgrade, u    download the latest version features and bug fixes
-     partner, vip  become a Spirit Partner and earn XMR
-     reset         reset ALL your registered servers
+     buy         buy a spirit license and support this project (XMR only) -- thank you!
+     register    spirit register [key]
+     upgrade, u  download the latest version features and bug fixes
+     partner     become a Spirit Partner and earn XMR up to 30% on referrals
+     reset       reset ALL your registered servers
    Ultra:
      exploit, e     tries multiple CVE on local host until one or none works (beta)
      encrypt-beta   activates encryption for your p.lst & found.lst/ssh files
