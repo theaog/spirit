@@ -6,6 +6,7 @@
 - added auto-rlimit
 - improved brute -- 30% more found.lst hosts
 - added cve-gitlab exploit to ultra
+- scan: can now specify multiple networks using comma --local 172,192
 
 ## Spirit 1.27
 - new licensing server
