@@ -115,6 +115,8 @@ Open a Github [issue](https://github.com/theaog/spirit/issues) and consider encr
 
 Don't forget to give us a Star!
 
+If for any reason you're unhappy w/ `spirit`, please read our [REFUND.md](/REFUND.md) policy.
+
 > NOTICE: rumors have been circulating that `spirit` contains a backdoor -- that's not true, we would never do that.
 > We offer a bounty of 50XMR to whomever opens an issue in this repo and provides undeniable proof of the "alleged" backdoor.
 
