@@ -1,3 +1,8 @@
+## Spirit 1.29
+added REFUND.md policy
+renamed `forever` to `auto-brute` which automatically uses masscan on a list of CIDRs on random ports and automatically brutes them
+removed Warn print when a host is Found
+
 ## Spirit 1.28
 - fixed an issue where brute might get stuck when hosts are less than 5
 - improved TRIAL mode

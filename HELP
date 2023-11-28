@@ -14,12 +14,12 @@ COMMANDS:
      parse, p   [FILE] parse masscan open ports from the -oG file (default open.lst)
      coin       [ticker] show coin price chart (default XMR)
    Pro:
-     brute-key, k  performs brute-force using a private key (default id_rsa) on users from your p.lst file.
-     omni, o       auto-ssh on all found.lst hosts and run commands or upload files
-     forever       run [ports] [masscan] [parse] [banner] [brute] over and over, automatically
-     masscan, ms   masscan with automatic country zones (default cn)
-     abuse         check your host IP against abuse report databases
-     passwd        password generator for --user or /etc/passwd file
+     brute-key, k             performs brute-force using a private key (default id_rsa) on users from your p.lst file.
+     omni, o                  auto-ssh on all found.lst hosts and run commands or upload files
+     auto-brute, forever, ab  run [ports] [masscan] [parse] [banner] [brute] over and over, automatically on a CIDR of your choice
+     masscan, ms              masscan with automatic country zones (default cn)
+     abuse                    check your host IP against abuse report databases
+     passwd                   password generator for --user or /etc/passwd file
    Support:
      buy         buy a spirit license and support this project (XMR only) -- thank you!
      register    spirit register [key]
@@ -36,7 +36,7 @@ COMMANDS:
 
 GLOBAL OPTIONS:
    --timeout value, -t value  --timeout 10s | connection timeout in seconds (default: 10s)
-   --logins FILE, -l FILE     load logins FILE in USER:PASS format (default: "p.lst")
+   --logins FILE, -l FILE     load logins FILE in USER:PASS format, if no p.lst is provided an internal list is used (default: "p.lst")
    --hosts FILE, -H FILE      load hosts FILE in IP:PORT format (default: "h.lst")
    --command value, -c value  commands to execute on successful login (default: nproc;uname -a)
    --terms                    display terms & conditions (default: false)
