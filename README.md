@@ -57,7 +57,7 @@ results stored in:
 - found.ssh # for quick manual connect
 - found.login # user:pass combinations that worked
 - found.lst # used by `spirit omni` for connecting en-masse
-out of [26803]hosts [4000]bruted [3000]found [19803]blocked
+[26803]hosts [4000]bruted [3000]found [19803]blocked
 
 # Connect to all your found hosts automatically & run commands.
 # omni will automatically attempt to connect to hosts present in the found.lst file,
@@ -69,9 +69,9 @@ $ ./spirit omni -u ./spirit -c '/dev/shm/spirit scan --lan'
 
 > Tip: you can automate these steps with `./spirit auto-brute` for continuous automatic probing on random ports & bruting. ![forever](asset/forever.png)
 
-./spirit upgrade
 ## Upgrade Spirit automaticaly
 ```bash
+./spirit upgrade
 Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 ```
 
