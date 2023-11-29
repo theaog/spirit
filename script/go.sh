@@ -33,11 +33,11 @@ echo -e "[+] parsing masscan output"
 echo -e "[+] starting banner grabber"
 ./spirit banner
 
-ALL=$(wc -l < b.lst) &>/dev/null
-ubuntu=$(grep -c Ubuntu b.lst) &>/dev/null
-debian=$(grep -c Debian b.lst) &>/dev/null
-freebsd=$(grep -c FreeBSD b.lst) &>/dev/null
-other=$(grep -v FreeBSD b.lst |grep -v Debian b.lst |grep -v Ubuntu -c b.lst) &>/dev/null
+ALL=$(wc -l < h.lst) &>/dev/null
+ubuntu=$(grep -c Ubuntu h.lst) &>/dev/null
+debian=$(grep -c Debian h.lst) &>/dev/null
+freebsd=$(grep -c FreeBSD h.lst) &>/dev/null
+other=$(grep -v FreeBSD h.lst |grep -v Debian b.lst |grep -v Ubuntu -c h.lst) &>/dev/null
 
 echo -e "[*]            Found \e[92m[$ALL]\e[0m SSH servers"
 echo -e "[*]            Ubuntu: \e[93m[$ubuntu]\e[0m"
@@ -45,7 +45,8 @@ echo -e "[*]            Debian: \e[93m[$debian]\e[0m"
 echo -e "[*]            FreeBSD: \e[93m[$freebsd]\e[0m"
 echo -e "[*]            Others: \e[93m[$other]\e[0m"
 
-cat <b.lst|sort|uniq|shuf>h.lst
+cat <h.lst|sort|uniq|shuf>hh.lst
+mv hh.lst h.lst
 
 echo -e "[+] starting brute-force attack"
 ./spirit brute

