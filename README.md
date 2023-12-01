@@ -5,7 +5,7 @@
 > [`$ ./spirit --help`](./HELP) shows you all the included tools. \
 Most commands have subcommands `./spirit <command> --help`
 
-> [Spirit Partner Program](./PARTNER.md) -- spread the word, earn XMR.
+> [Spirit Partner Program](./PARTNER.md) earn XMR and join our Telegram Community.
 
 ## Example usage for SSH brute flow
 ```bash
