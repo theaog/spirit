@@ -1,7 +1,11 @@
 ## Spirit 1.29
-added REFUND.md policy
-renamed `forever` to `auto-brute` which automatically uses masscan on a list of CIDRs on random ports and automatically brutes them
-removed Warn print when a host is Found
+- added REFUND.md policy
+- renamed `forever` to `auto-brute` which automatically uses masscan on a list of CIDRs on random ports and automatically brutes them
+- removed Warn print when a host is Found
+- create Spirit Community telegram channel
+- added ability to join community via `./spirit partner`
+- fixed issues w/ auto-brute
+- improved banner speed by 50%
 
 ## Spirit 1.28
 - fixed an issue where brute might get stuck when hosts are less than 5
