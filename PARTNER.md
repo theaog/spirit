@@ -4,7 +4,7 @@
 $ ./spirit partner
 ```
 As a Spirit Partner you and your friends benefit of 10% discount on licenses.
-You also benefit of up to 30% XMR reward sent monthly to your Wallet.
+You also benefit of up to 30% XMR reward sent monthly to your Wallet and access to our Telegram Commnunity channel.
 
 ## Perks
 - referred users benefit of a 10% discount when requesting a license
