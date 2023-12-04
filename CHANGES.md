@@ -6,6 +6,7 @@
 - added ability to join community via `./spirit partner`
 - fixed issues w/ auto-brute
 - improved banner speed by 50%
+- added more Ciphers, Key exchange algos and Macs to SSH
 
 ## Spirit 1.28
 - fixed an issue where brute might get stuck when hosts are less than 5
