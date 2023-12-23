@@ -7,6 +7,9 @@
 - fixed issues w/ auto-brute
 - improved banner speed by 50%
 - added more Ciphers, Key exchange algos and Macs to SSH
+- renamed `jobs` to `threads`
+- added brute specific threads & timeout flags
+- new flags: -t for Threads and -T for timeout
 
 ## Spirit 1.28
 - fixed an issue where brute might get stuck when hosts are less than 5
