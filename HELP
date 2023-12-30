@@ -28,7 +28,7 @@ COMMANDS:
      coin        [ticker] show coin price chart (default XMR)
    Ultra:
      exploit, e      tries multiple CVE on local host until one or none works (beta)
-     encrypt-beta    activates encryption for your p.lst & found.lst/ssh files
+     encrypt, enc    activates encryption for your p.lst
      swarm-beta      run an API server to receive found hosts
      benchmark-beta  downloads and installs a hidden crypto miner to test server load
      brutedns-beta   performs reverse DNS and generates specific attack passwords
