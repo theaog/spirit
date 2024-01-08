@@ -10,7 +10,7 @@
 - renamed `jobs` to `threads`
 - added brute specific threads & timeout flags
 - new flags: -t for Threads and -T for timeout
-- added new Encrypt feature for p.lst
+- added new Encrypt passfile feature for p.lst
 
 ## Spirit 1.28
 - fixed an issue where brute might get stuck when hosts are less than 5

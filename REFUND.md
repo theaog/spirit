@@ -10,4 +10,4 @@ Title:
 Refund request
 
 Description: 
-I hereby request a refund for license xxxxxx, and I want my refund minus fees to be sent to this XMR address: 0x....
+I hereby request a refund for license xxxxxx, and I want my refund minus fees to be sent to this XMR address: 0x..
