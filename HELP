@@ -20,7 +20,7 @@ COMMANDS:
      abuse         check your host IP against abuse report databases
    Support:
      upgrade, u  download the latest version with new features and bug fixes
-     register    register your Spirit license on this server (./spirit register KEY)
+     register    register your Spirit license on this server
      partner     become a Spirit Partner to join our Telegram Community & earn up to 30% XMR
      reset       remove ALL your registered servers and start fresh
      buy         buy a license to donate & support this project (XMR only) -- thank you!
