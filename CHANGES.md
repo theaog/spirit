@@ -1,5 +1,4 @@
 ## Spirit 1.29
-- added REFUND.md policy
 - renamed `forever` to `auto-brute` which uses masscan on a list of CIDRs on random ports and brutes them automatically then repeats
 - removed Warn print when a host is Found
 - created Spirit Community telegram channel
@@ -10,7 +9,8 @@
 - renamed `jobs` to `threads`
 - added brute specific threads & timeout flags
 - new flags: -t for Threads and -T for timeout
-- added new Encrypt passfile feature for p.lst
+- NEW: Encrypt the p.lst passfile 
+- NEW: ultra-banner: faster, more accurate, handsome -- with Terminal UI
 
 ## Spirit 1.28
 - fixed an issue where brute might get stuck when hosts are less than 5
