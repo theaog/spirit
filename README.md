@@ -9,7 +9,7 @@ Most commands have subcommands `./spirit <command> --help`
 
 ## Quick Start
 ```bash
-# Install masscan
+# install masscan
 sudo apt install masscan
 # copy masscan into your CWD (current working directory)
 cp `which masscan` .
