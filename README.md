@@ -24,7 +24,7 @@ tar xvf spirit.tgz
 # give execution rights to the go.sh script
 chmod +x go.sh
 # start the show!
-./go.sh 208 2122,3322,9922 50000
+./go.sh 208 2122,3322,9922 50000
 ```
 
 ## Example usage for SSH brute flow TLDR;
