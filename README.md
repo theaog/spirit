@@ -5,9 +5,9 @@
 > [`$ ./spirit --help`](./HELP) shows you all the included tools. \
 Most commands have subcommands `./spirit <command> --help`
 
-> [Spirit Partner Program](./PARTNER.md) earn XMR and join our Telegram Community.
+> [Spirit Partner Program](./PARTNER.md) get 10% off and join our Telegram Community.
 
-## Quick Start
+## Quick Start (IRC: #pentest on Undernet)
 ```bash
 # install masscan
 sudo apt install masscan
