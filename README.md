@@ -15,7 +15,7 @@ sudo apt install masscan
 cp `which masscan` .
 
 # download go.sh script
-wget https://raw.githubusercontent.com/theaog/spirit/master/script/go.sh
+wget https://raw.githubusercontent.com/theaog/spirit/master/script/go.sh
 # download spirit
 wget https://github.com/theaog/spirit/releases/download/1.30/spirit.tgz
 # unpack spirit
