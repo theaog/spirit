@@ -7,7 +7,27 @@ Most commands have subcommands `./spirit <command> --help`
 
 > [Spirit Partner Program](./PARTNER.md) earn XMR and join our Telegram Community.
 
-## Example usage for SSH brute flow
+## Quick Start
+```bash
+# Install masscan
+sudo apt install masscan
+# copy masscan into your CWD (current working directory)
+cp `which masscan` .
+
+# download go.sh script
+wget https://raw.githubusercontent.com/theaog/spirit/master/script/go.sh
+# download spirit
+wget https://github.com/theaog/spirit/releases/download/1.30/spirit.tgz
+# unpack spirit
+tar xvf spirit.tgz
+
+# give execution rights to the go.sh script
+chmod +x go.sh
+# start the show!
+./go.sh 208 2122,3322,9922 50000
+```
+
+## Example usage for SSH brute flow TLDR;
 ```bash
 # First scan your network or the internet (check disclaimer) to acquire a list of open ports.
 $ masscan \
