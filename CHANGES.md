@@ -1,3 +1,7 @@
+## Spirit 1.30
+- NEW: ultra-banner: faster, more accurate and handsome -- with Terminal UI
+- NEW: encrypt: make an AES256/GCM encrypted version of your p.lst passfile
+
 ## Spirit 1.29
 - renamed `forever` to `auto-brute` which uses masscan on a list of CIDRs on random ports and brutes them automatically then repeats
 - removed Warn print when a host is Found
@@ -9,8 +13,6 @@
 - renamed `jobs` to `threads`
 - added brute specific threads & timeout flags
 - new flags: -t for Threads and -T for timeout
-- NEW: Encrypt the p.lst passfile 
-- NEW: ultra-banner: faster, more accurate, handsome -- with Terminal UI
 
 ## Spirit 1.28
 - fixed an issue where brute might get stuck when hosts are less than 5

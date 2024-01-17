@@ -13,7 +13,7 @@ echo -e "[+] increasing system limits"
 ulimit -n 65535
 
 echo -e "[+] starting masscan on network [$1.0.0.0/8] port [$2] with speed [$3]"
-./masscan \
+sudo ./masscan \
 --range "$1".0.0.0-"$1".255.255.255 \
 --ports "$2" \
 --max-rate "$3" \
@@ -53,4 +53,4 @@ echo -e "[+] starting brute-force attack"
 
 echo -e "[+] done, let's see what we've found:"
 sleep 3
-head -n20 found.ssh
+head -n20 found.ssh || echo "no servers found :("
