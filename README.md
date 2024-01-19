@@ -11,7 +11,7 @@ Most commands have subcommands `./spirit <command> --help`
 ```bash
 # install masscan
 sudo apt install masscan
-# copy masscan into your CWD (current working directory)
+# copy masscan into your current working directory
 cp `which masscan` .
 
 # download go.sh script
