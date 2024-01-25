@@ -2,8 +2,8 @@
 - NEW: ultra-banner: faster, more accurate and handsome -- with Terminal UI
 - NEW: encrypt: make an AES256/GCM encrypted version of your p.lst passfile
 - updated flags for `scan`
-- moved ultra-banner out of beta
-- added license resets limits
+- moved `ultra-banner` out of beta
+- added license reset limits
 
 ## Spirit 1.29
 - renamed `forever` to `auto-brute` which uses masscan on a list of CIDRs on random ports and brutes them automatically then repeats
