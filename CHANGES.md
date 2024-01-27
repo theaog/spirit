@@ -4,7 +4,7 @@
 - updated flags for `scan`
 - moved `ultra-banner` out of beta
 - added license reset limits
-- hide license key during register and reset
+- secured input for license key during register and reset
 
 ## Spirit 1.29
 - renamed `forever` to `auto-brute` which uses masscan on a list of CIDRs on random ports and brutes them automatically then repeats
