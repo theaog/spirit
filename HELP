@@ -28,7 +28,7 @@ COMMANDS:
    Ultra:
      auto-brute, forever, ab  run [ports] [masscan] [parse] [banner] [brute] over and over, automatically on a CIDR of your choice
      exploit, e               tries multiple CVE on local host until one works (includes subcommands for Zimbra & Gitlab exploits)
-     ultra-banner, ub         improved SSH version grabber - faster, more accurate, handsome w/ Terminal UI (tested up to 100k threads)
+     proxy-banner, pb         improved SSH version grabber - faster, more accurate, handsome w/ Terminal UI and socks5 support (tested up to 100k threads)
      encrypt, enc             activates encryption for your passfile (p.lst)
 
 GLOBAL OPTIONS:
