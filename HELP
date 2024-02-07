@@ -6,11 +6,12 @@ USAGE:
 
 COMMANDS:
    Basic:
-     brute, B   performs brute-force password guessing against ssh servers (trial 1,000 public IPs / unlimited private IPs)
-     banner, b  grab SSH version (banner) without performing a login
-     parse, p   parse masscan -oG output (open.lst) and generate h.lst (IP:PORT)
-     ports      generate random ports in 1-65535 range avoiding collissions
-     zap, z     clean connection logs from wtmp/utmp/lastlog/auth.log/audit.log
+     brute, B    performs brute-force password guessing against ssh servers (trial 1,000 public IPs / unlimited private IPs)
+     banner, b   grab SSH version (banner) without performing a login
+     parse, p    parse masscan -oG output (open.lst) and generate h.lst (IP:PORT)
+     ports       generate random ports in 1-65535 range avoiding collissions
+     zap, z      clean connection logs from wtmp/utmp/lastlog/auth.log/audit.log
+     exploit, e  tries multiple CVE on local host until one works (includes subcommands for Zimbra & Gitlab exploits)
    Pro:
      brute-key, k  performs brute-force using a private key (default id_rsa) on users from your p.lst file.
      omni, o       auto-ssh on all found.lst hosts and run commands or upload files
@@ -27,7 +28,6 @@ COMMANDS:
      coin        [ticker] show coin price chart (default XMR)
    Ultra:
      auto-brute, forever, ab  run [ports] [masscan] [parse] [banner] [brute] over and over, automatically on a CIDR of your choice
-     exploit, e               tries multiple CVE on local host until one works (includes subcommands for Zimbra & Gitlab exploits)
      proxy-banner, pb         improved SSH version grabber - faster, more accurate, handsome w/ Terminal UI and socks5 support (tested up to 100k threads)
      encrypt, enc             activates encryption for your passfile (p.lst)
 
