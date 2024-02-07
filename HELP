@@ -28,7 +28,7 @@ COMMANDS:
      coin        [ticker] show coin price chart (default XMR)
    Ultra:
      auto-brute, forever, ab  run [ports] [masscan] [parse] [banner] [brute] over and over, automatically on a CIDR of your choice
-     proxy-banner, pb         improved SSH version grabber - faster, more accurate, handsome w/ Terminal UI and socks5 support (tested up to 100k threads)
+     proxy-banner, pb         improved SSH version grabber - faster, more accurate, handsome w/ Terminal UI and socks5 support (tested up to 100k threads), provide SOCKS5:IP:PORT in proxy.lst file.
      encrypt, enc             activates encryption for your passfile (p.lst)
 
 GLOBAL OPTIONS:
