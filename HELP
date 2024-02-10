@@ -6,19 +6,20 @@ USAGE:
 
 COMMANDS:
    Basic:
-     brute, B    performs brute-force password guessing against ssh servers (trial 1,000 public IPs / unlimited private IPs)
-     banner, b   grab SSH version (banner) without performing a login
-     parse, p    parse masscan -oG output (open.lst) and generate h.lst (IP:PORT)
-     ports       generate random ports in 1-65535 range avoiding collissions
-     zap, z      clean connection logs from wtmp/utmp/lastlog/auth.log/audit.log
-     exploit, e  tries multiple CVE on local host until one works (includes subcommands for Zimbra & Gitlab exploits)
+     brute, B   performs brute-force password guessing against ssh servers (trial 1,000 public IPs / unlimited private IPs)
+     banner, b  grab SSH version (banner) without performing a login
+     parse, p   parse masscan -oG output (open.lst) and generate h.lst (IP:PORT)
+     ports      generate random ports in 1-65535 range avoiding collissions
+     zap, z     clean connection logs from wtmp/utmp/lastlog/auth.log/audit.log
    Pro:
      brute-key, k  performs brute-force using a private key (default id_rsa) on users from your p.lst file.
-     omni, o       auto-ssh on all found.lst hosts and run commands or upload files
+     omni-ssh, o   auto-ssh on all found.lst hosts and run commands or upload files
      scan, s       scan --lan --threads 5000
      masscan, ms   masscan automation using zone file: ./spirit ms --help
      passwd        parses /etc/passwd file and generates random passwords for uncommon users
      abuse         check your host IP against abuse report databases
+     bot           IRC bot that monitors system changes and issues NOTICE on channel
+     exploit, e    tries multiple CVE on local host until one works (includes exploits for Zimbra & Gitlab)
    Support:
      upgrade, u  download the latest version with new features and bug fixes
      register    register your Spirit license on this server

@@ -14,8 +14,6 @@ sudo apt install masscan
 # copy masscan into your current working directory
 cp `which masscan` .
 
-# download go.sh script
-wget https://raw.githubusercontent.com/theaog/spirit/master/script/go.sh
 # download spirit
 wget https://github.com/theaog/spirit/releases/download/1.30/spirit.tgz
 # unpack spirit
@@ -24,7 +22,7 @@ tar xvf spirit.tgz
 # give execution rights to the go.sh script
 chmod +x go.sh
 # start the show! <class-A> <port1,port2,port3> <speed> 
-./go.sh 192 2122,3322,9922 50000
+./go.sh 172 $(./spirit ports) 50000
 ```
 
 ## Example usage for SSH brute flow TLDR;
