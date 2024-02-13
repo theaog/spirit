@@ -12,13 +12,13 @@ COMMANDS:
      ports      generate random ports in 1-65535 range avoiding collissions
      zap, z     clean connection logs from wtmp/utmp/lastlog/auth.log/audit.log
    Pro:
-     brute-key, k  performs brute-force using a private key (default id_rsa) on users from your p.lst file.
-     omni-ssh, o   auto-ssh on all found.lst hosts and run commands or upload files
-     scan, s       scan --lan --threads 5000
-     masscan, ms   masscan automation using zone file: ./spirit ms --help
-     passwd        parses /etc/passwd file and generates random passwords for uncommon users
-     abuse         check your host IP against abuse report databases
-     bot           IRC bot that monitors system changes and issues NOTICE on channel
+     brute-key, k       performs brute-force using a private key (default id_rsa) on users from your p.lst file.
+     omni-ssh, o, omni  auto-ssh on all found.lst hosts and run commands or upload files
+     scan, s            scan --lan --threads 5000
+     masscan, ms        masscan automation using zone file: ./spirit ms --help
+     passwd             parses /etc/passwd file and generates random passwords for uncommon users
+     abuse              check your host IP against abuse report databases
+     bot                IRC bot that monitors system changes and issues NOTICE on channel
    Support:
      upgrade, u  download the latest version with new features and bug fixes
      register    register your Spirit license on this server
