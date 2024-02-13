@@ -1,13 +1,16 @@
 ## Spirit 1.30
-- NEW: ultra-banner: faster, more accurate and handsome -- with Terminal UI
+- NEW: proxy-banner: faster, more accurate and handsome -- with Terminal UI
 - NEW: encrypt: make an AES256/GCM encrypted version of your p.lst passfile
 - updated flags for `scan`
-- moved `ultra-banner` out of beta
 - added license reset limits
 - secured input for license key during register and reset
 - added proxy.lst SOCKS5:IP:PORT for ultra-banner
 - added spirit arm64 and i386 versions
 - add bot command: an fast irc bot written from scratch
+- changed omni to omni-ssh
+- added threads/timeout to omni
+- reduced servers per license and reduced prices:
+  - Basic 1 $29 / Pro 3 $99 / Ultra 9 $299
 
 ## Spirit 1.29
 - renamed `forever` to `auto-brute` which uses masscan on a list of CIDRs on random ports and brutes them automatically then repeats
