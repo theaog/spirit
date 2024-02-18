@@ -11,6 +11,7 @@
 - added threads/timeout to omni
 - reduced servers per license and reduced prices:
   - Basic 1 $29 / Pro 3 $99 / Ultra 9 $299
+- move auto-brute(forver) to Pro license
 
 ## Spirit 1.29
 - renamed `forever` to `auto-brute` which uses masscan on a list of CIDRs on random ports and brutes them automatically then repeats
