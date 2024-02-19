@@ -6,7 +6,7 @@ USAGE:
 
 COMMANDS:
    Basic:
-     brute, B   performs brute-force password guessing against ssh servers (trial 1,000 public IPs / unlimited private IPs)
+     brute, B   performs brute-force password guessing against ssh servers (unlimited private IPs)
      banner, b  grab SSH version (banner) without performing a login
      parse, p   parse masscan -oG output (open.lst) and generate h.lst (IP:PORT)
      ports      generate random ports in 1-65535 range avoiding collissions
