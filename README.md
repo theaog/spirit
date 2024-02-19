@@ -97,23 +97,25 @@ For `local IP` (10/172/192) ranges and up to 10 minutes on `public IPs`
 ## You can unlock Spirit's full functionality directly from the CLI by obtaining a license.
 ```bash
 $ ./spirit buy
-+--------------+--------------------------+------------------------+
-| SPIRIT BASIC |        SPIRIT PRO        |      SPIRIT ULTRA      |
-+--------------+--------------------------+------------------------+
-| brute        | brute-key                | exploit                |
-| banner       | omni-ssh                 | proxy-banner           |
-| parse        | masscan                  | encrypt                |
-| ports        | passwd                   | swarm-beta             |
-| zap          | abuse                    | benchmark-beta         |
-| scan         | bot                      | brutedns-beta          |
-+--------------+--------------------------+------------------------+
-|   1 SERVER   | 3 SERVERS + ALL IN BASIC | 9 SERVERS + ALL IN PRO |
-+--------------+--------------------------+------------------------+
+Monero only, you can convert other crypto assets to XMR on https://tradeogre.com
++--------------+-------------------+------------------+
+| SPIRIT BASIC |    SPIRIT PRO     |   SPIRIT ULTRA   |
++--------------+-------------------+------------------+
+| brute        | brute-key         | exploit          |
+| banner       | omni-ssh          | proxy-banner     |
+| parse        | masscan           | encrypt          |
+| ports        | passwd            |                  |
+| zap          | abuse             |                  |
+| scan         | bot               |                  |
+| auto-brute   |                   |                  |
++--------------+-------------------+------------------+
+|  3 SERVERS   | 6 SERVERS + BASIC | 12 SERVERS + PRO |
++--------------+-------------------+------------------+
 Use the arrow keys to navigate: ↓ ↑ → ←
 ? Select your Spirit version::
-  ▸ Basic $29
-    Pro $99
-    Ultra $299 Beta
+  ▸ Basic $100
+    Pro $150
+    Ultra $300
     Referral code
 ```
 
