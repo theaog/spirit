@@ -5,8 +5,6 @@
 > [`$ ./spirit --help`](./HELP) shows you all the included tools. \
 Most commands have subcommands `./spirit <command> --help`
 
-> [Spirit Partner Program](./PARTNER.md) get 10% off and join our Telegram Community.
-
 ## Quick Start (IRC: #pentest on Undernet)
 ```bash
 # install masscan
@@ -94,12 +92,30 @@ Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 ```
 
 ## Spirit is Free (sorta)
-For `local IP` (10/172/192) ranges and up to 1,000 `public IPs`
+For `local IP` (10/172/192) ranges and up to 10 minutes on `public IPs`
 
-If you need to pen-test more than 1,000 public IP or need Pro features we charge a small fee to help us support the project development. Use `./spirit buy` to upgrade.
-
-## Spirit Pro
-Buy a Spirit Pro license directly from the CLI `./spirit buy`. Every license helps support our development and server costs.
+## You can unlock Spirit's full functionality directly from the CLI by obtaining a license.
+```bash
+$ ./spirit buy
++--------------+--------------------------+------------------------+
+| SPIRIT BASIC |        SPIRIT PRO        |      SPIRIT ULTRA      |
++--------------+--------------------------+------------------------+
+| brute        | brute-key                | exploit                |
+| banner       | omni-ssh                 | proxy-banner           |
+| parse        | masscan                  | encrypt                |
+| ports        | passwd                   | swarm-beta             |
+| zap          | abuse                    | benchmark-beta         |
+| scan         | bot                      | brutedns-beta          |
++--------------+--------------------------+------------------------+
+|   1 SERVER   | 3 SERVERS + ALL IN BASIC | 9 SERVERS + ALL IN PRO |
++--------------+--------------------------+------------------------+
+Use the arrow keys to navigate: ↓ ↑ → ←
+? Select your Spirit version::
+  ▸ Basic $29
+    Pro $99
+    Ultra $299 Beta
+    Referral code
+```
 
 ## Key Features
 - extracts SSH banners accurately (retry failed hosts) and fast (many threads)
