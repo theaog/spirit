@@ -5,7 +5,7 @@
 > [`$ ./spirit --help`](./HELP) shows you all the included tools. \
 Most commands have subcommands `./spirit <command> --help`
 
-## Quick Start (IRC: #pentest on Undernet)
+## Quick Start
 ```bash
 # install masscan
 sudo apt install masscan
@@ -22,6 +22,10 @@ tar xvf spirit.tgz
 # already generated port numbers in ports.lst
 ./go.sh 172 $(./spirit ports) 50000
 ```
+
+## Support
+Telegram (https://github.com/theaog/spirit)
+IRC (#pentest@Undernet)
 
 ## Example usage for SSH brute flow TLDR;
 ```bash
