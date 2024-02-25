@@ -25,8 +25,7 @@ cp `which masscan` .
 ```
 
 ## Support
-- Telegram (https://github.com/theaog/spirit)
-- IRC (#pentest@Undernet)
+- Telegram (https://t.me/pentestspirit)
 
 ## Example usage for SSH brute flow TLDR;
 ```bash
