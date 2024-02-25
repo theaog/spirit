@@ -24,8 +24,8 @@ tar xvf spirit.tgz
 ```
 
 ## Support
-Telegram (https://github.com/theaog/spirit)
-IRC (#pentest@Undernet)
+- Telegram (https://github.com/theaog/spirit)
+- IRC (#pentest@Undernet)
 
 ## Example usage for SSH brute flow TLDR;
 ```bash
