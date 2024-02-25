@@ -7,15 +7,16 @@ Most commands have subcommands `./spirit <command> --help`
 
 ## Quick Start
 ```bash
-# install masscan
-sudo apt install masscan
-# copy masscan into your current working directory
-cp `which masscan` .
-
 # download spirit
 wget https://github.com/theaog/spirit/releases/download/1.30/spirit.tgz
 # unpack spirit
 tar xvf spirit.tgz
+./spirit --help
+
+# install masscan
+sudo apt install masscan
+# copy masscan into your current working directory
+cp `which masscan` .
 
 # start the show! <class-A> <port1,port2,port3> <speed> 
 # ./spirit ports generates 3 random ports 1-65535 and keeps track of
