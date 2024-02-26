@@ -100,25 +100,26 @@ For `local IP` (10/172/192) ranges and up to 10 minutes on `public IPs`
 ```bash
 $ ./spirit buy
 Monero only, you can convert other crypto assets to XMR on https://tradeogre.com
+If you have any issue w/ the payment-flow, contact us https://github.com/theaog/spirit/issues
 +--------------+-------------------+------------------+
 | SPIRIT BASIC |    SPIRIT PRO     |   SPIRIT ULTRA   |
 +--------------+-------------------+------------------+
 | brute        | brute-key         | exploit          |
-| banner       | omni-ssh          | proxy-banner     |
-| parse        | masscan           | encrypt          |
-| ports        | passwd            |                  |
-| zap          | abuse             |                  |
-| scan         | bot               |                  |
-| auto-brute   |                   |                  |
+| banner       | auto-ssh          | proxy-banner     |
+| scan         | masscan           | encrypt          |
+| auto-brute   | passwd            |                  |
+|              | abuse             |                  |
+|              |                   |                  |
+|              |                   |                  |
 +--------------+-------------------+------------------+
 |  3 SERVERS   | 6 SERVERS + BASIC | 12 SERVERS + PRO |
 +--------------+-------------------+------------------+
 Use the arrow keys to navigate: ↓ ↑ → ←
 ? Select your Spirit version::
-    Basic TRIAL (3days) $10
-    Basic $100
-    Pro $150
-  ▸ Ultra $300
+  ▸ Basic TRIAL $15 (3 days)
+    Basic $100 (30 days)
+    Pro $200 (30 days)
+    Ultra $500 (30 days)
     Referral code
 ```
 
