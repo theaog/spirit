@@ -8,11 +8,12 @@ COMMANDS:
    Basic:
      brute, B                 performs brute-force password guessing against ssh servers
      banner, b                grab SSH version (banner) without performing a login
-     parse, p                 parse masscan -oG output (open.lst) and generate h.lst (IP:PORT)
-     ports                    generate random ports in 1-65535 range avoiding collissions
-     zap, z                   clean connection logs from wtmp/utmp/lastlog/auth.log/audit.log
      scan, s                  scan --lan --threads 5000
      auto-brute, forever, ab  scan/banner/brute over and over on random ports, automatically w/ a CIDR of your choice
+   Extra:
+     parse, p  parse masscan -oG output (open.lst) and generate h.lst (IP:PORT)
+     ports     generate random ports in 1-65535 range avoiding collissions
+     zap, z    clean connection logs from wtmp/utmp/lastlog/auth.log/audit.log
    Pro:
      brute-key, k             performs brute-force using a private key (default id_rsa) on users from your p.lst file.
      auto-ssh, o, omni, assh  auto-ssh on all found.lst hosts and run commands or upload files
