@@ -94,7 +94,7 @@ Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 ```
 
 ## Spirit is Free (sorta)
-For `local IP` (10/172/192) ranges and up to 10 minutes on `public IPs`
+Scanning port 22 is unlimited, any other port requires a license.
 
 ## You can unlock Spirit's full functionality directly from the CLI by obtaining a license.
 ```bash
@@ -153,6 +153,8 @@ Open a Github [issue](https://github.com/theaog/spirit/issues) and consider encr
 Don't forget to give us a Star!
 
 > NOTICE: rumors have been circulating that `spirit` contains a backdoor -- that's not true, we would never do that. We offer a bounty of 50XMR to whomever opens an issue in this repo and provides undeniable proof of the "alleged" backdoor.
+
+Spirit is clean software the only data it sends home is your machine-id to verify the license.
 
 # Disclaimer
 
