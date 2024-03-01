@@ -124,21 +124,6 @@ Use the arrow keys to navigate: ↓ ↑ → ←
     Referral code
 ```
 
-## Key Features
-- extracts SSH banners accurately (retry failed hosts) and fast (many threads)
-- brute multiple ports at once: 1.1.1.1:22, 1.1.1.1:23, etc.
-- brute using private keys `./spirit brute-key --file id_rsa`
-- brute auto-blocks honeypots not wasting time nor giving away all your passwords
-- brute also blocks hosts that are unreachable, or have fail2ban installed (less dull work, faster scanning)
-- brute will try every connection twice before blocking unreachable hosts to increase accuracy
-- very light on server load, your CPU will thank you!
-- `./spirit omni -c 'uptime'` connect to all your found hosts at once, upload files and execute remote commands
-- `./spirit zap` clean connection logs 
-- `./spirit masscan --zone zone.lst --rate 10_000` masscan whole zones automatically 
-- `./spirit auto-brute` scan & brute your network on random ports over and over -- spot vulnerabilities before they happen
-- `./spirit exploit` test targets for common local and remote exploits
-- and more... [`$ ./spirit --help`](./HELP) 
-
 # Support our development
 ## Monero (XMR) thank you! (our favorite)
 `895LJnKcfTv7NHf7SN1zz5UzhBRwwvdR8NYLvXNr54jJ3GXghBoyfBKLp2dL4GcYohQatRnigct8zgK6utkjjeBxVNsky1s`
