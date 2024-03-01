@@ -1,17 +1,13 @@
 ## Spirit 1.30
 - NEW: proxy-banner: faster, more accurate and handsome -- with Terminal UI
 - NEW: encrypt: make an AES256/GCM encrypted version of your p.lst passfile
-- updated flags for `scan`
-- added license reset limits
-- secured input for license key during register and reset
-- added proxy.lst SOCKS5:IP:PORT for ultra-banner
-- added spirit arm64 and i386 versions
-- add bot command: an fast irc bot written from scratch
-- changed omni to omni-ssh
-- added threads/timeout to omni
-- reduced servers per license and reduced prices:
-  - Basic 1 $29 / Pro 3 $99 / Ultra 9 $299
-- move auto-brute(forver) to Pro license
+- added license reset limits (24 resets)
+- updated flags for `scan`: ./spirit scan --help
+- secured input for license key during register and reset to avoid leaking key shell history
+- added spirit arm64 and i386 compiled binaries
+- changed omni to auto-ssh
+- added threads/timeout to auto-ssh
+- moved auto-brute(forver) to Basic license
 - added Nmap parsing of open.lst to ./spirit parse
 
 ## Spirit 1.29
