@@ -9,6 +9,7 @@
 - added threads/timeout to auto-ssh
 - moved auto-brute(forver) to Basic license
 - added Nmap parsing of open.lst to ./spirit parse
+- upgraded all dependencies to latest version
 
 ## Spirit 1.29
 - renamed `forever` to `auto-brute` which uses masscan on a list of CIDRs on random ports and brutes them automatically then repeats
