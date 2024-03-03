@@ -10,10 +10,6 @@ $ curl -OL https://github.com/theaog/spirit/releases/download/1.30/spirit.tgz
 > [`$ ./spirit --help`](./HELP) shows you all the included tools. \
 Most commands have subcommands `./spirit <command> --help`
 
-## Support
-- [GitHub Issue](https://github.com/theaog/spirit/issues/new)
-- [Telegram](https://t.me/pentestspirit)
-
 ## Demo
 [![asciicast](https://asciinema.org/a/pCtoMokkHo01kUzh3dBLTMS7w.svg)](https://asciinema.org/a/pCtoMokkHo01kUzh3dBLTMS7w)
 
@@ -35,6 +31,16 @@ cp `which masscan` .
 # already generated port numbers in ports.lst
 ./go.sh 172 $(./spirit ports) 50000
 ```
+
+## Upgrade Spirit automaticaly
+```bash
+./spirit upgrade
+Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
+```
+
+## Support
+- [GitHub Issue](https://github.com/theaog/spirit/issues/new)
+- [Telegram](https://t.me/pentestspirit)
 
 ## Example usage for SSH brute flow TLDR;
 ```bash
@@ -94,13 +100,6 @@ $ ./spirit auto-ssh --command 'whoami && uptime'
 $ ./spirit auto-ssh --upload ./spirit --command '/dev/shm/spirit scan --lan'
 ```
 
-> Tip: you can automate these steps with `./spirit auto-brute` for continuous automatic probing on random ports & bruting. ![forever](asset/forever.png)
-
-## Upgrade Spirit automaticaly
-```bash
-./spirit upgrade
-Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
-```
 
 ## Spirit is Free (sorta)
 Scanning port 22 is unlimited, any other port requires a license.
