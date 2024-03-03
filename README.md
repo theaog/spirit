@@ -5,6 +5,7 @@
 $ wget https://github.com/theaog/spirit/releases/download/1.30/spirit.tgz
 $ curl -OL https://github.com/theaog/spirit/releases/download/1.30/spirit.tgz
 ```
+> NOTE: Plenty of fake Spirit clones are being distributed, make sure to verify you're running the original by checksum: `$ sha256sum -c spirit.sum`
 
 > [`$ ./spirit --help`](./HELP) shows you all the included tools. \
 Most commands have subcommands `./spirit <command> --help`
@@ -12,6 +13,9 @@ Most commands have subcommands `./spirit <command> --help`
 ## Support
 - [GitHub Issue](https://github.com/theaog/spirit/issues/new)
 - [Telegram](https://t.me/pentestspirit)
+
+## Demo
+[![asciicast](https://asciinema.org/a/pCtoMokkHo01kUzh3dBLTMS7w.svg)](https://asciinema.org/a/pCtoMokkHo01kUzh3dBLTMS7w)
 
 ## Quick Start
 ```bash
