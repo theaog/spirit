@@ -11,7 +11,7 @@ $ curl -OL https://github.com/theaog/spirit/releases/download/1.30/spirit.tgz
 Most commands have subcommands `./spirit <command> --help`
 
 ## Demo
-[![asciicast](https://asciinema.org/a/pCtoMokkHo01kUzh3dBLTMS7w.svg)](https://asciinema.org/a/pCtoMokkHo01kUzh3dBLTMS7w)
+[![asciicast](https://asciinema.org/a/645079.svg)](https://asciinema.org/a/645079)
 
 ## Quick Start
 ```bash
