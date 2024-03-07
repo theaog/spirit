@@ -11,7 +11,7 @@ COMMANDS:
      scan, s                  scan --lan --threads 5000
      auto-brute, forever, ab  scan/banner/brute over and over on random ports, automatically w/ a CIDR of your choice
    Extra:
-     parse, p  parse masscan/nmap -oG output from open.lst and generates h.lst in IP:PORT format
+     parse, p  parses masscan/nmap -oG output from open.lst and generates h.lst in IP:PORT format
      ports     generate random ports in 1-65535 range avoiding collissions
      zap, z    clean connection logs from wtmp/utmp/lastlog/auth.log/audit.log
    Pro:
