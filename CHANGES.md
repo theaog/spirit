@@ -11,6 +11,7 @@
 - added Nmap parsing of open.lst to ./spirit parse
 - redesigned `parse` command: faster, supports nmap,masscanv1,masscan>v1 -oG parsing
 - fixed an issue where parse would output wrong format on old masscan syntax
+- FIX: issue where brute would waste 1s every blocked host, now moves faster
 
 ## Spirit 1.29
 - renamed `forever` to `auto-brute` which uses masscan on a list of CIDRs on random ports and brutes them automatically then repeats
