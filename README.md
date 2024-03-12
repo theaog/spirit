@@ -100,7 +100,6 @@ $ ./spirit auto-ssh --command 'whoami && uptime'
 $ ./spirit auto-ssh --upload ./spirit --command '/tmp/spirit scan --lan'
 ```
 
-
 ## Spirit is Free (sorta)
 Scanning port 22 is unlimited, any other port requires a license.
 

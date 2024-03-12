@@ -5,7 +5,7 @@ USAGE:
    ./spirit --help
 
 COMMANDS:
-   main():
+   main:
      brute, B                 performs brute-force password guessing against ssh servers
      brute-key, k             performs brute-force using a private key (default id_rsa) on users from your p.lst file.
      banner, b                grab SSH version (banner) without performing a login
@@ -21,7 +21,7 @@ COMMANDS:
      abuse                    check your host IP against abuse report databases
      exploit, e               tries multiple CVE on local host until one works (includes exploits for Zimbra & Gitlab)
      encrypt, E               activates encryption for your passfile (p.lst)
-   support():
+   support:
      upgrade, u, update  download the latest version with new features and bug fixes
      register            register your Spirit license on this server
      partner             become a Spirit Partner to join our Telegram Community & earn up to 30% XMR
