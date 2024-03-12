@@ -97,7 +97,7 @@ results stored in:
 # Connect to all your found hosts automatically & run commands.
 $ ./spirit auto-ssh --command 'whoami && uptime'
 # Upload spirit to all hosts and scan the LAN
-$ ./spirit auto-ssh --upload ./spirit --command '/dev/shm/spirit scan --lan'
+$ ./spirit auto-ssh --upload ./spirit --command '/tmp/spirit scan --lan'
 ```
 
 
