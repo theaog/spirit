@@ -109,25 +109,11 @@ Scanning port 22 is unlimited, any other port requires a license.
 $ ./spirit buy
 Monero only, you can convert other crypto assets to XMR on https://tradeogre.com
 If you have any issue w/ the payment-flow, contact us https://github.com/theaog/spirit/issues
-+--------------+-------------------+------------------+
-| SPIRIT BASIC |    SPIRIT PRO     |   SPIRIT ULTRA   |
-+--------------+-------------------+------------------+
-| brute        | brute-key         | exploit          |
-| banner       | auto-ssh          | proxy-banner     |
-| scan         | masscan           | encrypt          |
-| auto-brute   | passwd            |                  |
-|              | abuse             |                  |
-|              |                   |                  |
-|              |                   |                  |
-+--------------+-------------------+------------------+
-|  3 SERVERS   | 6 SERVERS + BASIC | 12 SERVERS + PRO |
-+--------------+-------------------+------------------+
-Use the arrow keys to navigate: ↓ ↑ → ←
 ? Select your Spirit version::
-  ▸ Basic TRIAL $15 (3 days)
-    Basic $100 (30 days)
-    Pro $200 (30 days)
-    Ultra $500 (30 days)
+  ▸ Basic TRIAL $10 (3 days) [1 Server]
+    Basic $100 (30 days) [3 Servers]
+    Pro $200 (30 days) [7 Servers]
+    Ultra $500 (30 days) [15 Servers]
     Referral code
 ```
 
