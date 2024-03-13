@@ -7,7 +7,6 @@
 - added spirit arm64 and i386 compiled binaries
 - changed omni to auto-ssh
 - added threads/timeout to auto-ssh
-- moved auto-brute(forver) to Basic license
 - added Nmap parsing of open.lst to ./spirit parse
 - redesigned `parse` command: faster, supports nmap,masscanv1,masscan>v1 -oG parsing
 - fixed an issue where parse would output wrong format on old masscan syntax
