@@ -33,11 +33,8 @@ cp `which masscan` .
 ```
 
 ## Help us spread the word about Spirit!
-Refer Spirit in your community or work environment and earn up to 30% in Referral Fees.
-
-Start here: `$ ./spirit partner`
-
-Generate your Referral Code which grants 10% discount on any Spirit plan.
+Refer Spirit in your community or work environment and earn up to 30% in Referral Fees. \
+Start here: `$ ./spirit partner` || generate your Referral Code which grants 10% discount on any Spirit plan.
 
 ## Upgrade Spirit automaticaly
 ```bash
