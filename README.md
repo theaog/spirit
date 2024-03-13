@@ -36,15 +36,15 @@ cp `which masscan` .
 Refer Spirit in your community or work environment and earn up to 30% in Referral Fees. \
 Start here: `$ ./spirit partner` || generate your Referral Code which grants 10% discount on any Spirit plan.
 
+## Support
+- [GitHub Issue](https://github.com/theaog/spirit/issues/new)
+- [Telegram](https://t.me/pentestspirit)
+
 ## Upgrade Spirit automaticaly
 ```bash
 ./spirit upgrade
 Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 ```
-
-## Support
-- [GitHub Issue](https://github.com/theaog/spirit/issues/new)
-- [Telegram](https://t.me/pentestspirit)
 
 ## Example usage for SSH brute flow TLDR;
 ```bash
