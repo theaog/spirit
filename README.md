@@ -32,6 +32,11 @@ cp `which masscan` .
 ./go.sh 172 $(./spirit ports) 50000
 ```
 
+## Help us spread the word about Spirit!
+Refer Spirit in your community or work environment and earn up to 30% in Referral Fees.
+Start here: `$ ./spirit partner`
+Generate your Referral Code which grants 10% discount on any Spirit plan.
+
 ## Upgrade Spirit automaticaly
 ```bash
 ./spirit upgrade
