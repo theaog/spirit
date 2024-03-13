@@ -19,13 +19,13 @@ Most commands have subcommands `./spirit <command> --help`
 wget https://github.com/theaog/spirit/releases/download/1.30/spirit.tgz
 # unpack spirit
 tar xvf spirit.tgz
-./spirit --help
-
 # install masscan
 sudo apt install masscan
 # copy masscan into your current working directory
 cp `which masscan` .
 
+# check the full toolset
+./spirit --help
 # start the show! <class-A> <port1,port2,port3> <speed> 
 # ./spirit ports generates 3 random ports 1-65535 and keeps track of
 # already generated port numbers in ports.lst
@@ -34,7 +34,7 @@ cp `which masscan` .
 
 ## Help us spread the word about Spirit!
 Refer Spirit in your community or work environment and earn up to 30% in Referral Fees. \
-Start here: `$ ./spirit partner` || generate your Referral Code which grants 10% discount on any Spirit plan.
+Start here: `$ ./spirit partner` || generate your Referral Code which grants 10% off on any Spirit plan.
 
 ## Support
 - [GitHub Issue](https://github.com/theaog/spirit/issues/new)
