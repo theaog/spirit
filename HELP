@@ -11,15 +11,15 @@ COMMANDS:
      banner, b                grab SSH version (banner) without performing a login
      proxybanner, pb, bb, b2  improved SSH version grabber - faster, more accurate, Terminal UI and socks5 support. Provide SOCKS5:IP:PORT in proxy.lst file.
      autossh, o, as           auto-ssh on all found.lst hosts and run commands or upload files
-     scan, s                  scan --lan --threads 5000
+     scan, s                  open ports network scanner, designed for LAN scans (no root required)
      masscan, ms              masscan automation using zone.lst file: ./spirit ms --help
-     autobrute, ab            scan/banner/brute over and over on random ports, automatically w/ a CIDR of your choice
+     autobrute, ab            masscan->banner->brute on random ports in a forever loop
      parse, p                 parses masscan/nmap -oG output from open.lst and generates h.lst in IP:PORT format
-     ports, P                 generate random ports in 1-65535 range avoiding collissions
+     ports, P                 generate random ports in 1-65535 range avoiding duplicates
      zap, z                   clean connection logs from wtmp/utmp/lastlog/auth.log/audit.log
-     passwd                   parses /etc/passwd file and generates random passwords for uncommon users
+     passwd, pw               parses /etc/passwd file and generates random passwords for uncommon users
      abuse                    check your host IP against abuse report databases
-     exploit, e               tries multiple CVE on local host until one works (includes exploits for Zimbra & Gitlab)
+     exploit, e               tries multiple CVE on local host until one works (includes Gitlab exploit subcmd)
      encrypt, E               activates encryption for your passfile (p.lst)
    support:
      upgrade, u, update  download the latest version with new features and bug fixes
