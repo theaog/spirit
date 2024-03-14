@@ -7,15 +7,15 @@ USAGE:
 COMMANDS:
    main:
      brute, B                 performs brute-force password guessing against ssh servers
-     brute-key, k             performs brute-force using a private key (default id_rsa) on users from your p.lst file.
+     brutekey, K              performs brute-force using a private key (default id_rsa) on users from your p.lst file.
      banner, b                grab SSH version (banner) without performing a login
-     proxybanner, pb          improved SSH version grabber - faster, more accurate, Terminal UI and socks5 support. Provide SOCKS5:IP:PORT in proxy.lst file.
-     autossh, o, omni, assh   auto-ssh on all found.lst hosts and run commands or upload files
+     proxybanner, pb, bb, b2  improved SSH version grabber - faster, more accurate, Terminal UI and socks5 support. Provide SOCKS5:IP:PORT in proxy.lst file.
+     autossh, o, as           auto-ssh on all found.lst hosts and run commands or upload files
      scan, s                  scan --lan --threads 5000
      masscan, ms              masscan automation using zone.lst file: ./spirit ms --help
-     auto-brute, forever, ab  scan/banner/brute over and over on random ports, automatically w/ a CIDR of your choice
+     autobrute, ab            scan/banner/brute over and over on random ports, automatically w/ a CIDR of your choice
      parse, p                 parses masscan/nmap -oG output from open.lst and generates h.lst in IP:PORT format
-     ports                    generate random ports in 1-65535 range avoiding collissions
+     ports, P                 generate random ports in 1-65535 range avoiding collissions
      zap, z                   clean connection logs from wtmp/utmp/lastlog/auth.log/audit.log
      passwd                   parses /etc/passwd file and generates random passwords for uncommon users
      abuse                    check your host IP against abuse report databases
@@ -23,9 +23,9 @@ COMMANDS:
      encrypt, E               activates encryption for your passfile (p.lst)
    support:
      upgrade, u, update  download the latest version with new features and bug fixes
-     register            register your Spirit license on this server
+     register, r         register your Spirit license on this server
      partner             become a Spirit Partner to join our Telegram Community & earn up to 30% XMR
-     reset               remove ALL your registered servers and start fresh
+     reset, R            remove ALL your registered servers and start fresh
      buy                 buy a license to donate & support this project (XMR only) -- thank you!
 
 GLOBAL OPTIONS:
