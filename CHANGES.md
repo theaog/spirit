@@ -12,6 +12,8 @@
 - fixed an issue where parse would output wrong format on old masscan syntax
 - FIX: issue where brute would waste 1s every blocked host, now moves faster
 - removed Basic/Pro/Ultra version segregation, now Spirit is an all-in-one tool
+- improved brute, fixed hangout bug on 0 hosts
+- redesigned file handling open.lst > h.lst > b.lst > found.lst
 
 ## Spirit 1.29
 - renamed `forever` to `auto-brute` which uses masscan on a list of CIDRs on random ports and brutes them automatically then repeats
