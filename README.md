@@ -40,7 +40,7 @@ Start here: `$ ./spirit partner` || generate your Referral Code which grants 10%
 - [GitHub Issue](https://github.com/theaog/spirit/issues/new)
 - [Telegram](https://t.me/pentestspirit)
 
-## Upgrade Spirit automaticaly
+## Upgrade Spirit automatically
 ```bash
 ./spirit upgrade
 Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
