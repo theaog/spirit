@@ -19,6 +19,7 @@
 - improved BLOCK accuracy during honey-pot scan, improving speed
 - improved NOLOGIN detection, they will be stored in separate `found.nologin` file
 - removed auto-threads limitations, you now have full control
+- SSH connection errors are not being stored in `found.errors`
 
 ## Spirit 1.29
 - renamed `forever` to `auto-brute` which uses masscan on a list of CIDRs on random ports and brutes them automatically then repeats
