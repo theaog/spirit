@@ -14,6 +14,11 @@
 - removed Basic/Pro/Ultra version segregation, now Spirit is an all-in-one tool
 - improved brute, fixed hangout bug on 0 hosts
 - redesigned file handling open.lst > h.lst > b.lst > found.lst
+- added deterministic hosts randomization
+- banner now appends to b.lst
+- improved BLOCK accuracy during honey-pot scan, improving speed
+- improved NOLOGIN detection, they will be stored in separate `found.nologin` file
+- removed auto-threads limitations, you now have full control
 
 ## Spirit 1.29
 - renamed `forever` to `auto-brute` which uses masscan on a list of CIDRs on random ports and brutes them automatically then repeats

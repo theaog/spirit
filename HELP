@@ -9,7 +9,7 @@ COMMANDS:
      brute, B                 performs brute-force password guessing against ssh servers
      brutekey, K              performs brute-force using a private key (default id_rsa) on users from your p.lst file.
      banner, b                grab SSH version (banner) without performing a login
-     proxybanner, pb, bb, b2  improved SSH version grabber - faster, more accurate, Terminal UI and socks5 support. Provide SOCKS5:IP:PORT in proxy.lst file.
+     proxybanner, pb, bb, b2  BETA: improved SSH version grabber - faster, more accurate, Terminal UI and socks5 support. Provide SOCKS5:IP:PORT in proxy.lst file.
      autossh, o, as           auto-ssh on all found.lst hosts and run commands or upload files
      scan, s                  open ports network scanner, designed for LAN scans (no root required)
      masscan, ms              masscan automation using zone.lst file: ./spirit ms --help
