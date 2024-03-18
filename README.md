@@ -34,7 +34,7 @@ cp `which masscan` .
 
 ## Auto-Brute Forever on Random Ports
 ```bash
-# Create zone.lst containing CIDRs
+# Create zone.lst containing IP addresses in CIDR notation
 $ cat >zone.lst<< EOF
 192.168.0.0/16
 172.16.0.0/12
