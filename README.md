@@ -32,6 +32,20 @@ cp `which masscan` .
 ./go.sh 172 $(./spirit ports) 50000
 ```
 
+## Auto-Brute Forever on Random Ports
+```bash
+# Create zone.lst containing CIDRs
+$ cat >zone.lst<< EOF
+192.168.0.0/16
+172.16.0.0/12
+10.0.0.0/8
+EOF
+
+# autobrute will generate collision-free(non-repeating) random ports
+# scan and brute them over and over -- forever!
+./spirit autobrute
+```
+
 ## Help us spread the word about Spirit!
 Refer Spirit in your community or work environment and earn up to 30% in Referral Fees. \
 Start here: `$ ./spirit partner` || generate your Referral Code which grants 10% off on any Spirit plan.
