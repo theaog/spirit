@@ -18,8 +18,10 @@
 - banner now appends to b.lst
 - improved BLOCK accuracy during honey-pot scan, improving speed
 - improved NOLOGIN detection, they will be stored in separate `found.nologin` file
+- found.nologin can be used with autossh to verify the nologins detection is accurate
 - removed auto-threads limitations, you now have full control
-- SSH connection errors are not being stored in `found.errors`
+- SSH connection errors are now being stored in `found.errors`
+- autobanner can now use proxybrute via --proxy flag
 
 ## Spirit 1.29
 - renamed `forever` to `auto-brute` which uses masscan on a list of CIDRs on random ports and brutes them automatically then repeats
