@@ -136,10 +136,10 @@ $ ./spirit buy
 Monero only, you can convert other crypto assets to XMR on https://tradeogre.com
 If you have any issue w/ the payment-flow, contact us https://github.com/theaog/spirit/issues
 ? Select your Spirit version::
-  ▸ Basic TRIAL $10 (3 days) [1 Server]
-    Basic $100 (30 days) [3 Servers]
-    Pro $200 (30 days) [7 Servers]
-    Ultra $500 (30 days) [15 Servers]
+  ▸ Basic $100 (30 days) [3 Servers] ($33/srv)
+    Pro $200 (30 days) [8 Servers] ($25/srv)
+    Ultra $400 (30 days) [18 Servers] ($22/srv)
+    Basic TRIAL $10 (3 days) [3 Server]
     Referral code
 ```
 
