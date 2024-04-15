@@ -9,6 +9,11 @@ if [ $# != 3 ]; then
 fi
 clear
 
+if [[ ! -e $(which masscan) ]]; then
+    printf "Installing masscan...\n"
+    apt install masscan || printf "You have to install masscan\n"
+fi
+
 echo -e "[+] increasing system limits"
 ulimit -n 65535
 
