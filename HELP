@@ -21,6 +21,7 @@ COMMANDS:
      abuse                    check your host IP against abuse report databases
      exploit, e               tries multiple CVE on local host until one works (includes Gitlab exploit subcmd)
      encrypt, E               activates encryption for your passfile (p.lst)
+     bot                      IRC bot that monitors system changes and issues NOTICE on channel
    support:
      upgrade, u, update  download the latest version with new features and bug fixes
      register, r         register your Spirit license on this server
