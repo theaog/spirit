@@ -31,6 +31,7 @@ COMMANDS:
 
 GLOBAL OPTIONS:
    --terms     display terms & conditions (default: false)
+   --motd      (default: true)
    --help, -h  show help
 
 COPYRIGHT:
