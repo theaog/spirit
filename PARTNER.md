@@ -12,6 +12,8 @@ Become a Spirit partner and benefit of 10% discount on licenses and up to 30% re
 - request features you would like to see in Spirit
 
 ## Commission levels
-- Basic Partner: <4 referrals/month (10% commission)
-- Pro Partner: >4 and <10 referrals/month (20% commission)
+- Basic Partner: <3 referrals/month (10% commission)
+- Pro Partner: >3 and <10 referrals/month (20% commission)
 - Ultra Partner >10 referrals/month (30% commission)
+
+NOTE: You must do at least 3 refers per month in order to receive commission.
