@@ -22,6 +22,8 @@
 - removed auto-threads limitations, you now have full control
 - SSH connection errors are now being stored in `found.errors`
 - autobanner can now use proxybrute via --proxy flag
+- added Spirit beta: ./spirit upgrade --beta
+- improved spirit buy
 
 ## Spirit 1.29
 - renamed `forever` to `auto-brute` which uses masscan on a list of CIDRs on random ports and brutes them automatically then repeats
