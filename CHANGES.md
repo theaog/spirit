@@ -22,8 +22,10 @@
 - removed auto-threads limitations, you now have full control
 - SSH connection errors are now being stored in `found.errors`
 - autobanner can now use proxybrute via --proxy flag
-- added Spirit beta: ./spirit upgrade --beta
-- improved spirit buy
+- added Spirit beta: ./spirit upgrade --beta for latest versions
+- improved spirit buy w/ ability to design your own licensing plan
+- spirit Bot now let's you run Spirit commands within IRC channels: .spirit scan --lan 
+- partners can now check their sales: ./spirit partner sales <code> or shortform: ./spirit pp s <code>
 
 ## Spirit 1.29
 - renamed `forever` to `auto-brute` which uses masscan on a list of CIDRs on random ports and brutes them automatically then repeats
