@@ -29,6 +29,7 @@
 - removed license requirement for upgrade functionality
 - brute: added sending found.ssh data via telegram while scan is in progress
 - added output streaming to .spirit/.shell bot command
+- changed spirit scan output from scan.lst to h.lst
 
 ## Spirit 1.29
 - renamed `forever` to `auto-brute` which uses masscan on a list of CIDRs on random ports and brutes them automatically then repeats
