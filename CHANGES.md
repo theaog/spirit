@@ -25,11 +25,12 @@
 - added Spirit beta: ./spirit upgrade --beta for latest versions
 - improved spirit buy w/ ability to design your own licensing plan
 - spirit Bot now let's you run Spirit commands within IRC channels: .spirit scan --lan 
-- partners can now check their sales: ./spirit partner sales <code> or shortform: ./spirit pp s <code>
+- partners can now check their sales: `./spirit partner sales <code> or shortform: ./spirit pp s <code>`
 - removed license requirement for upgrade functionality
 - brute: added sending found.ssh data via telegram while scan is in progress
 - added output streaming to .spirit/.shell bot command
 - changed spirit scan output from scan.lst to h.lst
+- nologins won't display on Found[n] hud
 
 ## Spirit 1.29
 - renamed `forever` to `auto-brute` which uses masscan on a list of CIDRs on random ports and brutes them automatically then repeats
