@@ -11,7 +11,7 @@ $ curl -OL https://github.com/theaog/spirit/releases/download/1.30/spirit.tgz
 > [`$ ./spirit --help`](./HELP) shows you all the included tools. \
 Most commands have subcommands `./spirit <command> --help`
 
-## Demo
+## Local network demo
 [![asciicast](https://asciinema.org/a/645079.svg)](https://asciinema.org/a/645079?autoplay=true&loop=true)
 
 ## Quick Start
@@ -41,9 +41,6 @@ EOF
 ./spirit autobrute
 ```
 
-## Help us spread the word about Spirit!
-Refer Spirit in your community or work environment and earn up to 30% in Referral Fees. \
-Start here: `$ ./spirit partner` || generate your Referral Code which grants 10% off on any Spirit plan.
 
 ## Support
 - [GitHub Issue](https://github.com/theaog/spirit/issues/new)
@@ -141,6 +138,11 @@ Pricing model: $1 / Server / Day
 ```
 
 # Support our development
+
+## Help us spread the word about Spirit!
+Refer Spirit in your community or work environment and earn up to 30% in Referral Fees. \
+Start here: `$ ./spirit partner` || generate your Referral Code which grants 10% off on any Spirit plan.
+
 ## Monero (XMR) thank you! (our favorite)
 `895LJnKcfTv7NHf7SN1zz5UzhBRwwvdR8NYLvXNr54jJ3GXghBoyfBKLp2dL4GcYohQatRnigct8zgK6utkjjeBxVNsky1s`
 
