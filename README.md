@@ -133,14 +133,16 @@ Scanning port 22 is unlimited, any other port requires a license.
 ## You can unlock Spirit's full functionality directly from the CLI by obtaining a license.
 ```bash
 $ ./spirit buy
-Monero only, you can convert other crypto assets to XMR on https://tradeogre.com
-If you have any issue w/ the payment-flow, contact us https://github.com/theaog/spirit/issues
-? Select your Spirit version::
-  ▸ Basic $100 (30 days) [3 Servers] ($33/srv)
-    Pro $200 (30 days) [8 Servers] ($25/srv)
-    Ultra $400 (30 days) [18 Servers] ($22/srv)
-    Basic TRIAL $10 (3 days) [3 Server]
-    Referral code
+Payment-flow Support @ https://t.me/spiritNPT
+Pricing model: $1 / Server / Day
+
+┃ How many servers?> 3
+
+┃ How many days?> 30
+
+┃ Would you like 10% off using a referral code?
+┃
+┃   Yes     No
 ```
 
 # Support our development
