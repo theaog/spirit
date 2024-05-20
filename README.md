@@ -16,24 +16,18 @@ Most commands have subcommands `./spirit <command> --help`
 
 ## Quick Start
 ```bash
-# download spirit
 wget https://github.com/theaog/spirit/releases/download/1.30/spirit.tgz
-# unpack spirit
 tar xvf spirit.tgz
-# install masscan
+./spirit --help
+
 sudo apt install masscan
-# copy masscan into your current working directory
 cp `which masscan` .
 
-# check the full toolset
-./spirit --help
-# start the show! <class-A> <port1,port2,port3> <speed> 
-# ./spirit ports generates 3 random ports 1-65535 and keeps track of
-# already generated port numbers in ports.lst
-./go.sh 172 $(./spirit ports) 50000
+# automatic random scanning
+./spirit autobrute --ports 22
 ```
 
-## Auto-Brute Forever on Random Ports
+## Autobrute with zones
 ```bash
 # Create zone.lst containing IP addresses in CIDR notation
 $ cat >zone.lst<< EOF
@@ -133,6 +127,7 @@ Scanning port 22 is unlimited, any other port requires a license.
 ## You can unlock Spirit's full functionality directly from the CLI by obtaining a license.
 ```bash
 $ ./spirit buy
+
 Payment-flow Support @ https://t.me/spiritNPT
 Pricing model: $1 / Server / Day
 
