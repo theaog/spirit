@@ -47,7 +47,7 @@ Start here: `$ ./spirit partner` || generate your Referral Code which grants 10%
 
 ## Support
 - [GitHub Issue](https://github.com/theaog/spirit/issues/new)
-- [Telegram](https://t.me/theaogspirit)
+- [Telegram](https://t.me/spiritNPT)
 
 ## Upgrade Spirit automatically
 ```bash
