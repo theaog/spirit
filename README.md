@@ -137,7 +137,7 @@ Pricing model: $1 / Server / Day
 ┃   Yes     No
 ```
 
-> if you encounter any issues w/ the payment, please reach out to us on [Telegram](https://t.me/spiritNPT) or open an [issue](https://github.com/theaog/spirit/issues)
+> if you encounter any issues w/ the payment, please reach out to us on [telegram](https://t.me/spiritNPT) or open an [issue](https://github.com/theaog/spirit/issues)
 
 # Support our development
 
