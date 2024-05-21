@@ -38,12 +38,9 @@ echo -e "[+] parsing masscan output"
 echo -e "[+] starting banner grabber"
 ./spirit banner
 
-cat <h.lst|sort|uniq|shuf>hh.lst
-mv hh.lst h.lst
-
 echo -e "[+] starting brute-force attack"
 ./spirit brute
 
 echo -e "[+] done, let's see what we've found:"
 sleep 3
-head -n20 found.ssh || echo "no servers found :("
+head -n20 found.ssh 2>/dev/null || echo "no servers found :("
