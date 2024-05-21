@@ -23,11 +23,10 @@ tar xvf spirit.tgz
 sudo apt install masscan
 cp `which masscan` .
 
-# automatic random scanning
-./spirit autobrute --ports 22
+./go.sh 192 22 50000
 ```
 
-## Autobrute with zones
+## Autobrute with zones (requires license)
 ```bash
 # Create zone.lst containing IP addresses in CIDR notation
 $ cat >zone.lst<< EOF
