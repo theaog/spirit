@@ -20,9 +20,6 @@ wget https://github.com/theaog/spirit/releases/download/1.30/spirit.tgz
 tar xvf spirit.tgz
 ./spirit --help
 
-sudo apt install masscan
-cp `which masscan` .
-
 ./go.sh 192 22 50000
 ```
 
