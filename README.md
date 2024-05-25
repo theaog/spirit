@@ -161,6 +161,4 @@ Spirit is clean software the only data it sends home is your machine-id to verif
 # Disclaimer
 
 > [!IMPORTANT]
-> This tool should be used for authorized penetration testing and/or educational purposes only. Any misuse of this software will not be the responsibility of the author or of any other collaborator. Use it on your own systems and/or with the system owner's permission.
-
-> Usage of any tools in this repository for attacking targets without prior mutual consent is illegal. It is the end user’s responsibility to obey all applicable local, state and federal laws. We assume no liability and are not responsible for any misuse or damage caused.
+> This tool should be used for authorized penetration testing and/or educational purposes only. Any misuse of this software will not be the responsibility of the author or of any other collaborator. Use it on your own systems and/or with the system owner's permission. Usage of any tools in this repository for attacking targets without prior mutual consent is illegal. It is the end user’s responsibility to obey all applicable local, state and federal laws. We assume no liability and are not responsible for any misuse or damage caused.
