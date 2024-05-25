@@ -156,6 +156,7 @@ Don't forget to give us a Star!
 
 > NOTICE: rumors have been circulating that `spirit` contains a backdoor -- that's not true, we would never do that. We offer a bounty of 50XMR to whomever opens an issue in this repo and provides undeniable proof of the "alleged" backdoor.
 
+> [!NOTE]
 Spirit is clean software the only data it sends home is your machine-id to verify the license.
 
 # Disclaimer
