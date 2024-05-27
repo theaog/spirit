@@ -2,7 +2,7 @@
 > We believe in making the internet a safe environment where security is taken seriously as a priority and forcing out of the market bad actors like the admins allowing password authentication over such a critical cog of our infrastructure. Spirit is designed to root out these weeds (pun intended).
 
 ### [Download the latest Spirit release](https://github.com/theaog/spirit/releases)
-```bash
+``bash
 $ wget https://github.com/theaog/spirit/releases/download/1.30/spirit.tgz
 $ curl -OL https://github.com/theaog/spirit/releases/download/1.30/spirit.tgz
 ```
@@ -115,7 +115,7 @@ $ ./spirit autossh --upload ./spirit --command '/tmp/spirit scan --lan'
 ```
 
 ## Spirit is Free (sorta)
-Scanning port 22 is unlimited, any other port requires a license.
+Scanning port 22 is unlimited, any other port requires a license which starts at $1/day/server.
 
 ## You can unlock Spirit's full functionality directly from the CLI by obtaining a license.
 ```bash
