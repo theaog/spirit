@@ -11,9 +11,6 @@ $ curl -OL https://github.com/theaog/spirit/releases/download/1.30/spirit.tgz
 > [`$ ./spirit --help`](./HELP) shows you all the included tools. \
 Most commands have subcommands `./spirit <command> --help`
 
-## Local network demo
-[![asciicast](https://asciinema.org/a/645079.svg)](https://asciinema.org/a/645079?autoplay=true&loop=true)
-
 ## Quick Start
 ```bash
 wget https://github.com/theaog/spirit/releases/download/1.30/spirit.tgz
@@ -21,6 +18,8 @@ tar xvf spirit.tgz
 ./spirit --help
 ./go.sh 192 22 50000
 ```
+
+<p align="center">  <a href="https://t.me/spiritNPT)><img width="160" height="50" src="https://i.imgur.com/N7AK7XY.png"></a></p>
 
 ## Autobrute with zones (requires license)
 ```bash
@@ -36,6 +35,8 @@ EOF
 ./spirit autobrute
 ```
 
+## Local network demo
+[![asciicast](https://asciinema.org/a/645079.svg)](https://asciinema.org/a/645079?autoplay=true&loop=true)
 
 ## Support
 - [GitHub Issue](https://github.com/theaog/spirit/issues/new)
