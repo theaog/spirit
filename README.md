@@ -1,5 +1,6 @@
 # Spirit - Network Pentest Tools
 > We believe in making the internet a safe environment where security is taken seriously as a priority and forcing out of the market bad actors like the admins allowing password authentication over such a critical cog of our infrastructure. Spirit is designed to root out these weeds (pun intended).
+<p align="center">  <a href="https://t.me/spiritNPT"><img width="160" height="50" src="https://i.imgur.com/N7AK7XY.png"></a></p>
 
 ### [Download the latest Spirit release](https://github.com/theaog/spirit/releases)
 
@@ -19,7 +20,6 @@ tar xvf spirit.tgz
 ./go.sh 192 22 50000
 ```
 
-<p align="center">  <a href="https://t.me/spiritNPT"><img width="160" height="50" src="https://i.imgur.com/N7AK7XY.png"></a></p>
 
 ## Autobrute with zones (requires license)
 ```bash
