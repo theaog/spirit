@@ -19,7 +19,7 @@ tar xvf spirit.tgz
 ./go.sh 192 22 50000
 ```
 
-<p align="center">  <a href="https://t.me/spiritNPT)><img width="160" height="50" src="https://i.imgur.com/N7AK7XY.png"></a></p>
+<p align="center">  <a href="https://t.me/spiritNPT"><img width="160" height="50" src="https://i.imgur.com/N7AK7XY.png"></a></p>
 
 ## Autobrute with zones (requires license)
 ```bash
