@@ -20,7 +20,6 @@ tar xvf spirit.tgz
 ./go.sh 192 22 50000
 ```
 
-
 ## Autobrute with zones (requires license)
 ```bash
 # Create zone.lst containing IP addresses in CIDR notation
@@ -47,6 +46,28 @@ EOF
 ./spirit upgrade
 Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 ```
+
+## Spirit Brute|Banner vs Other...
+
+### Spirit Banner 
+- Stealthy, sends the least amount of TCP packets in order to retrieve the SSH version then breaks the connections without doing a Login
+- Proper connection handling and timeout, doesn't leave dead connections open wasting file descriptors
+- Fast, very fast and accurate
+
+### Spirit Brute
+- Custom SSH lib allows interacting with more SSH versions, ciphers, algos and macs
+- Automatically removes unreachable IPs from the bruting cycle, less dull work = faster work
+- Automatically adjusts the number of threads based on remaining hosts
+- Tries to connect using Key files rather than just passwords
+- Detects Honeypots and stops throwing passwords at them
+- Tries 1 password per IP rather than throwing all passwords at the same host triggering Fail2Ban and protections of the sort
+- Randomizes IPs to avoid saturating a network with packets from the same source
+- Connects to multiple ports in the same hosts file
+- Autossh allows connecting to all vulnerable hosts at once
+- Allows submitting vulnerable hosts to your telegram channel
+- Encrypts your passfile to safely use it on unsecured systems
+- Excludes vuln found hosts, nologin hosts and honeypots from future scans: narrowing your search
+- Generates statiscs and error logs
 
 ## Example usage for SSH brute flow TLDR;
 ```bash
