@@ -16,11 +16,10 @@ Most commands have subcommands `./spirit <command> --help`
 ```bash
 wget https://github.com/theaog/spirit/releases/download/1.30/spirit.tgz
 tar xvf spirit.tgz
-./spirit --help
-./go.sh 192 22 50000
+./spirit autobrute --ports 22
 ```
 
-## Autobrute with zones (requires license)
+## Autobrute with zones
 ```bash
 # Create zone.lst containing IP addresses in CIDR notation
 $ cat >zone.lst<< EOF
