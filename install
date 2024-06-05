@@ -39,7 +39,7 @@ for URL in $ARTIFACTS
 do
     case $cpu_arch in
         x86_64)
-            echo "64-bit architecture detected (x86_64)."
+            # echo "64-bit architecture detected (x86_64)."
             if [[ "$URL" == *"spirit.tgz"* ]]; then
                 echo "Downloading $URL"
                 curl --silent -L "$URL" --output "$(basename "$URL")"
@@ -47,14 +47,14 @@ do
             fi
             ;;
         i386|i686)
-            echo "32-bit architecture detected (x86)."
+            # echo "32-bit architecture detected (x86)."
             if [[ "$URL" == *"spirit32.tgz"* ]]; then
                 echo "Downloading $URL"
                 curl --silent -L "$URL" --output "$(basename "$URL")"
             fi
             ;;
         aarch64)
-            echo "64-bit ARM architecture detected (aarch64)."
+            # echo "64-bit ARM architecture detected (aarch64)."
             if [[ "$URL" == *"spirit-arm.tgz"* ]]; then
                 echo "Downloading $URL"
                 curl --silent -L "$URL" --output "$(basename "$URL")"
@@ -62,7 +62,7 @@ do
             ;;
         *)
             echo "Unknown architecture detected: $cpu_arch"
-            # Add your fallback or default commands here
+            exit
             ;;
     esac
 done
