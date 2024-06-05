@@ -69,7 +69,7 @@ done
 
 ask_run_autobrute() {
     while true; do
-        read -p "Do you want to run Spirit Autobrute? (yes/no): " yn
+        read -p "Do you want to run Spirit Autobrute? (y/n): " yn
         case $yn in
             [Yy]* )
                 echo "Running Spirit Autobrute..."
