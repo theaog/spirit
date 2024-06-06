@@ -19,7 +19,7 @@ COMMANDS:
      zap, z                   clean connection logs from wtmp/utmp/lastlog/auth.log/audit.log
      passwd, pw               parses /etc/passwd file and generates random passwords for uncommon users
      abuse                    check your host IP against abuse report databases
-     exploit, e               tries multiple CVE on local host until one works (includes Gitlab exploit subcmd)
+     exploit, e               tries multiple CVE on local host until one works
      encrypt, E               activates encryption for your passfile (p.lst)
      bot                      IRC bot that monitors system changes and issues NOTICE on channel
    support:
