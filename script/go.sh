@@ -9,10 +9,33 @@ if [ $# != 3 ]; then
 fi
 clear
 
-if [[ ! -e $(which masscan) ]]; then
-    printf "Installing masscan...\n"
-    apt install masscan || printf "You have to install masscan\n"
+if command -v apt-get &> /dev/null; then
+    echo "Installing dependencies using apt..."
+    DEBIAN_FRONTEND=noninteractive apt-get install -yqq \
+		masscan
+    	INSTALLER=(apt-get install -yqq)
+elif command -v yum &> /dev/null; then # Redhat-based OS (Fedora, CentOS, RHEL)
+    echo "Installing dependencies using yum..."
+    yum -y install masscan
+	INSTALLER=(yum -y)
+elif command -v pacman &>/dev/null; then # Arch-based (Manjaro, Garuda, Blackarch)
+	echo "Installing dependencies using pacman..."
+	pacman --noconfirm -S masscan
+    INSTALLER=(pacman --noconfirm -S)
+else
+    echo "Unsupported OS, exiting"
+    exit
 fi
+
+# Verify if necessary tools are installed
+for cmd in curl tar masscan; do
+    if ! command -v "$cmd" &> /dev/null; then		
+        echo "$cmd could not be found, installing..."
+		"${INSTALLER[@]}" "$cmd"
+    fi
+done
+
+cp "$(which masscan)" .
 
 echo -e "[+] increasing system limits"
 ulimit -n 65535
