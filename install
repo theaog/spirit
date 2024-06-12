@@ -26,15 +26,12 @@ for cmd in curl tar masscan; do
     fi
 done
 
-TMP=spirit
-mkdir -p $TMP || exit
-cd "$TMP" || exit
 echo "Running from $(pwd)"
 
 # Get the CPU architecture
 cpu_arch=$(uname -m)
 echo "Fetching latest Spirit release URLs..."
-ARTIFACTS=$(curl -s "https://api.github.com/repos/theaog/spirit/releases/latest" | awk -F '"' '/browser_download_url/{print $4}')
+ARTIFACTS=$(curl -sf "https://api.github.com/repos/theaog/spirit/releases/latest" | awk -F '"' '/browser_download_url/{print $4}')
 for URL in $ARTIFACTS
 do
     case $cpu_arch in
