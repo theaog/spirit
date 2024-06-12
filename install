@@ -64,18 +64,19 @@ do
     esac
 done
 
+
 ask_run_autobrute() {
     while true; do
         read -p "Do you want to run Spirit Autobrute? (y/n): " yn < /dev/tty
         case $yn in
             [Yy]* )
                 echo "Running Spirit Autobrute..."
-                tar xvf spirit*.tgz
                 ./spirit autobrute --ports 22
                 break
                 ;;
             [Nn]* )
-                echo "Alright, enjoy!"
+                echo "Just unpacking then, enjoy!"
+                tar xvf spirit*.tgz
                 break
                 ;;
             * )
