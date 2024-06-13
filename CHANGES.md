@@ -31,7 +31,8 @@
 - added output streaming to .spirit/.shell bot command
 - changed spirit scan output from scan.lst to h.lst
 - nologins won't display on Found[n] hud
-- banner will not display skipped hosts via filter.lst file
+- banner will now display skipped hosts via filter.lst file
+- proxybanner: fixed an issue where a crash would occur w/ very large host files
 
 ## Spirit 1.29
 - renamed `forever` to `auto-brute` which uses masscan on a list of CIDRs on random ports and brutes them automatically then repeats
