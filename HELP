@@ -31,7 +31,8 @@ COMMANDS:
 
 GLOBAL OPTIONS:
    --terms     display terms & conditions (default: false)
-   --motd      (default: true)
+   --motd      show motd (default: true)
+   --tweak     optimize kernel settings for optimal scanning (default: false)
    --help, -h  show help
 
 COPYRIGHT:
