@@ -149,9 +149,9 @@ $ ./spirit buy
 Payment-flow Support @ https://t.me/spiritNPT
 Pricing model: $1 / Server / Day
 
-┃ How many servers?> 3
+┃ How many servers?> 1
 
-┃ How many days?> 30
+┃ How many days?> 10
 
 ┃ Would you like 10% off using a referral code?
 ┃
