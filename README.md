@@ -89,6 +89,7 @@ $ ./spirit parse
 INFO created h.lst in HOST:PORT format
 
 # Optional: create a filter.lst file if you want to skip certain SSH versions.
+# You can find common filters in this repo `filter.lst` file.
 $ cat >filter.lst<< EOF
 SSH-1.0
 SSH-2.0-CISCO
@@ -139,8 +140,8 @@ $ ./spirit autossh --command 'whoami && uptime'
 $ ./spirit autossh --upload ./spirit --command '/tmp/spirit scan --lan'
 ```
 
-## Spirit is Free (sorta)
-Scanning port 22 is unlimited, any other port requires a license which starts at $1/day/server.
+## Spirit is Freemium
+Scanning port 22 is unlimited for an hour, any other port requires a license which starts at $1/day/server.
 
 ## You can unlock Spirit's full functionality directly from the CLI by obtaining a license.
 ```bash
@@ -162,10 +163,6 @@ Pricing model: $1 / Server / Day
 
 # Support our development
 
-## Help us spread the word about Spirit!
-Refer Spirit in your community or work environment and earn up to 30% in Referral Fees. \
-Start here: `$ ./spirit partner` || generate your Referral Code which grants 10% off on any Spirit plan.
-
 ## Monero (XMR) thank you! (our favorite)
 `895LJnKcfTv7NHf7SN1zz5UzhBRwwvdR8NYLvXNr54jJ3GXghBoyfBKLp2dL4GcYohQatRnigct8zgK6utkjjeBxVNsky1s`
 
@@ -179,11 +176,8 @@ Open a Github [issue](https://github.com/theaog/spirit/issues) and consider encr
 
 Don't forget to give us a Star!
 
-> NOTICE: rumors have been circulating that `spirit` contains a backdoor -- that's not true, we would never do that. We offer a bounty of 50XMR to whomever opens an issue in this repo and provides undeniable proof of the "alleged" backdoor.
-
 > [!NOTE]
-Spirit is clean software the only data it sends home a server hash to verify the license.
-
+Spirit is clean software the only data it sends home is a server hash to verify the license.
 
 # Disclaimer
 
