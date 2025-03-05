@@ -5,24 +5,15 @@
 ### [Download the latest Spirit release](https://github.com/theaog/spirit/releases)
 
 ```bash
-$ wget https://github.com/theaog/spirit/releases/download/1.30/spirit.tgz
-$ curl -OL https://github.com/theaog/spirit/releases/download/1.30/spirit.tgz
+$ wget https://github.com/theaog/spirit/raw/refs/heads/master/bin/spirit.tgz
+$ curl -OL https://github.com/theaog/spirit/raw/refs/heads/master/bin/spirit.tgz
+
+$ tar xvf spirit.tgz
+$ ./spirit autobrute --ports 22
 ```
 
 > [`$ ./spirit --help`](./HELP) shows you all the included tools. \
 Most commands have subcommands `./spirit <command> --help`
-
-## Quick Start
-### Oneshot
-```bash
-curl -fsSL https://github.com/theaog/spirit/raw/master/install |bash
-```
-### Manual
-```bash
-wget https://github.com/theaog/spirit/releases/download/1.30/spirit.tgz
-tar xvf spirit.tgz
-./spirit autobrute --ports 22
-```
 
 ## Autobrute with zones
 ```bash
