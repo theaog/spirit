@@ -188,24 +188,6 @@ install_spirit() {
     printf 'Installed ./spirit (in current directory)\n'
 }
 
-run_health_check() {
-    printf '\nRun quick health check (./spirit --help)? [y/N]: '
-    read -r answer || answer="n"
-
-    case "$answer" in
-        [yY]*)
-            if ./spirit --help >/dev/null 2>&1; then
-                printf 'Health check passed.\n'
-            else
-                printf 'Health check failed. You can try: ./spirit upgrade\n'
-            fi
-            ;;
-        *)
-            printf 'Install complete.\n'
-            ;;
-    esac
-}
-
 main() {
     printf 'Spirit Installer (POSIX sh)\n'
     printf 'This will install ./spirit into the current directory.\n\n'
@@ -225,9 +207,15 @@ main() {
 
     install_spirit "$TMPDIR/$ASSET"
 
-    run_health_check
+    printf '\nInstallation complete.\n'
+    printf 'Running: ./spirit --version\n\n'
 
-    printf '\nDone. Run: ./spirit --help\n'
+    if ./spirit --version; then
+        echo
+    else
+        printf 'Warning: ./spirit --version did not run successfully.\n'
+        printf 'You can try: ./spirit --help\n'
+    fi
 }
 
 main "$@"
