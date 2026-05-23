@@ -1,0 +1,2 @@
+c0bbc7cf7092920b557de641be4fdb55b0d017cac6605e2e3d3f7bfa03ff910d  spirit.tgz
+b7b736216356a9cac2736c7bfeb650b1e8dc0183af92df375fcd73c1780f10b7  spirit-arm.tgz
