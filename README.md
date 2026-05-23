@@ -10,6 +10,33 @@ curl -fsSL https://raw.githubusercontent.com/theaog/spirit/master/script/install
 
 This installs `./spirit` into your current directory with checksum verification.
 
+### Quick Start with go.sh
+
+For the classic "scan a list of networks → grab banners → brute-force" workflow, use the lightweight wrapper:
+
+```bash
+# Fetch the wrapper
+curl -fsSL https://raw.githubusercontent.com/theaog/spirit/master/script/go.sh -o go.sh
+chmod +x go.sh
+
+# Create a zone.lst with CIDR ranges, one per line
+cat > zone.lst << 'EOF'
+192.168.0.0/16
+10.0.0.0/8
+EOF
+
+# Run the full pipeline (masscan + parse + banner + brute)
+sudo ./go.sh --zone zone.lst --ports 22,23,2222 --rate 30000
+```
+
+- The script auto-downloads `./spirit` (with checksum verification) if it's missing.
+- It also installs `masscan` automatically on common Linux distributions.
+- Previous scan artifacts are backed up into `./bak/` with timestamps before every run.
+- Colors are shown only when connected to a terminal.
+- Run `./go.sh --help` for all options.
+
+For continuous random scanning, see the [Autobrute with zones](#autobrute-with-zones) section below.
+
 ### Manual download (alternative)
 
 ```bash
@@ -73,6 +100,9 @@ Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 - Generates statiscs and error logs
 
 ## Example usage for SSH brute flow TLDR;
+
+> **Tip:** Most users should use the one-command wrapper instead: see [Quick Start with go.sh](#quick-start-with-gosh) above.
+
 ```bash
 # First scan your network or the internet (check disclaimer) to acquire a list of open ports.
 $ masscan \
