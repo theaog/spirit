@@ -8,7 +8,7 @@
 #
 # The script will:
 #   - Auto-install ./spirit (via official installer) if missing
-#   - Ensure masscan is installed (fails fast if missing)
+#   - Auto-install masscan if missing (via package manager)
 #   - Download default filter.lst (if missing)
 #   - Backup previous artifacts into ./bak/
 #   - Run the full pipeline using spirit subcommands
@@ -107,6 +107,14 @@ done
 [[ "$RATE" =~ ^[0-9]+$ && "$RATE" -gt 0 ]] || die "Rate must be a positive integer"
 
 # -----------------------------------------------------------------------------
+# Privilege helper
+# -----------------------------------------------------------------------------
+SUDO=""
+if [[ $EUID -ne 0 ]]; then
+  SUDO="sudo"
+fi
+
+# -----------------------------------------------------------------------------
 # Ensure Spirit binary (downloads via official installer if missing)
 # -----------------------------------------------------------------------------
 ensure_spirit() {
@@ -125,15 +133,66 @@ ensure_spirit() {
 }
 
 # -----------------------------------------------------------------------------
-# Ensure masscan is available
+# Detect package manager and set install command
+# -----------------------------------------------------------------------------
+detect_pkg_manager() {
+  if have_cmd apt-get; then
+    PKG_MANAGER="apt"
+    INSTALL_CMD="apt-get install -yqq"
+  elif have_cmd dnf; then
+    PKG_MANAGER="dnf"
+    INSTALL_CMD="dnf install -y"
+  elif have_cmd yum; then
+    PKG_MANAGER="yum"
+    INSTALL_CMD="yum install -y"
+  elif have_cmd pacman; then
+    PKG_MANAGER="pacman"
+    INSTALL_CMD="pacman --noconfirm -S"
+  elif have_cmd apk; then
+    PKG_MANAGER="apk"
+    INSTALL_CMD="apk add --no-cache"
+  else
+    PKG_MANAGER=""
+    INSTALL_CMD=""
+  fi
+}
+
+# -----------------------------------------------------------------------------
+# Ensure masscan is available (auto-install if possible)
 # -----------------------------------------------------------------------------
 ensure_masscan() {
-  if ! have_cmd masscan; then
-    die "masscan is not installed.
+  if have_cmd masscan; then
+    return 0
+  fi
 
-Please install it first, then re-run this script with sudo:
+  detect_pkg_manager
+
+  if [[ -z "$INSTALL_CMD" ]]; then
+    die "masscan is not installed and no supported package manager was detected.
+
+Please install masscan manually and re-run:
   sudo ./go.sh --zone ... --ports ..."
   fi
+
+  info "masscan not found — installing via package manager..."
+
+  if [[ "$PKG_MANAGER" == "apt" ]]; then
+    if [[ -n "$SUDO" ]]; then
+      # shellcheck disable=SC2086
+      $SUDO env DEBIAN_FRONTEND=noninteractive $INSTALL_CMD masscan
+    else
+      # shellcheck disable=SC2086
+      DEBIAN_FRONTEND=noninteractive $INSTALL_CMD masscan
+    fi
+  else
+    # shellcheck disable=SC2086
+    $SUDO $INSTALL_CMD masscan
+  fi || die "Failed to install masscan.
+
+Please install it manually and re-run:
+  sudo ./go.sh --zone ... --ports ..."
+
+  info "masscan installed successfully."
 }
 
 # -----------------------------------------------------------------------------
