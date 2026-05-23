@@ -8,7 +8,8 @@
 #
 # The script will:
 #   - Auto-install ./spirit (via official installer) if missing
-#   - Ensure masscan is available (installs via apt/dnf/yum/pacman/apk when possible)
+#   - Ensure masscan is installed (fails fast if missing)
+#   - Download default filter.lst (if missing)
 #   - Backup previous artifacts into ./bak/
 #   - Run the full pipeline using spirit subcommands
 #
@@ -16,6 +17,8 @@
 #
 
 set -euo pipefail
+
+FILTER_URL="https://raw.githubusercontent.com/theaog/spirit/master/asset/filter.lst"
 
 # -----------------------------------------------------------------------------
 # Colors (only when stdout is a tty)
@@ -134,6 +137,21 @@ Please install it first, then re-run this script with sudo:
 }
 
 # -----------------------------------------------------------------------------
+# Ensure filter.lst is present (for banner filtering)
+# -----------------------------------------------------------------------------
+ensure_filter_list() {
+    if [[ -f filter.lst ]]; then
+        return 0
+    fi
+
+    info "Downloading default filter.lst..."
+    if curl -fsSL -o filter.lst "$FILTER_URL"; then
+        info "Downloaded filter.lst"
+    fi
+    # On failure we silently continue (filter.lst is optional)
+}
+
+# -----------------------------------------------------------------------------
 # Backup previous run artifacts into ./bak/
 # -----------------------------------------------------------------------------
 backup_artifacts() {
@@ -200,6 +218,7 @@ main() {
   info "Spirit Quick Start — zone scan + banner + brute"
   ensure_spirit
   ensure_masscan
+  ensure_filter_list
   backup_artifacts
   run_pipeline
 }

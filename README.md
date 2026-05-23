@@ -24,7 +24,7 @@ chmod +x go.sh
 
 cat > zone.lst << 'EOF'
 192.168.0.0/16
-10.0.0.0/8
+10.1.1.0/24
 EOF
 
 sudo ./go.sh --zone zone.lst --ports 22,23,2222 --rate 30000
