@@ -7,31 +7,33 @@ Spirit is a suite of high-performance tools for authorized network penetration t
 ### Install (recommended)
 
 ```bash
-$ curl -fsSL https://raw.githubusercontent.com/theaog/spirit/master/script/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/theaog/spirit/master/script/install.sh | sh
 ```
 
 This installs `./spirit` into your current directory with checksum verification.
 
 ### Quick Start with go.sh
 
-The recommended path for targeted zone scanning:
+The recommended way to run targeted zone scans.
+
+**Important:** The script must be run with `sudo` (masscan requires raw sockets).
 
 ```bash
-$ curl -fsSL https://raw.githubusercontent.com/theaog/spirit/master/script/go.sh -o go.sh
-$ chmod +x go.sh
+curl -fsSL https://raw.githubusercontent.com/theaog/spirit/master/script/go.sh -o go.sh
+chmod +x go.sh
 
-$ cat > zone.lst << 'EOF'
+cat > zone.lst << 'EOF'
 192.168.0.0/16
 10.0.0.0/8
 EOF
 
-$ sudo ./go.sh --zone zone.lst --ports 22,23,2222 --rate 30000
+sudo ./go.sh --zone zone.lst --ports 22,23,2222 --rate 30000
 ```
 
 **Notes**
-- Automatically installs `./spirit` (with checksums) and `masscan` when missing.
-- Previous run artifacts are timestamped and moved to `./bak/`.
-- Use `./go.sh --help` for options.
+- Automatically installs `./spirit` (with checksum verification) and `masscan` when missing.
+- Backs up previous run artifacts into `./bak/` with timestamps.
+- Run `./go.sh --help` for all options.
 
 ### Choosing your workflow
 
@@ -50,7 +52,7 @@ $ ./spirit --help
 
 ## Upgrade Spirit automatically
 ```bash
-$ ./spirit upgrade
+./spirit upgrade
 Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
 ```
 
@@ -83,20 +85,20 @@ These older workflows are preserved for users who prefer manual control or have 
 ### Manual binary download
 
 ```bash
-$ curl -OL https://github.com/theaog/spirit/raw/refs/heads/master/bin/spirit.tgz
-$ tar xvf spirit.tgz
-$ ./spirit --help
+curl -OL https://github.com/theaog/spirit/raw/refs/heads/master/bin/spirit.tgz
+tar xvf spirit.tgz
+./spirit --help
 ```
 
 ### Autobrute (continuous random scanning)
 
 ```bash
-$ cat > zone.lst << 'EOF'
+cat > zone.lst << 'EOF'
 192.168.0.0/16
 10.0.0.0/8
 EOF
 
-$ ./spirit autobrute
+./spirit autobrute
 ```
 
 ### Local network demo (autobrute)
@@ -158,7 +160,7 @@ Scanning port 22 is unlimited for an hour, any other port requires a license whi
 
 ## You can unlock Spirit's full functionality directly from the CLI by obtaining a license.
 ```bash
-$ ./spirit buy
+./spirit buy
 
 Payment-flow Support @ https://t.me/spiritNPT
 Pricing model: $1 / Server / Day

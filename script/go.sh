@@ -12,7 +12,7 @@
 #   - Backup previous artifacts into ./bak/
 #   - Run the full pipeline using spirit subcommands
 #
-# Requires root (or raw socket capability) for masscan.
+# Must be run with root privileges (sudo ./go.sh ...) because masscan requires raw sockets.
 #
 
 set -euo pipefail
@@ -104,14 +104,6 @@ done
 [[ "$RATE" =~ ^[0-9]+$ && "$RATE" -gt 0 ]] || die "Rate must be a positive integer"
 
 # -----------------------------------------------------------------------------
-# Privilege helper
-# -----------------------------------------------------------------------------
-SUDO=""
-if [[ $EUID -ne 0 ]]; then
-  SUDO="sudo"
-fi
-
-# -----------------------------------------------------------------------------
 # Ensure Spirit binary (downloads via official installer if missing)
 # -----------------------------------------------------------------------------
 ensure_spirit() {
@@ -130,40 +122,15 @@ ensure_spirit() {
 }
 
 # -----------------------------------------------------------------------------
-# Ensure masscan is available (install via supported package managers)
+# Ensure masscan is available
 # -----------------------------------------------------------------------------
-detect_pkg_manager() {
-  if have_cmd apt-get; then
-    INSTALL_CMD="DEBIAN_FRONTEND=noninteractive apt-get install -yqq"
-  elif have_cmd dnf; then
-    INSTALL_CMD="dnf install -y"
-  elif have_cmd yum; then
-    INSTALL_CMD="yum install -y"
-  elif have_cmd pacman; then
-    INSTALL_CMD="pacman --noconfirm -S"
-  elif have_cmd apk; then
-    INSTALL_CMD="apk add --no-cache"
-  else
-    INSTALL_CMD=""
-  fi
-}
-
 ensure_masscan() {
-  if have_cmd masscan; then
-    return 0
+  if ! have_cmd masscan; then
+    die "masscan is not installed.
+
+Please install it first, then re-run this script with sudo:
+  sudo ./go.sh --zone ... --ports ..."
   fi
-
-  detect_pkg_manager
-
-  if [[ -z "$INSTALL_CMD" ]]; then
-    die "masscan is not installed and no supported package manager was detected.
-Please install masscan manually (apt/dnf/yum/pacman/apk) and re-run."
-  fi
-
-  info "masscan not found — installing via package manager..."
-  # shellcheck disable=SC2086
-  $SUDO $INSTALL_CMD masscan || die "Failed to install masscan. Try running as root or install it manually."
-  info "masscan installed."
 }
 
 # -----------------------------------------------------------------------------
