@@ -32,29 +32,33 @@ echo "Running from $(pwd)"
 cpu_arch=$(uname -m)
 echo "Fetching latest Spirit release URLs..."
 ARTIFACTS=$(curl -sf "https://api.github.com/repos/theaog/spirit/releases/latest" | awk -F '"' '/browser_download_url/{print $4}')
+DOWNLOAD_FILE=""
 for URL in $ARTIFACTS
 do
+    asset_name=$(basename "$URL")
     case $cpu_arch in
         x86_64)
-            # echo "64-bit architecture detected (x86_64)."
-            if [[ "$URL" == *"spirit.tgz"* ]]; then
+            if [[ "$asset_name" == "spirit.tgz" ]]; then
                 echo "Downloading $URL"
                 curl --silent -L "$URL" --output "$(basename "$URL")"
-            break
+                DOWNLOAD_FILE="$asset_name"
+                break
             fi
             ;;
         i386|i686)
-            # echo "32-bit architecture detected (x86)."
-            if [[ "$URL" == *"spirit32.tgz"* ]]; then
+            if [[ "$asset_name" == "spirit32.tgz" ]]; then
                 echo "Downloading $URL"
                 curl --silent -L "$URL" --output "$(basename "$URL")"
+                DOWNLOAD_FILE="$asset_name"
+                break
             fi
             ;;
         aarch64)
-            # echo "64-bit ARM architecture detected (aarch64)."
-            if [[ "$URL" == *"spirit-arm.tgz"* ]]; then
+            if [[ "$asset_name" == "spirit-arm.tgz" ]]; then
                 echo "Downloading $URL"
                 curl --silent -L "$URL" --output "$(basename "$URL")"
+                DOWNLOAD_FILE="$asset_name"
+                break
             fi
             ;;
         *)
@@ -64,19 +68,68 @@ do
     esac
 done
 
+if [[ -z "$DOWNLOAD_FILE" || ! -s "$DOWNLOAD_FILE" ]]; then
+    echo "Failed to download a valid Spirit archive for architecture: $cpu_arch"
+    exit 1
+fi
 
-ask_run_autobrute() {
+echo "Installing Spirit binary from $DOWNLOAD_FILE"
+tmp_dir=$(mktemp -d)
+trap 'rm -rf "$tmp_dir"' EXIT
+
+if ! tar -tzf "$DOWNLOAD_FILE" | grep -Eq '(^|/)spirit$'; then
+    echo "Archive does not contain a spirit executable"
+    exit 1
+fi
+
+tar xzf "$DOWNLOAD_FILE" -C "$tmp_dir"
+
+spirit_path=$(find "$tmp_dir" -type f -name spirit | head -n 1)
+
+if [[ -z "$spirit_path" || ! -f "$spirit_path" ]]; then
+    echo "Could not extract spirit from archive"
+    exit 1
+fi
+
+TARGET_BIN="./spirit"
+if [[ -d "/usr/local/bin" && -w "/usr/local/bin" ]]; then
+    TARGET_BIN="/usr/local/bin/spirit"
+fi
+
+install -m 0755 "$spirit_path" "$TARGET_BIN"
+
+if [[ "$TARGET_BIN" != "./spirit" ]]; then
+    cp "$TARGET_BIN" ./spirit
+fi
+
+if [[ ! -x "$TARGET_BIN" ]]; then
+    echo "Could not install executable to $TARGET_BIN"
+    exit 1
+fi
+
+if [[ "$TARGET_BIN" == "./spirit" ]]; then
+    echo "Installed local binary at ./spirit (not on PATH)."
+    echo "Tip: rerun with sudo to install into /usr/local/bin/spirit"
+else
+    echo "Installed Spirit to $TARGET_BIN"
+fi
+
+
+ask_run_check() {
     while true; do
-        read -p "Do you want to run Spirit Autobrute? (y/n): " yn < /dev/tty
+        read -p "Run quick health check (spirit --help)? (y/n): " yn < /dev/tty
         case $yn in
             [Yy]* )
-                echo "Running Spirit Autobrute..."
-                ./spirit autobrute --ports 22
+                echo "Running Spirit health check..."
+                if spirit --help >/dev/null 2>&1 || ./spirit --help >/dev/null 2>&1; then
+                    echo "Health check passed."
+                else
+                    echo "Health check failed. Try: ./spirit upgrade"
+                fi
                 break
                 ;;
             [Nn]* )
-                echo "Just unpacking then, enjoy!"
-                tar xvf spirit*.tgz
+                echo "Install complete, enjoy!"
                 break
                 ;;
             * )
@@ -87,5 +140,5 @@ ask_run_autobrute() {
     done
 }
 
-ask_run_autobrute
+ask_run_check
 
