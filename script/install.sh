@@ -100,16 +100,13 @@ detect_arch() {
         x86_64|amd64)
             ASSET="spirit.tgz"
             ;;
-        i386|i686)
-            ASSET="spirit32.tgz"
-            ;;
         aarch64|arm64)
             ASSET="spirit-arm.tgz"
             ;;
         *)
             die "Unsupported architecture: $arch
 
-Supported: x86_64, i386, i686, aarch64, arm64"
+Currently supported: x86_64, aarch64"
             ;;
     esac
 }
