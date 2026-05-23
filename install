@@ -1,144 +1,26 @@
-#!/usr/bin/env bash
+#!/bin/sh
+#
+# DEPRECATED
+#
+# The root ./install script has been moved.
+# Please use the new POSIX installer instead:
+#
+#   curl -fsSL https://raw.githubusercontent.com/theaog/spirit/master/script/install.sh | sh
+#
+# Or locally:
+#   sh script/install.sh
+#
 
-if command -v apt-get &> /dev/null; then
-    echo "Installing dependencies using apt..."
-    DEBIAN_FRONTEND=noninteractive apt-get install -yqq \
-		masscan
-    	INSTALLER=(apt-get install -yqq)
-elif command -v yum &> /dev/null; then # Redhat-based OS (Fedora, CentOS, RHEL)
-    echo "Installing dependencies using yum..."
-    yum -y install masscan
-	INSTALLER=(yum -y)
-elif command -v pacman &>/dev/null; then # Arch-based (Manjaro, Garuda, Blackarch)
-	echo "Installing dependencies using pacman..."
-	pacman --noconfirm -S masscan
-    INSTALLER=(pacman --noconfirm -S)
+printf '\n'
+printf 'WARNING: ./install is deprecated.\n\n'
+printf 'Please use the new installer:\n\n'
+printf '  curl -fsSL https://raw.githubusercontent.com/theaog/spirit/master/script/install.sh | sh\n\n'
+printf 'Or run locally:\n'
+printf '  sh script/install.sh\n\n'
+
+if [ -f "script/install.sh" ]; then
+    exec sh script/install.sh "$@"
 else
-    echo "Unsupported OS, exiting"
-    exit
+    printf 'Local script not found. Falling back to remote...\n'
+    curl -fsSL https://raw.githubusercontent.com/theaog/spirit/master/script/install.sh | sh
 fi
-
-# Verify if necessary tools are installed
-for cmd in curl tar masscan; do
-    if ! command -v "$cmd" &> /dev/null; then		
-        echo "$cmd could not be found, installing..."
-		"${INSTALLER[@]}" "$cmd"
-    fi
-done
-
-echo "Running from $(pwd)"
-
-# Get the CPU architecture
-cpu_arch=$(uname -m)
-echo "Fetching latest Spirit release URLs..."
-ARTIFACTS=$(curl -sf "https://api.github.com/repos/theaog/spirit/releases/latest" | awk -F '"' '/browser_download_url/{print $4}')
-DOWNLOAD_FILE=""
-for URL in $ARTIFACTS
-do
-    asset_name=$(basename "$URL")
-    case $cpu_arch in
-        x86_64)
-            if [[ "$asset_name" == "spirit.tgz" ]]; then
-                echo "Downloading $URL"
-                curl --silent -L "$URL" --output "$(basename "$URL")"
-                DOWNLOAD_FILE="$asset_name"
-                break
-            fi
-            ;;
-        i386|i686)
-            if [[ "$asset_name" == "spirit32.tgz" ]]; then
-                echo "Downloading $URL"
-                curl --silent -L "$URL" --output "$(basename "$URL")"
-                DOWNLOAD_FILE="$asset_name"
-                break
-            fi
-            ;;
-        aarch64)
-            if [[ "$asset_name" == "spirit-arm.tgz" ]]; then
-                echo "Downloading $URL"
-                curl --silent -L "$URL" --output "$(basename "$URL")"
-                DOWNLOAD_FILE="$asset_name"
-                break
-            fi
-            ;;
-        *)
-            echo "Unknown architecture detected: $cpu_arch"
-            exit
-            ;;
-    esac
-done
-
-if [[ -z "$DOWNLOAD_FILE" || ! -s "$DOWNLOAD_FILE" ]]; then
-    echo "Failed to download a valid Spirit archive for architecture: $cpu_arch"
-    exit 1
-fi
-
-echo "Installing Spirit binary from $DOWNLOAD_FILE"
-tmp_dir=$(mktemp -d)
-trap 'rm -rf "$tmp_dir"' EXIT
-
-if ! tar -tzf "$DOWNLOAD_FILE" | grep -Eq '(^|/)spirit$'; then
-    echo "Archive does not contain a spirit executable"
-    exit 1
-fi
-
-tar xzf "$DOWNLOAD_FILE" -C "$tmp_dir"
-
-spirit_path=$(find "$tmp_dir" -type f -name spirit | head -n 1)
-
-if [[ -z "$spirit_path" || ! -f "$spirit_path" ]]; then
-    echo "Could not extract spirit from archive"
-    exit 1
-fi
-
-TARGET_BIN="./spirit"
-if [[ -d "/usr/local/bin" && -w "/usr/local/bin" ]]; then
-    TARGET_BIN="/usr/local/bin/spirit"
-fi
-
-install -m 0755 "$spirit_path" "$TARGET_BIN"
-
-if [[ "$TARGET_BIN" != "./spirit" ]]; then
-    cp "$TARGET_BIN" ./spirit
-fi
-
-if [[ ! -x "$TARGET_BIN" ]]; then
-    echo "Could not install executable to $TARGET_BIN"
-    exit 1
-fi
-
-if [[ "$TARGET_BIN" == "./spirit" ]]; then
-    echo "Installed local binary at ./spirit (not on PATH)."
-    echo "Tip: rerun with sudo to install into /usr/local/bin/spirit"
-else
-    echo "Installed Spirit to $TARGET_BIN"
-fi
-
-
-ask_run_check() {
-    while true; do
-        read -p "Run quick health check (spirit --help)? (y/n): " yn < /dev/tty
-        case $yn in
-            [Yy]* )
-                echo "Running Spirit health check..."
-                if spirit --help >/dev/null 2>&1 || ./spirit --help >/dev/null 2>&1; then
-                    echo "Health check passed."
-                else
-                    echo "Health check failed. Try: ./spirit upgrade"
-                fi
-                break
-                ;;
-            [Nn]* )
-                echo "Install complete, enjoy!"
-                break
-                ;;
-            * )
-                echo "Assuming no."
-                exit
-                ;;
-        esac
-    done
-}
-
-ask_run_check
-
