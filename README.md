@@ -94,13 +94,7 @@ Run `./spirit <command> --help` for detailed flags on any command.
 
 ## What Makes Spirit Different
 
-- **Stealthy banner grabbing** — Retrieves SSH versions with the absolute minimum packets, then immediately drops the connection.
-- **Intelligent brute-forcing** — One password per host, automatic removal of unreachable hosts, honeypot detection, and randomized ordering.
-- **Broad SSH compatibility** — Supports legacy ciphers and algorithms (cast128-cbc, idea-cbc, arcfour, 3des-cbc, hmac-md5, etc.) to reach old/IoT/embedded devices.
-- **Key-based auth support** — Will try provided private keys before falling back to passwords.
-- **Parallel post-exploitation** — `autossh` lets you run commands or stage tools across hundreds of hosts simultaneously.
-- **Stable output** — All `found.*` files are always written relative to where you launched the command.
-- **Context-aware cancellation** — Ctrl-C cleanly stops in-flight connections instead of waiting for timeouts.
+We can't really tell you. You just have to try it.
 
 ## Continuous / Internet-Wide Scanning
 
