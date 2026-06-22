@@ -1,3 +1,15 @@
+## Spirit 1.31
+- brute: Ctrl-C now stops in-flight SSH connections immediately via context-aware cancellation, no more waiting for timeouts
+- brute: output directory is now stable — `found.*` files always land where the command was launched, even if the process changes directories mid-run
+- brute: added support for cast128-cbc, idea-cbc, rijndael-cbc, hmac-md5, hmac-md5-96 ciphers/MACs — reaches more legacy Cisco, Juniper, and embedded devices
+- brute: connection failure statistics now printed on screen at the end of every run (in addition to `found.errors`)
+- brute: connection failure statistics sent to Telegram as a separate message when `--tgkey`/`--tgchan` is configured
+- brute: cancelled connections (Ctrl-C) no longer count as failures for the host-blocking/blacklisting logic
+- brute: added live-updating "Finishing connections" progress bar during drain/shutdown phase
+- brute: fixed goroutine leak — internal monitoring goroutines now bounded to each connection's lifetime
+- brute: fixed `split_host` panic on IPv6 addresses like `[::1]:22`
+- brutekey: added proper context cancellation, drain UX, and connection stats output (parity with brute)
+
 ## Spirit 1.30
 - NEW: proxy-banner: faster, more accurate and handsome -- with Terminal UI
 - NEW: encrypt: make an AES256/GCM encrypted version of your p.lst passfile
