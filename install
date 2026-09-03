@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+# DEPRECATED
+#
+# The root ./install script has been moved.
+# Please use the new POSIX installer instead:
+#
+#   curl -fsSL https://raw.githubusercontent.com/theaog/spirit/master/script/install.sh | sh
+#
+# Or locally:
+#   sh script/install.sh
+#
+
+printf '\n'
+printf 'WARNING: ./install is deprecated.\n\n'
+printf 'Please use the new installer:\n\n'
+printf '  curl -fsSL https://raw.githubusercontent.com/theaog/spirit/master/script/install.sh | sh\n\n'
+printf 'Or run locally:\n'
+printf '  sh script/install.sh\n\n'
+
+if [ -f "script/install.sh" ]; then
+    exec sh script/install.sh "$@"
+else
+    printf 'Local script not found. Falling back to remote...\n'
+    curl -fsSL https://raw.githubusercontent.com/theaog/spirit/master/script/install.sh | sh
+fi
