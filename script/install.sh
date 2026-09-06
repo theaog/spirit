@@ -172,7 +172,8 @@ install_spirit() {
     tar -xzf "$tgz" -C "$TMPDIR" || die "Failed to extract archive"
 
     # Find the spirit binary inside the extracted tree
-    spirit_bin=$(find "$TMPDIR" -type f -name spirit 2>/dev/null | head -n 1)
+    # (the arm tarball packs the binary as "spirit-arm")
+    spirit_bin=$(find "$TMPDIR" -type f \( -name spirit -o -name spirit-arm \) 2>/dev/null | head -n 1)
 
     if [ -z "$spirit_bin" ] || [ ! -f "$spirit_bin" ]; then
         die "Could not find 'spirit' binary inside the archive"
